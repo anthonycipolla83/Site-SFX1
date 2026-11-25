@@ -31,6 +31,10 @@ Administrateurs prévus : anthony.cipolla@sfx1.org, cedric.schmetz@sfx1.org, que
    mettre `"mode": "ovh"` (le fichier `contact.php` envoie alors les messages à info@sfx1.org).
 6. Connexion à l'administration : bouton « Se connecter avec GitHub » (ou avec un jeton personnel GitHub).
 
+## Mettre à jour le site depuis votre ordinateur
+1. Copier les nouveaux fichiers dans Documents\GitHub\Site-SFX1 (remplacer).
+2. GitHub Desktop : Summary → Commit to main → Push origin. Netlify publie en 1 à 2 minutes.
+
 ## Test en local, sans hébergement
 1. Ouvrir `admin/index.html` dans Chrome ou Edge via un petit serveur local, ou choisir « Travailler avec un dépôt local »
    et sélectionner le dossier SOURCES_V5 (connexion Internet nécessaire pour charger l'interface).

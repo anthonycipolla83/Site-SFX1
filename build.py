@@ -12,7 +12,7 @@ from pathlib import Path
 SRC = Path(__file__).resolve().parent
 OUT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else SRC.parent / "SFX1_V5_TEST"
 VERSION = "V5"
-SITE_URL = "https://www.sfx1.org"
+SITE_URL = "https://www.sfx1.org"  # remplacé par options_site.adresse_site
 OLD = "https://sites.google.com/sfx1.org/sfx-1-verviers/"
 SHOW_VID = False  # remplacé après chargement des contenus
 YT_CHANNEL = "https://www.youtube.com/@collegesaint-francois-xavi4810"
@@ -36,6 +36,8 @@ for _path, _fields in SCHEMA.items():
     else:
         _o[_last] = _tolist(_o[_last], _fields)
 SHOW_VID = bool(C.get("options_site", {}).get("afficher_videos"))
+SITE_URL = C.get("options_site", {}).get("adresse_site", SITE_URL).rstrip("/")
+PUBLIE = bool(C.get("options_site", {}).get("publication"))
 from urllib.parse import urlparse as _up
 _ag = C.get("agenda_app", {}).get("url", "")
 AGENDA_ORIGIN = (" " + _up(_ag).scheme + "://" + _up(_ag).netloc) if _ag.startswith("http") else ""
@@ -88,6 +90,8 @@ def ext(text, url):
     return f'<a href="{url}" target="_blank" rel="noopener noreferrer">{text} <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet)</span></a>'
 
 def tbv(label="À valider"):
+    # Site publié : plus aucune mention « à valider » affichée
+    if PUBLIE: return ""
     return f'<span class="tbv">{label}</span>'
 
 EDIT = {"Actualités": "actualites", "À la une": "actualites", "Les plus récentes": "actualites", "Agenda": "agenda_app", "Réforme en cours": "options_site",
@@ -97,7 +101,7 @@ EDIT = {"Actualités": "actualites", "À la une": "actualites", "Les plus récen
         "Les atouts de l’immersion": "immersion_v2", "Sélectionner une grille": "tronc_commun", "Notre histoire": "histoire_courte",
         "Moments clés": "moments", "Ils sont passés par SFX1": "anciens_celebres", "Notre équipe": "equipe",
         "Infos pratiques": "fondamental", "Une journée chez les petits": "fondamental", "Une journée en primaire": "fondamental",
-        "Nos projets": "fondamental", "Nos coordonnées": "formulaire", "S’inscrire": "portes_ouvertes", "Se renseigner": "portes_ouvertes",
+        "Nos projets": "fondamental", "Nos coordonnées": "formulaire", "Notre pédagogie": "pedagogie", "S’inscrire": "portes_ouvertes", "Se renseigner": "portes_ouvertes",
         "L’excellence à SFX1": "dispositifs"}
 
 def section(eyebrow, content, cls="", sid=""):
@@ -131,6 +135,39 @@ def myths(title=True):
         for i, m in enumerate(C["idees_recues"]))
     head = '<div class="section-header"><div><h2>Idées reçues ?<br><span class="gradient-text">Démêlons le vrai du faux.</span></h2><p class="lead">Les questions que l’on nous pose le plus souvent. Cliquez sur une carte pour la retourner.</p></div></div>' if title else ""
     return head + f'<div class="myths">{cards}</div>'
+
+def pedagogie_html():
+    P = C["pedagogie"]
+    c4 = "".join(f'<article class="c4 scroll-reveal"><span class="c4-ico" aria-hidden="true">{esc(c["icone"])}</span><h3>{esc(c["lettre"])}</h3><p>{esc(c["texte"])}</p><p class="c4-sfx"><b>À SFX1</b>{esc(c["a_sfx1"])}</p></article>' for c in P["quatre_c"])
+    n = len(P["cycle"])
+    steps = "".join(f'<li class="cy-step" style="--i:{i};--n:{n}"><span class="cy-dot">{i + 1}</span><b>{esc(s["etape"])}</b><span>{esc(s["texte"])}</span></li>' for i, s in enumerate(P["cycle"]))
+    theme = P.get("theme_annee", "")
+    mots = "".join(
+        f'<div class="myth mot scroll-reveal{" is-theme" if theme and m["mot"].lower() == theme.lower() else ""}"><button type="button" class="myth-in" aria-expanded="false" aria-controls="mot-{i}">'
+        f'<span class="myth-front"><span class="myth-ico" aria-hidden="true">{m["icone"]}</span>{"<span class=myth-tag>Thème de l’année</span>" if theme and m["mot"].lower() == theme.lower() else ""}<b>{esc(m["mot"])}</b><span class="myth-hint">Retourner ↻</span></span>'
+        f'<span class="myth-back" id="mot-{i}"><span class="myth-tag ok">{esc(m["mot"])}</span><span>{esc(m["texte"])}</span></span></button></div>' for i, m in enumerate(P["mots"]))
+    return (f'<div class="section-header"><div><h2>Une pédagogie jésuite,<br><span class="gradient-text">vivante au quotidien.</span></h2><p class="lead">Former des femmes et des hommes pour et avec les autres : compétents, conscients, attentifs aux autres et engagés.</p></div></div>'
+            f'<h3 class="ped-h">Les 4C, notre boussole</h3><div class="c4-grid">{c4}</div>'
+            f'<div class="ped-split"><div><h3 class="ped-h">Apprendre, à la manière d’Ignace</h3><p class="lead-sm">Chaque apprentissage suit un même mouvement, de la découverte à la relecture.</p><ol class="cycle" aria-label="Le cycle d’apprentissage ignatien">{steps}</ol></div>'
+            f'<figure class="ped-photo scroll-reveal">{pic("sfx-ecran", "Élèves attentifs pendant un cours", sizes="(max-width:800px) 90vw, 420px")}</figure></div>'
+            f'<h3 class="ped-h">Six thèmes, un par année</h3><p class="lead-sm">Chaque année, toute l’école vit un thème de la pédagogie ignatienne. Cliquez sur une carte pour la retourner.</p><div class="myths mots">{mots}</div>'
+            f'<div class="ped-quote scroll-reveal"><div class="ped-quote-photo">{pic("sfx-accompagnement", "Un enseignant accompagne un élève dans son travail", sizes="(max-width:800px) 100vw, 520px")}</div>'
+            f'<div><p class="eyebrow">Non multa, sed multum</p><h3>L’excellence n’est pas une compétition.</h3><p>« Peu de choses, mais en profondeur » : à SFX1, l’exigence est une forme d’attention. Elle dit à chaque élève que nous croyons en lui. Chacun est encouragé à donner le meilleur de lui-même, à son rythme, avec un accompagnement adapté : aider celui qui peine, proposer plus de défis à celui qui avance vite.</p>'
+            f'{btn("Nos dispositifs d’accompagnement", "secondaire.html", "outline")}</div></div>'
+            f'<p class="media-note">{esc(P["source"])}</p>')
+
+def partners_html(style="A"):
+    P = C.get("partenaires", [])
+    def mark(p):
+        if p.get("logo"):
+            k = p["logo"]; k = upload_variants(k) if ("/" in k or "." in k) and k not in IMG else k
+            return f'<img src="img/{k}-{sorted(IMG[k]["sizes"])[0]}.jpg" alt="" loading="lazy">'
+        return f'<span class="pt-mono" aria-hidden="true">{esc(p["sigle"])}</span>'
+    if style == "A":
+        cards = "".join(f'<a class="pt-card" href="{p["url"]}" target="_blank" rel="noopener noreferrer">{mark(p)}<span class="pt-txt"><b>{esc(p["nom"])}</b><small>{esc(p["texte"])}</small></span><i aria-hidden="true">↗</i><span class="sr-only"> (nouvel onglet)</span></a>' for p in P)
+        return f'<section class="pt-band" aria-label="Notre réseau"><div class="wrap"><p class="eyebrow">Notre réseau</p><h2 class="pt-h">Un collège jésuite, relié au monde.</h2><div class="pt-grid">{cards}</div></div></section>'
+    pills = "".join(f'<a class="pt-pill" href="{p["url"]}" target="_blank" rel="noopener noreferrer" title="{esc(p["texte"])}">{mark(p)}<span>{esc(p["nom"])}</span><span class="sr-only"> (nouvel onglet)</span></a>' for p in P)
+    return f'<div class="pt-strip" aria-label="Notre réseau"><span class="pt-lab">Membre du réseau des écoles jésuites</span><div class="pt-pills">{pills}</div></div>'
 
 def fb_banner():
     ig = C.get("instagram", "")
@@ -247,6 +284,8 @@ def nav_html(current):
     out.append('<div class="nav-item mobile-only"><a href="espace.html">Mon espace</a></div>')
     return "".join(out)
 
+DEMO_NOTICE = '<div class="demo-notice" role="note">V5 · VERSION DE TEST · Formulaire actif une fois le site en ligne · Photos à autoriser avant publication publique · Les mentions <span class="tbv" style="font-size:9px">À valider</span> signalent les contenus provisoires <button type="button" data-dismiss aria-label="Masquer cet avertissement">×</button></div>'
+
 def layout(fname, title, desc, body, current=None):
     current = current or fname
     canonical = SITE_URL + "/" + ("" if fname == "index.html" else fname)
@@ -258,7 +297,7 @@ def layout(fname, title, desc, body, current=None):
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'inline-speculation-rules'; font-src 'self'; frame-src https://www.youtube-nocookie.com https://www.openstreetmap.org https://drive.google.com{AGENDA_ORIGIN}; connect-src 'self'; base-uri 'self'; form-action 'self'">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
-<meta name="robots" content="noindex, nofollow">
+{"" if PUBLIE else '<meta name="robots" content="noindex, nofollow">'}
 <meta name="theme-color" content="#98052b">
 <link rel="canonical" href="{canonical}">
 <meta property="og:type" content="website">
@@ -274,7 +313,7 @@ def layout(fname, title, desc, body, current=None):
 <script type="speculationrules">{{"prerender":[{{"where":{{"href_matches":"/*"}},"eagerness":"moderate"}}]}}</script>
 </head>
 <body>
-<div class="demo-notice" role="note">{VERSION} · VERSION DE TEST · Formulaire actif une fois le site en ligne · Photos à autoriser avant publication publique · Les mentions <span class="tbv" style="font-size:9px">À valider</span> signalent les contenus provisoires <button type="button" data-dismiss aria-label="Masquer cet avertissement">×</button></div>
+{"" if PUBLIE else DEMO_NOTICE}
 <div class="progress" id="progress" aria-hidden="true"></div>
 <a class="skip-link" href="#main">Aller au contenu</a>
 <header class="topbar">
@@ -294,6 +333,7 @@ def layout(fname, title, desc, body, current=None):
 <a href="fondamental.html"><span aria-hidden="true">✳</span>Fondamental</a>
 <a href="https://www.google.com/maps/search/?api=1&amp;query=Rue+de+Rome+18+4800+Verviers" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">➜</span>Itinéraire</a>
 </nav>
+{partners_html("A")}
 <footer>
 <div class="footer-inner">
 <div><img src="img/logo-sfxun.jpg" alt="SFXun" class="footer-logo" width="729" height="374" loading="lazy"><p>Se situer aujourd’hui pour construire demain.</p></div>
@@ -301,8 +341,8 @@ def layout(fname, title, desc, body, current=None):
 <div><b>Pratique</b><a href="portes-ouvertes.html" {TIMED}>Portes ouvertes</a><a href="fondamental.html">École fondamentale</a><a href="grilles.html">Grilles & options</a><a href="documents.html">Documents</a><a href="agenda.html">Agenda</a><a href="contact.html">Contact</a></div>
 <div><b>Nous trouver</b><p>Rue de Rome 18<br>4800 Verviers, Belgique</p><span class="social"><a href="{C["facebook"]}" target="_blank" rel="noopener noreferrer" aria-label="Facebook du Collège (nouvel onglet)">f</a>{f'<a href="{C["instagram"]}" target="_blank" rel="noopener noreferrer" aria-label="Instagram du Collège (nouvel onglet)">◎</a>' if C.get("instagram") else ""}{f'<a href="{YT_CHANNEL}" target="_blank" rel="noopener noreferrer" aria-label="Chaîne YouTube du Collège (nouvel onglet)">▶</a>' if SHOW_VID else ""}</span><a href="tel:+3287393939">087 39 39 39</a><a href="mailto:info@sfx1.org">info@sfx1.org</a></div>
 </div>
-<div class="footer-bottom">© 2026 SFXun · Centre Scolaire Saint-François-Xavier I · Version de test {VERSION}
-<div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a><a href="espace.html">Mon espace</a><a href="{OLD}" target="_blank" rel="noopener noreferrer">Site de référence ↗</a></div></div>
+<div class="footer-bottom">© 2026 SFXun · Centre Scolaire Saint-François-Xavier I{"" if PUBLIE else " · Version de test " + VERSION}
+<div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a><a href="espace.html">Mon espace</a></div></div>
 </footer>
 <script src="js/site.js" defer></script>
 </body>
@@ -363,8 +403,8 @@ def fond_banner(cls=""):
 @page("index.html", "SFXun — Centre Scolaire Saint-François-Xavier I, Verviers",
       "Collège Saint-François-Xavier I à Verviers : enseignement secondaire et fondamental, immersion en néerlandais, options et vie scolaire.")
 def p_index():
-    slides = [("cour-automne", "La cour, au cœur de la vie du Collège"), ("cour-batiments", "Des bâtiments chargés d’histoire"),
-              ("velo-cour", "Bouger et découvrir ensemble"), ("celebration-chorale", "Culture, célébrations et créativité")]
+    slides = [("cour-automne", "La cour, au cœur de la vie du Collège"), ("sfx-cercle", "Prendre le temps d’échanger"),
+              ("sfx-classe", "Apprendre ensemble, chacun à son rythme"), ("sfx-gym", "Bouger, coopérer, se dépasser")]
     sl = "".join(pic(n, "", f'hero-slide{" active" if i == 0 else ""}', eager=(i == 0), attrs=f'data-caption="{c}"') for i, (n, c) in enumerate(slides))
     dots = "".join(f'<button class="slide-dot{" active" if i == 0 else ""}" type="button" data-slide="{i}" aria-label="Photo {i+1} : {c}"></button>' for i, (n, c) in enumerate(slides))
     quick = "".join(f'<a class="quick-item micro-rise" href="{h}"{' target="_blank" rel="noopener noreferrer"' if h.startswith("http") else ""}><span class="ico" aria-hidden="true">{a}</span><strong>{t}</strong><span aria-hidden="true">↗</span></a>'
@@ -396,14 +436,14 @@ def p_index():
 @page("college.html", "Le Collège · SFXun Verviers", "Histoire, valeurs ignaciennes, les 4C, projet éducatif et cadre de vie du Collège Saint-François-Xavier I.")
 def p_college():
     docs = [d for d in C["documents"] if d["g"] in ("Institutionnels", "Règlements") and d["type"] != "ancien"]
-    gal = [("jardin-statue", "Le jardin et sa statue"), ("cour-automne", "La cour"), ("cour-batiments", "Les bâtiments historiques"), ("velo-cour", "Activités dans la cour")]
+    gal = [("sfx-entree", "L’entrée du Collège, rue de Rome"), ("sfx-couloir", "Les couloirs des classes"), ("sfx-cercle", "Un espace pour échanger"), ("sfx-gym", "La salle de sport")]
     galhtml = "".join(f'<figure class="scroll-reveal">{pic(n, c, sizes="(max-width:760px) 100vw, 600px")}<figcaption>{c}</figcaption></figure>' for n, c in gal)
     return page_hero("Notre identité", "Un Collège, une ambition : <em>faire grandir chacun.</em>",
                      "Situé au cœur de Verviers, le Centre scolaire Saint-François-Xavier I s’inscrit depuis 1855 dans la tradition éducative jésuite.", [("Le Collège", None)]) + \
-        section("L’établissement", f'<div class="split"><div class="photo-frame">{pic("cour-automne", "La cour du Collège au cœur de Verviers", sizes="(max-width:650px) 100vw, 600px")}</div><div><h2>Une école ancrée dans la ville.</h2><p class="lead">Rue de Rome, à proximité du centre et de la gare, le Collège réunit les apprentissages, la vie collective et un cadre de verdure. Le choix du centre-ville peut susciter des interrogations : il constitue pourtant une véritable richesse, au service de la réussite et de l’épanouissement des élèves.</p><div class="stack">{"".join(f'<div class="link-card" style="display:block"><b>{esc(t)}</b><p class="media-note" style="margin:6px 0 0">{esc(x)}</p></div>' for t, x in C["ville"])}</div></div></div>') + \
+        section("L’établissement", f'<div class="split"><div class="photo-frame">{pic("sfx-classe", "Élèves au travail en classe au Collège", sizes="(max-width:650px) 100vw, 600px")}</div><div><h2>Une école ancrée dans la ville.</h2><p class="lead">Rue de Rome, à proximité du centre et de la gare, le Collège réunit les apprentissages, la vie collective et un cadre de verdure. Le choix du centre-ville peut susciter des interrogations : il constitue pourtant une véritable richesse, au service de la réussite et de l’épanouissement des élèves.</p><div class="stack">{"".join(f'<div class="link-card" style="display:block"><b>{esc(t)}</b><p class="media-note" style="margin:6px 0 0">{esc(x)}</p></div>' for t, x in C["ville"])}</div></div></div>') + \
         section("Notre histoire", f'<div class="section-header"><div><h2>170 ans au service des jeunes.</h2><p class="lead">Quelques repères. Toute l’histoire en un coup d’œil sur la page dédiée.</p></div>{btn("Toute notre histoire", "histoire.html", "outline")}</div><div class="mini-tl">{"".join(f'<div class="mt scroll-reveal"><b>{y}</b><span>{esc(t)}</span></div>' for y, t in C["histoire_courte"])}</div>', "soft") + \
         section("Notre projet éducatif", f'<div class="split"><div><h2>Des hommes et des femmes pour les autres et avec les autres.</h2><p class="lead">Notre projet éducatif vise à former « des hommes et des femmes pour les autres et avec les autres ». L’éducation jésuite est une invitation à développer l’excellence humaine et à porter attention à chaque personne, dans toutes ses dimensions : intellectuelle, corporelle, psycho-affective, sociale et spirituelle.</p></div><div class="eng-grid">{"".join(f'<div class="eng scroll-reveal"><h3>{esc(t)}</h3><p>{esc(x)}</p></div>' for t, x in C["engagements"])}</div></div>') + \
-        section("Les 4C", f'<h2>Les valeurs qui nous portent</h2><p class="lead">Quatre mots pour décrire la personne que nous souhaitons aider chaque jeune à devenir.</p>{values_html([("◎", "Conscience", "Se connaître et développer son esprit critique."), ("♡", "Compassion", "Être attentif à chaque personne."), ("✦", "Compétence", "Apprendre avec rigueur et confiance."), ("↗", "Engagement", "S’engager pour les autres et pour le monde.")])}') + \
+        section("Notre pédagogie", pedagogie_html()) + \
         (section("En vidéo", f'<h2>Mener chacun à sa propre excellence.</h2>{videos_grid("college")}') if SHOW_VID else "") + \
         section("Cadre de vie", f'<div class="section-header"><h2>Un cadre pour apprendre et grandir.</h2></div><div class="gallery">{galhtml}</div>', "soft") + \
         section("Notre équipe", f'<h2>Une école, ce sont d’abord des personnes.</h2><p class="lead">Élèves et parents, enseignants, titulaires, éducateurs de niveau, secrétaires de direction, économe, ouvriers et dames d’ouvrage font vivre le Collège au quotidien.</p><div class="team">{"".join(f'<div class="team-card scroll-reveal"><span>{esc(r)}</span><b>{esc(n)}</b>{f"<a class=team-tel href=tel:+32{tel.replace(chr(32), str())[1:]}>Ligne directe : {esc(tel)}</a>" if tel else ""}</div>' for r, n, tel in C["equipe"])}</div>') + \
@@ -425,7 +465,7 @@ def p_secondaire():
         section("Parcours interactif", f'<h2>Trois degrés, un chemin.</h2>' + journey()) + \
         section("Trois degrés", f'<div class="degree-grid">{deg}</div>', "soft") + \
         section("Réforme en cours", f'<h2>La réforme, année après année.</h2><p class="lead">Le tronc commun remplace progressivement les trois premières années. Les grilles de la 4e, de la 5e et de la 6e ne changent pas.</p><div class="sys">{"".join(f'<div class="sys-row scroll-reveal"><b class="sys-y">{y}</b><div class="sys-c"><span class="sys-l">Tronc commun</span>{"".join(f"<span class=sys-new>{x}</span>" for x in n)}</div><div class="sys-c"><span class="sys-l">Ancien 1er/2e degré</span>{"".join(f"<span class=sys-old>{x}</span>" for x in a) or "<span class=sys-none>—</span>"}</div><div class="sys-c"><span class="sys-l">Grilles inchangées</span>{"".join(f"<span class=sys-keep>{x}</span>" for x in k)}</div></div>' for y, n, a, k in C["systemes"])}</div><p class="media-note">Les élèves déjà inscrits poursuivent leur parcours avec la grille qu’ils ont commencée.</p>') + \
-        section("Des possibilités pour chacun", f'<div class="cards">{card("classe-autonomie", "Méthodologie", "Apprendre à apprendre", "Des approches pédagogiques variées et l’attention à la progression de chacun.", "college.html")}{card("labo-sciences", "Parcours", "Langues et options", "Des options littéraires, scientifiques, artistiques, économiques et linguistiques.", "grilles.html")}{card("immersion-mobiliteit", "Langues", "Immersion en néerlandais", "Un parcours qui donne une place concrète à l’apprentissage en langue cible.", "immersion.html")}</div>') + \
+        section("Des possibilités pour chacun", f'<div class="cards">{card("sfx-accompagnement", "Méthodologie", "Apprendre à apprendre", "Des approches pédagogiques variées et l’attention à la progression de chacun.", "college.html")}{card("sfx-microscope", "Parcours", "Langues et options", "Des options littéraires, scientifiques, artistiques, économiques et linguistiques.", "grilles.html")}{card("immersion-mobiliteit", "Langues", "Immersion en néerlandais", "Un parcours qui donne une place concrète à l’apprentissage en langue cible.", "immersion.html")}</div>') + \
         section("L’excellence à SFX1", f'<div class="split" style="align-items:start"><div><h2>Un chemin accompagné.</h2><p class="lead">À SFX1, l’excellence consiste à permettre à chaque élève de devenir la meilleure version de lui-même, en tenant compte de son rythme, de ses forces et de ses besoins. Rigueur, sérieux et travail en sont les fondements, associés à un accompagnement humain et personnalisé.</p><blockquote class="conviction">L’excellence n’est pas un résultat, c’est un chemin.</blockquote></div><div><h3 style="margin-top:0">Une transition accompagnée et bienveillante</h3><p>Une attention particulière est portée au passage du fondamental au secondaire, même lorsqu’il implique un changement de langue. Les équipes instaurent un climat de confiance, renforcent progressivement les acquis linguistiques, travaillent les disciplines de manière transversale et permettent aux élèves de rattraper, consolider et développer leurs compétences.</p></div></div><div class="disp-grid">{"".join(f'<div class="disp scroll-reveal"><span class="n">{i+1}</span><span class="i" aria-hidden="true">{ic}</span><h3>{esc(t)}</h3><p>{esc(x)}</p></div>' for i, (t, x, ic) in enumerate(C["dispositifs"]))}</div>', "soft") + \
         (section("En vidéo", f'<h2>Un accompagnement personnalisé.</h2>{videos_grid("secondaire")}') if SHOW_VID else "") + \
         section("Après le premier degré", f'<div class="split"><div><h2>Diversifier progressivement.</h2><p class="lead">{esc(C["tronc_commun"]["apres"])}</p>{btn("Grille du tronc commun", "grilles.html#tc", "outline")}</div><div class="opt-cloud"><h3>Options actuelles</h3><p class="media-note">Susceptibles d’évoluer selon le cadre décrétal.</p><div>{"".join(f"<span>{esc(o)}</span>" for o in C["tronc_commun"]["options"])}</div><h3>Activités complémentaires</h3><div>{"".join(f"<span class=act>{esc(o)}</span>" for o in C["tronc_commun"]["activites"])}</div></div></div>', "soft") + \
@@ -607,7 +647,7 @@ def p_po():
         section("S’inscrire", f'<div class="split"><div><h2>Réservez votre créneau.</h2><p class="lead">L’inscription est obligatoire pour organiser l’accueil de chaque groupe dans de bonnes conditions.</p>{reg}</div><div class="info-cards" style="grid-template-columns:1fr 1fr"><div class="info-card"><span class="ico" aria-hidden="true">📍</span><h3>Où ?</h3><p>Rue de Rome 18, 4800 Verviers — à deux pas de la gare centrale et de la gare du Palais.</p></div><div class="info-card"><span class="ico" aria-hidden="true">🕘</span><h3>Quand ?</h3><p>{PO["date_txt"]}, à 9h, 11h, 14h ou 16h.</p></div></div></div>') + \
         section("Pourquoi choisir SFXun ?", f'<div class="split" style="align-items:start"><div><h2>Ce que vous découvrirez.</h2><ul class="ticks big">{"".join(f"<li>{esc(x)}</li>" for x in why)}</ul></div><div><h2>Nos projets actuels</h2><ul class="ticks">{"".join(f"<li>{esc(x)}</li>" for x in proj)}</ul></div></div>', "soft") + \
         section("Idées reçues", myths(), "") + \
-        section("À voir avant de venir", f'<div class="cards">{card("labo-sciences", "Secondaire", "Grilles et options", "Le tronc commun S1–S3 et les options du 2e et du 3e degré.", "grilles.html")}{card("immersion-binome", "Langues", "Immersion en néerlandais", "Le parcours EMILE de la S1 à la 6e.", "immersion.html")}{card("classe-autonomie", "Accompagnement", "L’excellence, un chemin accompagné", "Co-enseignement, tutorat, coaching, école des devoirs…", "secondaire.html")}</div>') + \
+        section("À voir avant de venir", f'<div class="cards">{card("sfx-microscope", "Secondaire", "Grilles et options", "Le tronc commun S1–S3 et les options du 2e et du 3e degré.", "grilles.html")}{card("immersion-binome", "Langues", "Immersion en néerlandais", "Le parcours EMILE de la S1 à la 6e.", "immersion.html")}{card("sfx-ecrit", "Accompagnement", "L’excellence, un chemin accompagné", "Co-enseignement, tutorat, coaching, école des devoirs…", "secondaire.html")}</div>') + \
         section("Partager", f'<div class="banner"><div><h2>Faites passer le mot !</h2><p>Affiche A4 à imprimer et visuel pour les réseaux sociaux.</p></div><div class="buttons" style="margin:0">{btn("Affiche A4 (PDF)", "documents/portes-ouvertes/Affiche-Portes-ouvertes-2027-A4.pdf", "light", True)}{btn("Visuel réseaux sociaux", "documents/portes-ouvertes/Visuel-Portes-ouvertes-2027-reseaux-sociaux.jpg", "ghost", True)}</div></div>', "soft") + \
         fond_banner()
 
@@ -662,19 +702,20 @@ def p_espace():
 @page("mentions-legales.html", "Mentions légales · SFXun Verviers", "Mentions légales du site du Collège Saint-François-Xavier I.")
 def p_ml():
     return page_hero("Informations légales", "Mentions légales.", "Informations relatives à l’éditeur et à l’hébergement du site.", [("Mentions légales", None)]) + \
-        section("Modèle à compléter", f'''<div class="prose"><p class="notice">{tbv()} Modèle à compléter et à faire valider par le pouvoir organisateur avant publication.</p>
-<h2>Éditeur du site</h2><p>Centre Scolaire Saint-François-Xavier I<br>Rue de Rome 18, 4800 Verviers, Belgique<br>Téléphone : 087 39 39 39 · Email : info@sfx1.org<br>Pouvoir organisateur : <em>[dénomination et numéro d’entreprise à compléter]</em><br>Responsable de la publication : <em>[à compléter]</em></p>
-<h2>Hébergement</h2><p><em>[Version de test : Netlify, Inc. — version définitive : hébergeur européen, par exemple OVHcloud. À compléter lors de la mise en ligne.]</em></p>
+        section("Éditeur", f'''<div class="prose">
+<h2>Éditeur du site</h2><p>Centre Scolaire Saint-François-Xavier I<br>Rue de Rome 18, 4800 Verviers, Belgique<br>Téléphone : 087 39 39 39 · Email : info@sfx1.org<br>Pouvoir organisateur : Centre Scolaire Saint-François-Xavier ASBL, numéro d’entreprise 0411.614.748<br>Responsable de la publication : Anthony Cipolla, directeur</p>
+<h2>Hébergement</h2><p>Netlify, Inc., San Francisco (États-Unis) — <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">www.netlify.com</a></p>
+<h2>Conditions générales d’utilisation</h2><p>{ext("Conditions générales d’utilisation du site web (PDF)", "https://drive.google.com/file/d/1puGryP46W3saOhaFFTnrgbVZE2Ae8xKv/view?usp=sharing")}</p>
 <h2>Propriété intellectuelle</h2><p>Le logo, les textes et les photographies sont la propriété du Collège ou utilisés avec autorisation. Toute reproduction nécessite un accord préalable.</p>
 <h2>Droit à l’image</h2><p>Les photographies d’élèves ne sont publiées qu’avec les autorisations requises. Pour toute demande de retrait : info@sfx1.org.</p></div>''')
 
 @page("confidentialite.html", "Confidentialité · SFXun Verviers", "Politique de confidentialité et de protection des données du site du Collège SFX1.")
 def p_conf():
     return page_hero("Protection des données", "Confidentialité.", "Comment ce site traite les données personnelles, conformément au RGPD.", [("Confidentialité", None)]) + \
-        section("Modèle à compléter", f'''<div class="prose"><p class="notice">{tbv()} Modèle à compléter et à faire valider par le responsable du traitement et, le cas échéant, le délégué à la protection des données.</p>
+        section("Vos données", f'''<div class="prose"><p>Responsable du traitement : Centre Scolaire Saint-François-Xavier ASBL, rue de Rome 18, 4800 Verviers — info@sfx1.org. {ext("Déclaration de confidentialité intégrale (PDF)", "https://drive.google.com/file/d/1jw-B91oml6LNjYW9U3DVEg97c--e7hAO/view?usp=sharing")}</p>
 <h2>Cookies et traceurs</h2><p>Ce site n’utilise aucun cookie de mesure d’audience ni de publicité. Les polices sont hébergées sur le site lui-même.</p>
 <h2>Contenus externes chargés à la demande</h2><p>Les vidéos YouTube (via youtube-nocookie.com) et la carte OpenStreetMap ne sont chargées qu’après un clic du visiteur. Ces services peuvent alors traiter des données techniques (adresse IP, navigateur) selon leurs propres politiques.</p>
-<h2>Formulaire de contact</h2><p>Les informations saisies (nom, adresse email, sujet, message) servent uniquement à répondre à votre demande. Elles sont transmises par email au secrétariat du Collège (info@sfx1.org) et ne sont ni revendues ni utilisées à d’autres fins. Base légale : votre consentement. Durée de conservation et hébergeur du formulaire : <em>[à compléter lors de la mise en ligne]</em>.</p>
+<h2>Formulaire de contact</h2><p>Les informations saisies (nom, adresse email, sujet, message) servent uniquement à répondre à votre demande. Elles sont transmises par email au secrétariat du Collège (info@sfx1.org) et ne sont ni revendues ni utilisées à d’autres fins. Base légale : votre consentement. Le formulaire est traité par notre hébergeur, Netlify ; les messages sont conservés le temps nécessaire au traitement de votre demande.</p>
 <h2>Vos droits</h2><p>Vous pouvez demander l’accès, la rectification ou l’effacement de vos données en écrivant à info@sfx1.org. Vous pouvez aussi introduire une plainte auprès de l’Autorité de protection des données (Belgique).</p></div>''')
 
 @page("merci.html", "Message envoyé · SFXun Verviers", "Votre message a bien été envoyé au Collège Saint-François-Xavier I.")
@@ -701,7 +742,10 @@ def build():
     sq.resize((64, 64), Image.LANCZOS).save(OUT / "favicon.png"); sq.resize((180, 180), Image.LANCZOS).save(OUT / "apple-touch-icon.png")
     urls = "".join(f"<url><loc>{SITE_URL}/{'' if f == 'index.html' else f}</loc></url>" for f in PAGES if f not in ("404.html", "merci.html"))
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
-    (OUT / "robots.txt").write_text("# VERSION DE TEST : indexation désactivée.\n# À la mise en ligne définitive, remplacer par :\n#   User-agent: *\n#   Allow: /\n#   Sitemap: https://www.sfx1.org/sitemap.xml\nUser-agent: *\nDisallow: /\n")
+    if PUBLIE:
+        (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: {SITE_URL}/sitemap.xml\n")
+    else:
+        (OUT / "robots.txt").write_text("# VERSION DE TEST : indexation désactivée.\nUser-agent: *\nDisallow: /\n")
     for f in ["netlify.toml", ".htaccess", "contact.php"]:
         shutil.copy(SRC / "deploy" / f, OUT / f)
     print(f"{len(PAGES)} pages générées dans {OUT}")

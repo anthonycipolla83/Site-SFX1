@@ -143,3 +143,10 @@ Toutes les rubriques et tous les contenus de la V4 sont conservés. Rien n'a ét
 - Retrait de l’annotation « D’après la campagne Idées reçues… », des mentions « à valider » sur les contacts du fondamental et sur les heures d’immersion (4 h de néerlandais en 4e, 5e et 6e).
 - Instagram : prêt à s’afficher à côté de Facebook (bandeau « Suivez la vie du Collège » et pied de page) dès que l’adresse est saisie (administration → Réseaux sociaux · Instagram).
 - En-tête : sur les écrans de portable, le bouton « Portes ouvertes » en double est masqué (l’onglet reste dans le menu) pour que tout tienne sur une ligne.
+
+## V6.0 — Version publiée
+- Fin de la version de test : plus de bandeau « version de test », plus aucune mention « à valider », indexation par les moteurs de recherche autorisée (sauf /admin). Mentions légales et confidentialité complétées (liens vers les CGU et la déclaration de confidentialité intégrale).
+- Instagram (instagram.com/collegesfx1) à côté de Facebook.
+- Bloc « Notre réseau » au-dessus du pied de page : Jésuites d’Europe occidentale francophone, COCEJE, JECSE, Educate Magis (logos ajoutables via l’administration).
+- Le Collège · « Notre pédagogie » : les 4C avec un exemple concret à SFX1, le cycle d’apprentissage ignatien, les six thèmes d’année en cartes à retourner (thème en cours mis en avant via l’administration), encadré « Non multa, sed multum ».
+- Nouvelles photos (séance photo 2023) : diaporama d’accueil (la photo de la cour est conservée en premier), galerie du Collège, cartes, parcours, pédagogie. Photo de l’entrée remise à l’endroit (elle était en miroir).

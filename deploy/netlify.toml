@@ -1,4 +1,4 @@
-# SFX1 — configuration Netlify (version de test)
+# SFX1 — configuration Netlify 
 [build]
   publish = "."
 
@@ -9,8 +9,6 @@
     X-Frame-Options = "SAMEORIGIN"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
-    # Version de test : pas d'indexation par les moteurs de recherche
-    X-Robots-Tag = "noindex, nofollow"
     # La politique de sécurité (CSP) est déclarée dans chaque page (balise meta) ; /admin a la sienne.
 
 [[headers]]
@@ -23,3 +21,8 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 # Page 404 personnalisée : Netlify sert automatiquement 404.html
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

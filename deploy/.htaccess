@@ -15,7 +15,7 @@ ErrorDocument 404 /404.html
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'inline-speculation-rules'; font-src 'self'; frame-src https://www.youtube-nocookie.com https://www.openstreetmap.org https://drive.google.com; connect-src 'self'; base-uri 'self'; form-action 'self'"
   # Retirer la ligne suivante lors de la mise en ligne définitive
-  Header always set X-Robots-Tag "noindex, nofollow"
+  # Site publié : indexation autorisée (l’espace /admin garde sa propre interdiction)
 </IfModule>
 
 <IfModule mod_expires.c>

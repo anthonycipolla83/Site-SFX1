@@ -1,0 +1,86 @@
+{
+ "pedagogie": {
+  "quatre_c": [
+   {
+    "lettre": "Conscience",
+    "icone": "◎",
+    "texte": "Se connaître, prendre du recul et développer son esprit critique pour faire des choix libres et responsables.",
+    "a_sfx1": "Chaque année, un thème de la pédagogie ignatienne fil rouge pour toute l’école, et des temps de relecture pour revenir sur ce qui a été vécu."
+   },
+   {
+    "lettre": "Compétence",
+    "icone": "✦",
+    "texte": "Apprendre avec rigueur et méthode, maîtriser des savoirs solides et apprendre à apprendre.",
+    "a_sfx1": "La semaine RCD (remédiation, consolidation, dépassement) et huit dispositifs d’accompagnement pour que chacun progresse à son niveau."
+   },
+   {
+    "lettre": "Compassion",
+    "icone": "♡",
+    "texte": "Être attentif à chaque personne, en particulier à celles qui sont fragiles, et cultiver la bienveillance.",
+    "a_sfx1": "Un éducateur référent par année, du tutorat et une écoute au quotidien : la cura personalis, l’attention portée à chacun."
+   },
+   {
+    "lettre": "Engagement",
+    "icone": "↗",
+    "texte": "S’engager pour les autres et pour le monde, devenir acteur d’une société plus juste et plus durable.",
+    "a_sfx1": "L’EcoTeam, les actions solidaires et la marche « Foi et Justice »."
+   }
+  ],
+  "cycle": [
+   {
+    "etape": "Contexte",
+    "texte": "Partir de qui est l’élève : ce qu’il sait déjà, son vécu, ses questions."
+   },
+   {
+    "etape": "Expérience",
+    "texte": "Vivre l’apprentissage : manipuler, chercher, découvrir par soi-même."
+   },
+   {
+    "etape": "Réflexion",
+    "texte": "Prendre du recul : comprendre le sens de ce qu’on apprend et faire des liens."
+   },
+   {
+    "etape": "Action",
+    "texte": "Mettre en pratique, choisir, s’engager : le savoir devient compétence."
+   },
+   {
+    "etape": "Relecture",
+    "texte": "Revenir sur le chemin parcouru pour progresser, plutôt que simplement contrôler."
+   }
+  ],
+  "mots": [
+   {
+    "mot": "Cura personalis",
+    "icone": "🤲",
+    "texte": "Prendre soin de toute la personne : son intelligence, son cœur, son corps, sa créativité et sa liberté."
+   },
+   {
+    "mot": "Discernement",
+    "icone": "🧭",
+    "texte": "Apprendre à prendre du recul, à peser le pour et le contre, pour poser des choix libres et éclairés."
+   },
+   {
+    "mot": "Foi et justice",
+    "icone": "⚖️",
+    "texte": "Former des femmes et des hommes pour et avec les autres, engagés pour un monde plus juste et solidaire."
+   },
+   {
+    "mot": "A priori favorable",
+    "icone": "☀️",
+    "texte": "Poser un regard confiant et bienveillant sur chaque élève, sur l’autre et sur chaque situation."
+   },
+   {
+    "mot": "Exercices",
+    "icone": "✏️",
+    "texte": "Comme dans les Exercices de saint Ignace, on grandit pas à pas : s’exercer, pratiquer, puis relire son chemin."
+   },
+   {
+    "mot": "Excellence",
+    "icone": "🏅",
+    "texte": "Donner le meilleur de soi-même avec ses propres ressources, sans chercher à battre les autres."
+   }
+  ],
+  "theme_annee": "",
+  "source": "D’après « Notre manière de procéder » et le projet éducatif et pédagogique des collèges et écoles jésuites de Belgique francophone."
+ }
+}

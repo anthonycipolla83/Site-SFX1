@@ -1,0 +1,6 @@
+{"partenaires": [
+ {"nom": "Jésuites d’Europe occidentale francophone", "sigle": "SJ", "texte": "La Compagnie de Jésus en Belgique francophone, France, Luxembourg…", "url": "https://www.jesuites.com/", "logo": ""},
+ {"nom": "COCEJE", "sigle": "CJ", "texte": "La coordination des collèges et écoles jésuites de Belgique francophone", "url": "https://coceje.be/", "logo": ""},
+ {"nom": "JECSE", "sigle": "EU", "texte": "Le réseau européen des écoles jésuites, primaires et secondaires", "url": "https://jecse.org/", "logo": ""},
+ {"nom": "Educate Magis", "sigle": "EM", "texte": "La communauté mondiale en ligne des éducateurs jésuites et ignatiens", "url": "https://www.educatemagis.org/", "logo": ""}
+]}

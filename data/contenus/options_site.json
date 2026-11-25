@@ -1,1 +1,7 @@
-{"options_site": {"afficher_videos": false}}
+{
+ "options_site": {
+  "afficher_videos": false,
+  "adresse_site": "https://site-sfx1.netlify.app",
+  "publication": true
+ }
+}

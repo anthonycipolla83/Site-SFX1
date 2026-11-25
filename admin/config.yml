@@ -337,6 +337,56 @@ collections:
         fields:
           - {name: instagram, label: "Adresse de la page Instagram", widget: string, required: false, hint: "Ex. https://www.instagram.com/… — laisser vide pour masquer."}
 
+      - name: pedagogie
+        label: "Le Collège · Notre pédagogie"
+        file: data/contenus/pedagogie.json
+        fields:
+          - name: pedagogie
+            label: Pédagogie
+            widget: object
+            fields:
+              - name: quatre_c
+                label: "Les 4C"
+                widget: list
+                summary: "{{fields.lettre}}"
+                fields:
+                  - {name: lettre, label: Nom, widget: string}
+                  - {name: icone, label: Icône, widget: string}
+                  - {name: texte, label: Définition, widget: text}
+                  - {name: a_sfx1, label: "Exemple à SFX1", widget: text}
+              - name: cycle
+                label: "Cycle d’apprentissage"
+                widget: list
+                summary: "{{fields.etape}}"
+                fields:
+                  - {name: etape, label: Étape, widget: string}
+                  - {name: texte, label: Texte, widget: text}
+              - name: mots
+                label: "Les six thèmes d’année"
+                widget: list
+                summary: "{{fields.mot}}"
+                fields:
+                  - {name: mot, label: Mot, widget: string}
+                  - {name: icone, label: "Icône (émoji)", widget: string}
+                  - {name: texte, label: Explication, widget: text}
+              - {name: theme_annee, label: "Thème de l’année (mot clé mis en avant)", widget: string, required: false, hint: "Recopier exactement un des six thèmes, ex. Discernement"}
+              - {name: source, label: Source, widget: string}
+
+      - name: partenaires
+        label: "Partenaires (bas de page)"
+        file: data/contenus/partenaires.json
+        fields:
+          - name: partenaires
+            label: Partenaires
+            widget: list
+            summary: "{{fields.nom}}"
+            fields:
+              - {name: nom, label: Nom, widget: string}
+              - {name: sigle, label: "Monogramme (si pas de logo)", widget: string}
+              - {name: texte, label: Description, widget: string}
+              - {name: url, label: "Site internet", widget: string}
+              - {name: logo, label: Logo, widget: image, required: false}
+
       - name: options_site
         label: "Options du site"
         file: data/contenus/options_site.json
@@ -346,6 +396,8 @@ collections:
             widget: object
             fields:
               - {name: afficher_videos, label: "Afficher les vidéos (accueil, pages et menu)", widget: boolean, required: false}
+              - {name: publication, label: "Site publié (masque les mentions « à valider », autorise Google)", widget: boolean, required: false}
+              - {name: adresse_site, label: "Adresse du site", widget: string, hint: "Ex. https://site-sfx1.netlify.app puis https://www.sfx1.org"}
 
       - name: formulaire
         label: "Formulaire de contact"

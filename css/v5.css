@@ -570,3 +570,59 @@ tr.is-nl>:first-child:after{content:none}
 .reserve-soon,.po-band .btn,.po-hero .btn{white-space:normal;max-width:100%;text-align:center}
 /* En-tête : sous 1480 px, le bouton « Portes ouvertes » (déjà présent dans le menu) laisse la place */
 @media(max-width:1480px){.topbar .cta-top{display:none!important}}
+/* Partenaires du réseau jésuite */
+.pt-band{background:#fff;border-top:1px solid var(--line);padding:56px 0 64px}
+.pt-h{font-size:clamp(24px,2.6vw,34px);margin-bottom:24px}
+.pt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pt-card{position:relative;display:flex;flex-direction:column;gap:14px;padding:22px;border:1px solid var(--line);border-radius:20px;background:var(--cream);transition:transform .4s var(--spring),box-shadow .4s,border-color .3s}
+.pt-card:hover,.pt-card:focus-visible{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#e7c9d1}
+.pt-card i{position:absolute;right:18px;top:18px;font-style:normal;color:var(--wine);font-weight:800}
+.pt-card img,.pt-pill img{height:48px;width:auto;max-width:140px;object-fit:contain}
+.pt-mono{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--wine);color:#fff;font-family:"Inter Display",sans-serif;font-weight:800;font-size:17px;letter-spacing:.02em}
+.pt-txt b{display:block;font-size:15.5px;line-height:1.3;color:#2a1a21}
+.pt-txt small{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.45}
+.pt-strip{max-width:1260px;margin:0 auto 34px;padding:0 32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.pt-lab{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#e9c8d3}
+.pt-pills{display:flex;flex-wrap:wrap;gap:10px}
+.pt-pill{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 7px;border-radius:40px;background:#ffffff14;border:1px solid #ffffff2b;color:#fff;font-size:13px;font-weight:700;transition:background .3s}
+.pt-pill:hover{background:#ffffff2b}
+.pt-pill .pt-mono{width:30px;height:30px;border-radius:50%;font-size:11px;background:#fff;color:var(--wine)}
+.pt-pill img{height:28px;background:#fff;border-radius:6px;padding:2px}
+@media(max-width:940px){.pt-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pt-grid{grid-template-columns:1fr}}
+/* V6 : Notre pédagogie */
+.ped-h{font-size:24px;margin:44px 0 16px}
+.c4-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.c4{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:6px;transition:transform .45s var(--spring),box-shadow .45s}
+.c4:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.c4-ico{width:50px;height:50px;border-radius:16px;background:var(--wine);color:#fff;display:grid;place-items:center;font-size:22px;margin-bottom:8px}
+.c4 h3{margin:0}.c4 p{margin:0;font-size:14.5px;color:#55494f}
+.c4-sfx{margin-top:auto!important;padding-top:12px;border-top:1px dashed var(--line);font-size:13.5px!important}
+.c4-sfx b{display:block;color:var(--wine);font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
+.ped-split{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.ped-photo{margin:40px 0 0;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:3/4}
+.ped-photo img{width:100%;height:100%;object-fit:cover}
+.cycle{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:10px;counter-reset:cy}
+.cy-step{position:relative;display:grid;grid-template-columns:46px 120px 1fr;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 16px;opacity:0;transform:translateX(-14px);animation:cyIn .6s var(--spring) forwards;animation-delay:calc(var(--i) * .12s)}
+.cy-step:not(:last-child):after{content:"";position:absolute;left:38px;bottom:-11px;width:2px;height:12px;background:var(--wine)}
+.cy-step:last-child{background:var(--blush);border-color:#efd3db}
+.cy-step:last-child .cy-dot:after{content:" ↺";font-size:12px}
+.cy-dot{width:44px;height:44px;border-radius:50%;background:var(--wine);color:#fff;display:grid;place-items:center;font-weight:800}
+.cy-step b{font-family:"Inter Display",sans-serif;font-size:17px}
+.cy-step>span:last-child{font-size:14px;color:#55494f}
+@keyframes cyIn{to{opacity:1;transform:none}}
+.mots{grid-template-columns:repeat(3,1fr)}
+.mots .myth,.mots .myth-in{min-height:200px}
+.mots .myth-front b{font-size:18px}
+.mot.is-theme .myth-front{border:2px solid var(--wine);background:var(--blush)}
+.ped-quote{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center;margin-top:48px;background:#2a1a21;color:#fff;border-radius:30px;overflow:hidden}
+.ped-quote-photo{height:100%;min-height:320px}
+.ped-quote-photo img{width:100%;height:100%;object-fit:cover}
+.ped-quote>div:last-child{padding:34px 34px 34px 0}
+.ped-quote .eyebrow{color:#ffcf9c}.ped-quote h3{font-size:30px;color:#fff}.ped-quote p{color:#f1dfe5}
+.ped-quote .btn.outline{background:transparent;color:#fff!important;border-color:#ffffff88}
+@media(max-width:1100px){.mots{grid-template-columns:repeat(3,1fr)}.c4-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:800px){.ped-split,.ped-quote{grid-template-columns:1fr}.ped-photo{display:none}.ped-quote>div:last-child{padding:0 24px 28px}.cy-step{grid-template-columns:44px 1fr}.cy-step>span:last-child{grid-column:2}.mots{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.c4-grid,.mots{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.cy-step{animation:none;opacity:1;transform:none}}
+.ped-photo picture,.ped-quote-photo picture{display:block;height:100%}
