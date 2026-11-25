@@ -7,8 +7,8 @@ backend:
   # Option Netlify : remplacer par  name: git-gateway  (connexion par email via Netlify)
 
 locale: fr
-site_url: https://www.sfx1.org
-display_url: https://www.sfx1.org
+site_url: https://sfx1.org
+display_url: https://sfx1.org
 logo_url: /img/logo-sfxun.jpg
 media_folder: img/uploads
 public_folder: /img/uploads

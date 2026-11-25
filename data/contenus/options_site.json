@@ -1,7 +1,7 @@
 {
  "options_site": {
   "afficher_videos": false,
-  "adresse_site": "https://site-sfx1.netlify.app",
+  "adresse_site": "https://sfx1.org",
   "publication": true,
   "portail_url": "https://sites.google.com/view/sfx1-verviers"
  }
