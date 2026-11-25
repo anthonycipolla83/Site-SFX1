@@ -150,3 +150,5 @@ Toutes les rubriques et tous les contenus de la V4 sont conservés. Rien n'a ét
 - Bloc « Notre réseau » au-dessus du pied de page : Jésuites d’Europe occidentale francophone, COCEJE, JECSE, Educate Magis (logos ajoutables via l’administration).
 - Le Collège · « Notre pédagogie » : les 4C avec un exemple concret à SFX1, le cycle d’apprentissage ignatien, les six thèmes d’année en cartes à retourner (thème en cours mis en avant via l’administration), encadré « Non multa, sed multum ».
 - Nouvelles photos (séance photo 2023) : diaporama d’accueil (la photo de la cour est conservée en premier), galerie du Collège, cartes, parcours, pédagogie. Photo de l’entrée remise à l’endroit (elle était en miroir).
+- Bouton d’en-tête « Mon espace » : ouvre directement le Google Site réservé aux enseignants (sites.google.com/view/sfx1-verviers), connexion par compte @sfx1.org. Page « Espace numérique » : portail des enseignants + Classroom, Gmail, Drive. Adresse du portail modifiable via l’administration (Options du site).
+- Bouton « Portes ouvertes » retiré de l’en-tête (l’onglet reste dans le menu).

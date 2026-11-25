@@ -397,6 +397,7 @@ collections:
             fields:
               - {name: afficher_videos, label: "Afficher les vidéos (accueil, pages et menu)", widget: boolean, required: false}
               - {name: publication, label: "Site publié (masque les mentions « à valider », autorise Google)", widget: boolean, required: false}
+              - {name: portail_url, label: "Adresse du portail des enseignants (Google Site)", widget: string}
               - {name: adresse_site, label: "Adresse du site", widget: string, hint: "Ex. https://site-sfx1.netlify.app puis https://www.sfx1.org"}
 
       - name: formulaire

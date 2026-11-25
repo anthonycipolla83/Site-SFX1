@@ -38,6 +38,7 @@ for _path, _fields in SCHEMA.items():
 SHOW_VID = bool(C.get("options_site", {}).get("afficher_videos"))
 SITE_URL = C.get("options_site", {}).get("adresse_site", SITE_URL).rstrip("/")
 PUBLIE = bool(C.get("options_site", {}).get("publication"))
+PORTAIL = C.get("options_site", {}).get("portail_url", "espace.html")
 from urllib.parse import urlparse as _up
 _ag = C.get("agenda_app", {}).get("url", "")
 AGENDA_ORIGIN = (" " + _up(_ag).scheme + "://" + _up(_ag).netloc) if _ag.startswith("http") else ""
@@ -281,7 +282,7 @@ def nav_html(current):
         cls = "nav-item" + (" is-section" if is_sec else "") + (" nav-po" if timed else "")
         out.append(f'<div class="{cls}"{" " + TIMED if timed else ""}><a href="{href}"{cur}>{label}{caret}</a>{sm}</div>')
     out.append(f'<div class="nav-item mobile-only"><a href="fondamental.html">École fondamentale</a></div>')
-    out.append('<div class="nav-item mobile-only"><a href="espace.html">Mon espace</a></div>')
+    out.append(f'<div class="nav-item mobile-only"><a href="{PORTAIL}" target="_blank" rel="noopener noreferrer">Mon espace ↗</a></div>')
     return "".join(out)
 
 DEMO_NOTICE = '<div class="demo-notice" role="note">V5 · VERSION DE TEST · Formulaire actif une fois le site en ligne · Photos à autoriser avant publication publique · Les mentions <span class="tbv" style="font-size:9px">À valider</span> signalent les contenus provisoires <button type="button" data-dismiss aria-label="Masquer cet avertissement">×</button></div>'
@@ -319,8 +320,7 @@ def layout(fname, title, desc, body, current=None):
 <header class="topbar">
 <a href="index.html" class="brand" aria-label="SFXun — retour à l’accueil"><img src="img/logo-sfxun.jpg" alt="Logo SFXun – Centre Scolaire Saint-François-Xavier" width="729" height="374"></a>
 <nav class="nav" id="mainnav" aria-label="Navigation principale">{nav_html(current)}</nav>
-<a class="portal" href="espace.html">Mon espace <span aria-hidden="true">↗</span></a>
-<a class="cta-top" href="portes-ouvertes.html" {TIMED}>Portes ouvertes</a>
+<a class="portal" href="{PORTAIL}" target="_blank" rel="noopener noreferrer" title="Portail réservé aux enseignants (compte @sfx1.org)">Mon espace <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet, accès réservé aux enseignants)</span></a>
 <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Ouvrir le menu">☰</button>
 </header>
 <main id="main" tabindex="-1">
@@ -342,7 +342,7 @@ def layout(fname, title, desc, body, current=None):
 <div><b>Nous trouver</b><p>Rue de Rome 18<br>4800 Verviers, Belgique</p><span class="social"><a href="{C["facebook"]}" target="_blank" rel="noopener noreferrer" aria-label="Facebook du Collège (nouvel onglet)">f</a>{f'<a href="{C["instagram"]}" target="_blank" rel="noopener noreferrer" aria-label="Instagram du Collège (nouvel onglet)">◎</a>' if C.get("instagram") else ""}{f'<a href="{YT_CHANNEL}" target="_blank" rel="noopener noreferrer" aria-label="Chaîne YouTube du Collège (nouvel onglet)">▶</a>' if SHOW_VID else ""}</span><a href="tel:+3287393939">087 39 39 39</a><a href="mailto:info@sfx1.org">info@sfx1.org</a></div>
 </div>
 <div class="footer-bottom">© 2026 SFXun · Centre Scolaire Saint-François-Xavier I{"" if PUBLIE else " · Version de test " + VERSION}
-<div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a><a href="espace.html">Mon espace</a></div></div>
+<div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a><a href="espace.html">Espace numérique</a></div></div>
 </footer>
 <script src="js/site.js" defer></script>
 </body>
@@ -693,11 +693,12 @@ def p_contact():
         section("Nos coordonnées", f'<div class="two-col"><div><h2>Au cœur de Verviers.</h2><p class="lead"><strong>Centre Scolaire Saint-François-Xavier I</strong><br>Rue de Rome 18<br>4800 Verviers, Belgique</p><p><strong>Secondaire</strong><br><a href="tel:+3287393939">087 39 39 39</a><br><a href="mailto:info@sfx1.org">info@sfx1.org</a></p><p id="fondamental"><strong>Fondamental</strong><br><a href="tel:+3287393930">087 39 39 30</a><br><a href="mailto:direction.fondamental@sfx1.org">direction.fondamental@sfx1.org</a></p></div>{form_html("contact")}</div>') + \
         section("Plan d’accès", f'<div class="section-header"><div><h2>Venir au Collège.</h2><p class="lead">À proximité du centre-ville et de la gare de Verviers.</p></div>{btn("Itinéraire sur Google Maps", "https://www.google.com/maps/search/?api=1&query=Rue+de+Rome+18+4800+Verviers", "outline", True)}</div><div class="map-stage">{pic("cour-automne", "", sizes="100vw")}<div class="map-cta"><h3 style="color:#fff;margin:0">Afficher la carte interactive</h3><p>La carte OpenStreetMap n’est chargée qu’après votre clic. Une connexion Internet est nécessaire.</p><button type="button" class="btn light" data-map="{osm}">Afficher la carte <span aria-hidden="true">↗</span></button></div></div><p class="media-note">{tbv()} La carte montre le centre de Verviers ; un repère précis sur l’entrée du Collège sera ajouté après vérification des coordonnées. L’itinéraire Google Maps utilise l’adresse exacte.</p>', "soft")
 
-@page("espace.html", "Mon espace · SFXun Verviers", "Accès aux outils numériques des élèves et des enseignants du Collège SFX1.")
+@page("espace.html", "Espace numérique · SFXun Verviers", "Portail des enseignants et outils numériques du Collège SFX1.")
 def p_espace():
-    return page_hero("Fonctionnalité future", "Mon espace SFX1.", "Un accès pour les élèves et les enseignants, sécurisé par les comptes Google Workspace @sfx1.org.", [("Mon espace", None)]) + \
-        section("Une plateforme qui évolue", f'<div class="two-col"><div class="degree"><span>Projet futur</span><h3>Pour les enseignants</h3><p>Accès aux ressources, documents internes, outils numériques et communications de l’établissement.</p></div><div class="degree"><span>Projet futur</span><h3>Pour les élèves</h3><p>Accès aux ressources de travail et liens utiles, avec authentification et droits adaptés.</p></div></div>') + \
-        section("Architecture recommandée", f'<div class="split"><div><h2>Une sécurité réelle, pas seulement masquée.</h2><p class="lead">Les contenus privés resteront dans Google Workspace for Education (Drive partagés, Classroom, Google Sites restreint au domaine). L’accès y est contrôlé par Google avec les comptes @sfx1.org : le site public ne contient aucune donnée privée.</p><p class="notice">Cette page n’est pas un espace privé fonctionnel. Les liens ci-contre ouvrent les services Google habituels.</p></div><div class="stack"><a class="link-card" href="https://classroom.google.com" target="_blank" rel="noopener noreferrer">Google Classroom <span>↗</span></a><a class="link-card" href="https://drive.google.com" target="_blank" rel="noopener noreferrer">Google Drive <span>↗</span></a><a class="link-card" href="https://mail.google.com" target="_blank" rel="noopener noreferrer">Messagerie @sfx1.org <span>↗</span></a></div></div>', "soft")
+    tools = "".join(f'<a class="link-card" href="{u}" target="_blank" rel="noopener noreferrer">{t} <span aria-hidden="true">↗</span></a>' for t, u in [("Google Classroom", "https://classroom.google.com"), ("Gmail", "https://mail.google.com"), ("Google Drive", "https://drive.google.com")])
+    return page_hero("Espace numérique", "Les outils du Collège.", "Le portail des enseignants et les services numériques, accessibles avec un compte @sfx1.org.", [("Espace numérique", None)]) + \
+        section("Portail des enseignants", f'<div class="portal-card"><span class="portal-ico" aria-hidden="true">🔐</span><div><h2>Portail des enseignants</h2><p class="lead">Ressources, documents internes et communications de l’établissement. L’accès est réservé aux enseignants : la connexion se fait automatiquement avec le compte Google @sfx1.org.</p></div><a class="btn" href="{PORTAIL}" target="_blank" rel="noopener noreferrer">Ouvrir le portail <span aria-hidden="true">↗</span></a></div>') + \
+        section("Élèves et enseignants", f'<div class="split"><div><h2>Les services Google du Collège.</h2><p class="lead">Classroom, messagerie et Drive, avec le compte @sfx1.org remis par l’école.</p></div><div class="stack">{tools}</div></div>', "soft")
 
 @page("mentions-legales.html", "Mentions légales · SFXun Verviers", "Mentions légales du site du Collège Saint-François-Xavier I.")
 def p_ml():
