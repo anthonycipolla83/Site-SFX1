@@ -1,0 +1,34 @@
+{
+ "pourquoi": [
+  {
+   "icone": "🎓",
+   "titre": "Une perspective d’excellence",
+   "texte": "Un enseignement de qualité, exigeant et bienveillant, pour que chacun devienne la meilleure version de lui-même."
+  },
+  {
+   "icone": "🧭",
+   "titre": "Un réel soutien",
+   "texte": "Co-enseignement, tutorat, école des devoirs, coaching : huit dispositifs d’accompagnement au quotidien."
+  },
+  {
+   "icone": "💬",
+   "titre": "L’immersion en néerlandais",
+   "texte": "De 8 à 11 heures de cours en immersion par semaine, cours de néerlandais compris, ouvertes à tous, jusqu’au certificat B2 de la KU Leuven."
+  },
+  {
+   "icone": "🌍",
+   "titre": "Une école ouverte sur le monde",
+   "texte": "Culture et arts, voyages, échanges, sciences et sport : apprendre aussi hors de la classe."
+  },
+  {
+   "icone": "🚉",
+   "titre": "Au cœur de Verviers",
+   "texte": "À deux pas des gares centrale et du Palais, un cadre sécurisé et encadré, riche en opportunités."
+  },
+  {
+   "icone": "✦",
+   "titre": "Tradition jésuite et innovation",
+   "texte": "170 ans d’expérience, un Chromebook pour chaque élève de S1 et de 4e, des pédagogies actives."
+  }
+ ]
+}

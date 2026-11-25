@@ -1,0 +1,454 @@
+{
+  "_source": "Retranscription des PDF transmis par le Collège (documents/D1, D2, D3). Vérifier les versions officielles 2026-2027 avant publication.",
+  "degres": [
+    {
+      "id": "d1",
+      "code": "D1",
+      "nom": "Premier degré",
+      "annees": "1re et 2e secondaire",
+      "colonnes": [
+        "1re année",
+        "2e année"
+      ],
+      "photo": "classe-travail",
+      "intro": "Une transition accompagnée vers le secondaire, des apprentissages fondamentaux, des activités complémentaires et des langues modernes.",
+      "fco": [
+        [
+          "Religion",
+          "2",
+          "2"
+        ],
+        [
+          "Français",
+          "6",
+          "5"
+        ],
+        [
+          "Mathématiques",
+          "4",
+          "5"
+        ],
+        [
+          "Langue moderne I (néerlandais, anglais ou allemand)",
+          "4",
+          "4"
+        ],
+        [
+          "Étude du milieu*",
+          "4",
+          "4"
+        ],
+        [
+          "Sciences*",
+          "3",
+          "3"
+        ],
+        [
+          "Éducation physique",
+          "3",
+          "3"
+        ],
+        [
+          "Éducation par la technologie",
+          "1",
+          "1"
+        ],
+        [
+          "Éducation artistique (dessin)",
+          "1",
+          "1"
+        ],
+        [
+          "Activités complémentaires (voir ci-dessous)",
+          "4",
+          "4"
+        ]
+      ],
+      "total": [
+        "Total",
+        "32",
+        "32"
+      ],
+      "note_immersion": "* Cours en immersion",
+      "blocs": [
+        {
+          "titre": "Activités complémentaires en première année",
+          "lignes": [
+            {
+              "choix": [
+                "Latin"
+              ],
+              "h": "2"
+            },
+            {
+              "choix": [
+                "Méthode de travail"
+              ],
+              "h": "1"
+            },
+            {
+              "choix": [
+                "Informatique",
+                "Atelier de conversation*"
+              ],
+              "h": "1"
+            }
+          ],
+          "total": "4",
+          "notes": [
+            "* Pour les élèves en immersion uniquement et obligatoirement."
+          ]
+        },
+        {
+          "titre": "Activités complémentaires en deuxième année",
+          "lignes": [
+            {
+              "choix": [
+                "Latin",
+                "Sciences",
+                "Socio-économie",
+                "Activités musicales",
+                "AC anglais",
+                "Informatique"
+              ],
+              "h": "2"
+            },
+            {
+              "choix": [
+                "Latin",
+                "Sciences",
+                "Socio-économie",
+                "Arts de la parole",
+                "Activités sportives",
+                "Initiation à la culture antique (grec)"
+              ],
+              "h": "2"
+            }
+          ],
+          "total": "4",
+          "notes": [
+            "Attention : une seule fois la même activité !"
+          ]
+        }
+      ],
+      "regles": [
+        "Un seul choix sur la même ligne.",
+        "Le choix de 2e année n'engage en rien le choix de 3e année."
+      ],
+      "descriptions": [
+        {
+          "t": "Latin",
+          "h": "2h",
+          "r": "En première année, chaque élève a découvert les grands principes de la langue latine. Ceux qui y ont pris goût poursuivent en deuxième année à raison de deux heures par semaine : ils approfondissent la grammaire latine et française en traduisant de petits textes, voyagent au temps des Romains et revisitent la mythologie gréco-romaine au fil de rallyes, d’escape games et de quiz. Le cours enrichit aussi le vocabulaire français et ouvre la porte à l’option latin 4h, de la 3e à la 6e."
+        },
+        {
+          "t": "Socio-économie",
+          "h": "2h",
+          "r": "Ce cours de proximité part de la vie quotidienne du jeune pour l’aider à comprendre son environnement social et économique : sa place dans la société, ses droits et obligations, la commune, les médias, mais aussi la consommation, le budget, la banque ou la production. Construit à partir de documents et attentif à l’actualité, il accorde une place de choix au travail de la langue française : lecture des consignes, analyse de documents, vocabulaire et synthèses."
+        },
+        {
+          "t": "Sciences",
+          "h": "2h",
+          "r": "Pensée pour les élèves qui ont un goût particulier pour les sciences, cette activité aborde la physique et la biologie à travers l’observation, l’expérience et la résolution de problèmes : arbres et feuilles, observation au binoculaire, pression dans les fluides… Elle développe la méthode, la rigueur et la persévérance, et permet de choisir une orientation scientifique en 3e en meilleure connaissance de cause."
+        },
+        {
+          "t": "Initiation à la culture antique (grec)",
+          "h": "2h",
+          "r": "Démocratie, mathématiques, philosophie, théâtre : notre société reste profondément marquée par la Grèce antique. Les élèves découvrent cette civilisation et sa langue, apprennent à lire et à écrire le grec, puis à traduire de courts textes authentiques qui les mènent vers les grands sites antiques. Rationnelle et précise, la langue grecque exerce l’observation, l’analyse et la mémoire, et l’étymologie enrichit le français de tous les jours comme celui des sciences."
+        },
+        {
+          "t": "Activités artistiques (parole et/ou musique)",
+          "h": "2h ou 4h",
+          "r": "Ces activités permettent aux jeunes de s’exprimer autrement, de découvrir leurs propres talents et d’apprécier ceux des autres, dans un climat ouvert et détendu. En théâtre, les élèves construisent une création collective et travaillent leurs personnages, leur voix et leur posture. En musique, ils prolongent les acquis de première année jusqu’à la préparation d’un concert, avec la possibilité d’intégrer l’instrument qu’ils pratiquent déjà."
+        },
+        {
+          "t": "Activité complémentaire de langue (anglais)",
+          "h": "2h",
+          "r": "Réservée aux élèves qui ont choisi l’anglais en langue moderne I, cette activité met l’accent sur l’expression orale, sans négliger l’écrit. Elle s’appuie sur des documents liés à la culture des pays anglophones, à l’actualité et à la vie quotidienne, pour permettre à l’élève de se dépasser dans la langue : ce n’est donc pas un cours de rattrapage."
+        },
+        {
+          "t": "Activités sportives",
+          "h": "2h",
+          "r": "L’élève découvre d’autres disciplines que celles du cours d’éducation physique, en particulier le cyclisme, grâce au parc de vélos de l’école, et la course d’orientation, qui allie le développement du corps et de l’esprit."
+        },
+        {
+          "t": "Accompagnement personnalisé",
+          "h": "2h",
+          "r": "Pour l’élève qui entre en deuxième avec plusieurs difficultés, ou qui suit une deuxième complémentaire, deux heures sont consacrées à un accompagnement personnalisé afin de combler les lacunes de la première année. Il ne choisit alors qu’une seule activité complémentaire."
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "code": "D2",
+      "nom": "Deuxième degré",
+      "annees": "3e et 4e secondaire",
+      "colonnes": [
+        "3e année",
+        "4e année"
+      ],
+      "photo": "labo-sciences",
+      "intro": "Une période de découverte et de consolidation, où les élèves développent leurs intérêts et construisent progressivement leur parcours.",
+      "fco": [
+        [
+          "Religion",
+          "2",
+          "2"
+        ],
+        [
+          "Français",
+          "5",
+          "5"
+        ],
+        [
+          "Mathématiques",
+          "5",
+          "5"
+        ],
+        [
+          "Langue moderne I (néerlandais, anglais ou allemand)",
+          "4",
+          "4"
+        ],
+        [
+          "Histoire",
+          "2*",
+          "2*"
+        ],
+        [
+          "Géographie",
+          "2*",
+          "2*"
+        ],
+        [
+          "Éducation physique",
+          "2",
+          "2"
+        ],
+        [
+          "Sciences",
+          "3*",
+          "3"
+        ]
+      ],
+      "total": [
+        "Total de la formation commune obligatoire",
+        "25",
+        "25"
+      ],
+      "note_immersion": "* Cours en immersion. En 4e, les sciences se donnent en français ; les élèves en immersion suivent 1h d'actualité en néerlandais.",
+      "blocs": [
+        {
+          "titre": "Options et activités complémentaires au deuxième degré",
+          "lignes": [
+            {
+              "choix": [
+                "Latin 4h",
+                "Sciences économiques 4h",
+                "Arts d'expression 4h",
+                "Sciences 5h"
+              ],
+              "h": ""
+            },
+            {
+              "choix": [
+                "*Informatique 2h"
+              ],
+              "h": ""
+            },
+            {
+              "choix": [
+                "Langue moderne II — néerlandais 4h",
+                "Langue moderne II — anglais 4h",
+                "Langue moderne II — allemand 4h"
+              ],
+              "h": ""
+            },
+            {
+              "choix": [
+                "*Grec 2h",
+                "*Labo sciences immersion 1h"
+              ],
+              "h": ""
+            }
+          ],
+          "total": "De 4h à 8h",
+          "notes": [
+            "* Activité complémentaire choisie en plus de votre ou vos options de base."
+          ]
+        }
+      ],
+      "regles": [
+        "Un seul choix sur la même ligne.",
+        "Minimum légal : 28 heures. Maximum légal : 34 heures.",
+        "Au moins une option de base : latin, sciences économiques, arts d'expression, sciences 5h, langue moderne II.",
+        "Les élèves d'immersion ne peuvent pas choisir sciences 5h."
+      ],
+      "descriptions": [
+        {
+          "t": "Sciences",
+          "h": "5h",
+          "r": "Destinée aux élèves qui s’intéressent aux sciences, cette option développe une véritable culture scientifique et pratique régulièrement la démarche d’investigation. En chimie, en biologie et en physique, les élèves étudient notamment la matière, la réaction chimique, la nutrition, les écosystèmes, l’électricité et les fluides. Ils réalisent eux-mêmes douze périodes de laboratoire sur l’année et apprennent à communiquer leurs raisonnements avec précision."
+        },
+        {
+          "t": "Sciences économiques",
+          "h": "4h",
+          "r": "Cette option fait découvrir que l’économie éclaire les choix des consommateurs, des entreprises et des pouvoirs publics. Les élèves étudient la consommation et sa protection, les revenus, le crédit et la banque, puis le fonctionnement de l’entreprise, les bases de la comptabilité et quelques notions de droit. L’objectif est de mieux comprendre le monde, de faire des choix en connaissance de cause et de devenir des citoyens responsables et engagés."
+        },
+        {
+          "t": "Latin",
+          "h": "4h",
+          "r": "En troisième année, les élèves approfondissent la langue et la culture latines : grammaire et vocabulaire, traduction et compréhension des textes, histoire et étymologie. Dieux et héros, magie, Alexandre le Grand, Cléopâtre ou la vie quotidienne à Rome rythment l’année. Ce travail d’analyse exigeant forge une discipline de pensée et d’expression qui profite à toutes les autres matières."
+        },
+        {
+          "t": "Grec",
+          "h": "2h",
+          "r": "Les élèves poursuivent l’étude des déclinaisons, des conjugaisons et de la syntaxe pour lire et traduire rapidement des textes authentiques, qui les conduisent de Mycènes à Delphes en passant par Athènes et Olympie. L’étymologie enrichit leur français, aussi bien courant que scientifique. Il est possible de commencer le grec en troisième sans l’avoir suivi en deuxième, moyennant quelques heures de rattrapage en septembre."
+        },
+        {
+          "t": "Arts d’expression",
+          "h": "4h",
+          "r": "Deux heures d’arts d’expression, une heure de dessin et une heure de musique : cette option favorise l’épanouissement personnel, l’ouverture aux autres et la créativité. Les élèves travaillent le corps et la voix, abordent le texte théâtral, analysent l’image et des pièces de théâtre, et réalisent des spectacles. Elle est accessible à tous : il suffit d’avoir le désir et la volonté de progresser."
+        },
+        {
+          "t": "Informatique",
+          "h": "2h",
+          "r": "Ce cours aide l’élève à créer, rechercher et traiter des documents. Il apprend à maîtriser le traitement de texte et la mise en page, découvre un logiciel de présentation, effectue des recherches efficaces sur Internet, retouche des images et s’initie au tableur, des formules jusqu’aux graphiques."
+        },
+        {
+          "t": "Activités scientifiques (immersion)",
+          "h": "1h",
+          "r": "Réservée aux élèves en immersion, cette activité en français, organisée à raison de deux heures par quinzaine, complète le cours de sciences donné en néerlandais. Les élèves manipulent eux-mêmes et développent une démarche personnelle d’observation et d’expérimentation, ce qui les prépare aussi à un éventuel choix de sciences 6h en 5e."
+        }
+      ]
+    },
+    {
+      "id": "d3",
+      "code": "D3",
+      "nom": "Troisième degré",
+      "annees": "5e et 6e secondaire",
+      "colonnes": [
+        "5e et 6e années"
+      ],
+      "photo": "cours-mathematiques",
+      "intro": "Un approfondissement des options et une préparation aux études supérieures, à l'autonomie et aux projets d'avenir.",
+      "fco": [
+        [
+          "Religion",
+          "2"
+        ],
+        [
+          "Français",
+          "4"
+        ],
+        [
+          "Mathématiques",
+          "4"
+        ],
+        [
+          "Langue moderne I (néerlandais, anglais ou allemand)",
+          "4"
+        ],
+        [
+          "Histoire*",
+          "2"
+        ],
+        [
+          "Géographie*",
+          "2"
+        ],
+        [
+          "Éducation physique",
+          "2"
+        ],
+        [
+          "Sciences",
+          "3"
+        ]
+      ],
+      "total": [
+        "Total de la formation commune obligatoire",
+        "23"
+      ],
+      "note_immersion": "* Cours en immersion",
+      "blocs": [
+        {
+          "titre": "Options et activités complémentaires au troisième degré",
+          "lignes": [
+            {
+              "choix": [
+                "Latin 4h",
+                "Sciences économiques 4h",
+                "Arts d'expression 4h",
+                "Sciences 7h"
+              ],
+              "h": ""
+            },
+            {
+              "choix": [
+                "Langue moderne II — néerlandais 4h",
+                "Langue moderne II — anglais 4h",
+                "Langue moderne II — allemand 4h"
+              ],
+              "h": ""
+            },
+            {
+              "choix": [
+                "Mathématiques 6h"
+              ],
+              "h": ""
+            },
+            {
+              "choix": [
+                "Grec 2h",
+                "Math. suppl. 2h",
+                "Espagnol 2h"
+              ],
+              "h": "",
+              "activite": true
+            }
+          ],
+          "total": "6 à 12h",
+          "notes": []
+        }
+      ],
+      "regles": [
+        "Un seul choix sur la même ligne. Minimum légal : 28 heures.",
+        "Maximum légal : 32 heures. Possibilité de 34, 35 voire 36 périodes moyennant conditions."
+      ],
+      "a_valider": "Le PDF renvoie à des conditions « ci-après » pour dépasser 32 périodes, mais elles ne figurent dans aucun des documents transmis.",
+      "descriptions": [
+        {
+          "t": "Mathématiques",
+          "h": "6h",
+          "r": "Cette option s’adresse aux élèves qui se destinent aux sciences, à la technologie ou à la recherche, et elle ouvre la voie à des études comme l’ingénierie, la médecine, les sciences ou l’économie. Les chapitres sont plus approfondis et le rythme plus soutenu qu’en mathématiques 4h, ce qui demande motivation et travail régulier. Les élèves peuvent y ajouter deux heures de préparation aux études supérieures, nourries d’exercices tirés des examens d’admission."
+        },
+        {
+          "t": "Sciences",
+          "h": "7h",
+          "r": "Deux heures de biologie, deux heures de physique, deux heures de chimie et une heure d’activités scientifiques donnent des bases solides pour des études supérieures à caractère scientifique. Du fonctionnement du corps humain à la génétique, des forces fondamentales à la relativité, des solutions aqueuses aux réactions d’oxydoréduction, les élèves suivent les fils conducteurs de la démarche scientifique. Manipulations, expériences et participation à des concours complètent la formation."
+        },
+        {
+          "t": "Espagnol",
+          "h": "2h",
+          "r": "Ce cours part de zéro mais progresse rapidement, avec des élèves motivés qui ont choisi une langue supplémentaire. Ils apprennent à s’exprimer et à comprendre l’espagnol dans des situations de la vie quotidienne, et découvrent la culture espagnole et hispano-américaine à travers des textes, des chansons et des films. Avec deux heures par semaine, la régularité et le travail à domicile sont essentiels."
+        },
+        {
+          "t": "Langues anciennes (latin, grec)",
+          "h": "4h / 2h",
+          "r": "Après plusieurs années d’apprentissage de la langue, les élèves de 5e et de 6e lisent enfin les grands auteurs de l’Antiquité : Homère, Sophocle, Virgile, Cicéron, Sénèque… La traduction développe une méthode rigoureuse d’observation, d’analyse et de synthèse appliquée à des textes profondément humains, qui aiguise l’esprit critique et la maîtrise du français. Un choix équilibré, qui laisse toutes les portes ouvertes pour la suite des études."
+        },
+        {
+          "t": "Sciences économiques",
+          "h": "4h",
+          "r": "Cette option peut se commencer en 5e sans crainte : les notions utiles des années précédentes sont reprises en détail. En 5e, les élèves étudient la croissance, sa mesure, ses moteurs et ses freins, ainsi que le système fédéral belge ; en 6e, ils abordent la microéconomie, les marchés et les échanges internationaux. Ancré dans la réalité, le cours fait dialoguer théories et actualité, en lien avec l’histoire, la géographie et les mathématiques."
+        },
+        {
+          "t": "Arts d’expression",
+          "h": "4h",
+          "r": "Théâtre, médias et cinéma sont au cœur de cette option : interviews, journaux radio et télévisés, écriture de scénarios, tournages et analyse de films. Un cours pratique accompagne la réflexion pour développer la créativité, l’expression et l’esprit critique."
+        }
+      ]
+    }
+  ]
+}

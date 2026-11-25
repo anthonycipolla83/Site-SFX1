@@ -1,0 +1,16 @@
+{
+ "ville": [
+  {
+   "titre": "Une accessibilité optimale",
+   "texte": "Proximité immédiate de la gare centrale et de la gare du Palais, nombreuses lignes de bus, accès aisé depuis toute la région : les élèves viennent à l’école de manière autonome, sûre et efficace."
+  },
+  {
+   "titre": "Un environnement riche en opportunités",
+   "texte": "Installations sportives (piscine, halls, espaces extérieurs), lieux culturels, artistiques et citoyens, partenariats facilitant sorties pédagogiques, projets et activités."
+  },
+  {
+   "titre": "Un cadre sécurisé et encadré",
+   "texte": "Malgré sa localisation urbaine, un cadre scolaire sécurisé, structuré et adapté à la vie des élèves, avec des accès contrôlés et des espaces dédiés à l’apprentissage."
+  }
+ ]
+}

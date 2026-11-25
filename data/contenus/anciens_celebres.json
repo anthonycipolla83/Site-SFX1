@@ -1,0 +1,28 @@
+{
+ "anciens_celebres": [
+  {
+   "nom": "Jean Haust",
+   "qualite": "linguiste"
+  },
+  {
+   "nom": "Luc Hommel",
+   "qualite": "académicien"
+  },
+  {
+   "nom": "Jean-Marie Klinkenberg",
+   "qualite": "philologue"
+  },
+  {
+   "nom": "Jean-Pierre Haeck",
+   "qualite": "chef d’orchestre"
+  },
+  {
+   "nom": "Dominique Monami",
+   "qualite": "championne de tennis"
+  },
+  {
+   "nom": "Melchior Wathelet",
+   "qualite": "vice-Premier ministre"
+  }
+ ]
+}

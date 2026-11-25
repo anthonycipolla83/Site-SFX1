@@ -1,0 +1,52 @@
+{
+ "actualites": [
+  {
+   "tag": "Culture",
+   "date": "18/12/2025",
+   "titre": "Notre chorale sélectionnée au concours « Kachpatavoix »",
+   "resume": "La chorale du Collège figure parmi les écoles sélectionnées au concours organisé par l’IMEP. Les élèves participeront à une journée de travail et d’enregistrement le 12 mai à Namur.",
+   "image": "chorale-eleves",
+   "url": "https://www.facebook.com/collegesfx1/"
+  },
+  {
+   "tag": "Immersion",
+   "date": "16/11/2025",
+   "titre": "Les élèves d’immersion accueillent leurs correspondants néerlandais",
+   "resume": "Quatre jours riches en découvertes et en échanges. En février, ce sera au tour de nos élèves de découvrir l’école partenaire et de passer quatre jours à Zutphen.",
+   "image": "immersion-binome",
+   "url": "https://www.facebook.com/collegesfx1/"
+  },
+  {
+   "tag": "Sciences",
+   "date": "25/04/2025",
+   "titre": "Concours Corsica 2025 : une immersion scientifique et marine en Corse",
+   "resume": "Avec l’ULiège, nos élèves ont vécu plusieurs jours à la station de recherche Stareso : physique, pollution plastique, météo en direct, observation des espèces marines et création artistique à partir de déchets ramassés sur la plage.",
+   "image": "labo-sciences",
+   "url": "https://www.facebook.com/collegesfx1/"
+  },
+  {
+   "tag": "Culture",
+   "date": "24/03/2025",
+   "titre": "Stage intensif des Arts d’expression au Château de Courrière",
+   "resume": "Les 19, 20 et 21 mars, les élèves de 5e et 6e en option Arts d’expression ont vécu leur stage intensif annuel, un moment fort de leur option.",
+   "image": "spectacle",
+   "url": "https://www.facebook.com/collegesfx1/videos/1683329622258082/"
+  },
+  {
+   "tag": "Culture",
+   "date": "24/01/2025",
+   "titre": "Les 3e au théâtre : « Pouvoir »",
+   "resume": "Tous les élèves de 3e ont assisté à la pièce « Pouvoir » au Centre culturel de Verviers, une réflexion sur le pouvoir et la manipulation, prolongée par des ateliers en classe menés par le Centre culturel.",
+   "image": "classe-travail",
+   "url": "https://www.facebook.com/collegesfx1/posts/pfbid0wRwS5FZPNAWNqi83XLFbJmyDWHR3UXuZEgqWykbFZUhCLfgMm2m7RRdYiscSpxVBl"
+  },
+  {
+   "tag": "Immersion",
+   "date": "24/01/2025",
+   "titre": "Accueil des correspondants flamands des 1re et 2e années",
+   "resume": "Activités ludiques, soirées et nuits en famille : un échange pour sortir de sa zone de confort, vivre la langue cible et découvrir un autre système scolaire.",
+   "image": "immersion-mobiliteit",
+   "url": "https://www.facebook.com/collegesfx1/posts/pfbid0LSVFR5KVUVM7ELUAj7PRVNpFzbvghWYbMWjFp7SnFyWHU3kNrAuJGPsGLq6uetLtl"
+  }
+ ]
+}

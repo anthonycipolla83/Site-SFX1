@@ -1,0 +1,186 @@
+{
+ "tronc_commun": {
+  "_source": "Grille de référence transmise par la direction (24/11/2026), périodes hebdomadaires de 50 min.",
+  "colonnes": [
+   "S1",
+   "S2",
+   "S3"
+  ],
+  "sous_titres": [
+   "1re année · dès 2026-2027",
+   "2e année · dès 2027-2028",
+   "3e année · dès 2028-2029"
+  ],
+  "total": [
+   "Total",
+   "32",
+   "32",
+   "32",
+   "Grille de référence"
+  ],
+  "note": "Périodes hebdomadaires de 50 minutes.",
+  "options": [
+   "Latin",
+   "Mathématiques",
+   "Sciences",
+   "Sciences économiques",
+   "Langues modernes",
+   "Arts d’expression"
+  ],
+  "activites": [
+   "Informatique",
+   "Mathématiques",
+   "Grec",
+   "Espagnol"
+  ],
+  "apres": "À l’issue du premier degré, les élèves poursuivent leur parcours au Centre scolaire Saint-François-Xavier dans une structure qui combine formation commune solide, accompagnement à l’orientation et diversification progressive des apprentissages. À partir de la troisième année, tous les élèves complètent la formation commune par deux blocs d’options de 4 heures, pour un total de 8 heures hebdomadaires.",
+  "groupes": [
+   {
+    "domaine": "Français, arts et culture",
+    "cours": [
+     {
+      "cours": "Français",
+      "s1": "6",
+      "s2": "4",
+      "s3": "4",
+      "remarque": ""
+     },
+     {
+      "cours": "Langues anciennes",
+      "s1": "–",
+      "s2": "2",
+      "s3": "1",
+      "remarque": "Évaluées en interne pendant la période transitoire du CESI"
+     },
+     {
+      "cours": "Éducation culturelle et artistique",
+      "s1": "2",
+      "s2": "2",
+      "s3": "–",
+      "remarque": "Supprimée en S3"
+     }
+    ]
+   },
+   {
+    "domaine": "Langues modernes",
+    "cours": [
+     {
+      "cours": "Langue moderne I",
+      "s1": "4",
+      "s2": "3",
+      "s3": "3",
+      "remarque": "Continuité avec le primaire"
+     },
+     {
+      "cours": "Langue moderne II",
+      "s1": "–",
+      "s2": "2",
+      "s3": "3",
+      "remarque": "Débute en S2"
+     }
+    ]
+   },
+   {
+    "domaine": "Mathématiques, sciences et techniques",
+    "cours": [
+     {
+      "cours": "Mathématiques",
+      "s1": "5",
+      "s2": "4",
+      "s3": "4",
+      "remarque": ""
+     },
+     {
+      "cours": "Sciences",
+      "s1": "3",
+      "s2": "3",
+      "s3": "3",
+      "remarque": ""
+     },
+     {
+      "cours": "Formation manuelle, technique, technologique",
+      "s1": "1",
+      "s2": "1",
+      "s3": "–",
+      "remarque": "Supprimée en S3"
+     },
+     {
+      "cours": "Formation numérique",
+      "s1": "2",
+      "s2": "2",
+      "s3": "–",
+      "remarque": "Supprimée en S3"
+     }
+    ]
+   },
+   {
+    "domaine": "Sciences humaines, philosophie et citoyenneté, religion ou morale",
+    "cours": [
+     {
+      "cours": "Formation historique, géographique, économique et sociale",
+      "s1": "4",
+      "s2": "4",
+      "s3": "4",
+      "remarque": ""
+     },
+     {
+      "cours": "Religion / morale et philosophie et citoyenneté",
+      "s1": "2",
+      "s2": "2",
+      "s3": "2",
+      "remarque": ""
+     }
+    ]
+   },
+   {
+    "domaine": "Éducation physique, bien-être et santé",
+    "cours": [
+     {
+      "cours": "Éducation physique et à la santé",
+      "s1": "3",
+      "s2": "3",
+      "s3": "2",
+      "remarque": "Réduite d’une période en S3"
+     }
+    ]
+   },
+   {
+    "domaine": "Apprendre à s’orienter",
+    "cours": [
+     {
+      "cours": "Domaines d’orientation (2 × 3 périodes)",
+      "s1": "–",
+      "s2": "–",
+      "s3": "6",
+      "remarque": "Chaque domaine : 1 période théorique + 2 pratiques"
+     }
+    ]
+   }
+  ],
+  "immersion": [
+   {
+    "cours": "Langue moderne I",
+    "annees": [
+     "S1",
+     "S2",
+     "S3"
+    ]
+   },
+   {
+    "cours": "Formation historique, géographique, économique et sociale",
+    "annees": [
+     "S1",
+     "S2",
+     "S3"
+    ]
+   },
+   {
+    "cours": "Sciences",
+    "annees": [
+     "S2",
+     "S3"
+    ]
+   }
+  ]
+ }
+}

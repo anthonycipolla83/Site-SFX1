@@ -1,0 +1,21 @@
+# SFX1 — déploiement automatique depuis le dépôt GitHub (sources)
+# À chaque modification (via l'administration ou un développeur), Netlify reconstruit le site.
+[build]
+  command = "pip install -r requirements.txt && python build.py public"
+  publish = "public"
+
+[build.environment]
+  PYTHON_VERSION = "3.13"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Robots-Tag = "noindex, nofollow"

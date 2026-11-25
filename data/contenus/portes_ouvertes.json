@@ -1,0 +1,17 @@
+{
+ "portes_ouvertes": {
+  "date_iso": "2027-01-30T09:00:00+01:00",
+  "date_txt": "Samedi 30 janvier 2027",
+  "creneaux": [
+   "9h",
+   "11h",
+   "14h",
+   "16h"
+  ],
+  "affichage_debut": "2026-11-24",
+  "affichage_fin": "2027-01-31",
+  "inscription_url": "",
+  "inscription_note": "Inscription obligatoire",
+  "reservation_ouverte": false
+ }
+}

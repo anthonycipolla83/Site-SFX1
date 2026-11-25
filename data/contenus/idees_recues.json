@@ -1,0 +1,24 @@
+{
+ "idees_recues": [
+  {
+   "q": "Une école en centre-ville, c’est risqué ?",
+   "r": "Le centre-ville est avant tout un atout : synergies avec les infrastructures sportives, culturelles et éducatives, accessibilité optimale à deux pas de la gare et de plusieurs lignes de bus, une école ouverte sur son environnement.",
+   "ico": "🏙️"
+  },
+  {
+   "q": "SFX1, une école élitiste ?",
+   "r": "L’excellence n’est pas un privilège réservé à quelques-uns, mais un engagement envers chaque élève : offrir à chacun les moyens de devenir la meilleure version de lui-même.",
+   "ico": "🎓"
+  },
+  {
+   "q": "Le Collège favoriserait l’entre-soi ?",
+   "r": "Nous cultivons l’ouverture, l’esprit critique et la curiosité : culture et arts, voyages et projets, sport et dépassement de soi, activités innovantes et pédagogies actives.",
+   "ico": "🌍"
+  },
+  {
+   "q": "L’immersion, c’est compliqué ?",
+   "r": "Grâce à une méthode progressive et un accompagnement attentif, l’immersion est ouverte à tous, y compris aux élèves qui n’ont jamais étudié le néerlandais : de 8 à 11 heures de cours en immersion par semaine selon l’année, cours de néerlandais compris, des échanges linguistiques et culturels.",
+   "ico": "💬"
+  }
+ ]
+}

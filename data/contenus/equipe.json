@@ -1,0 +1,21 @@
+{
+ "equipe": [
+  {
+   "role": "Directeur",
+   "nom": "Anthony Cipolla"
+  },
+  {
+   "role": "Directrices adjointes",
+   "nom": "Giovannina Fornieri et Estelle De Poerck"
+  },
+  {
+   "role": "Conseiller principal d’éducation",
+   "nom": "Quentin Fransolet"
+  },
+  {
+   "role": "Gestionnaire économe · bâtiments et réservations",
+   "nom": "Bernard Goedseels",
+   "telephone": "087 39 39 10"
+  }
+ ]
+}

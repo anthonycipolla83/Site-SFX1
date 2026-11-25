@@ -1,0 +1,81 @@
+{
+ "dispositifs": [
+  "titre",
+  "texte",
+  "icone"
+ ],
+ "infos_pratiques": [
+  "titre",
+  "points",
+  "icone"
+ ],
+ "ville": [
+  "titre",
+  "texte"
+ ],
+ "engagements": [
+  "titre",
+  "texte"
+ ],
+ "equipe": [
+  "role",
+  "nom",
+  "telephone"
+ ],
+ "pourquoi": [
+  "icone",
+  "titre",
+  "texte"
+ ],
+ "histoire_courte": [
+  "annee",
+  "texte"
+ ],
+ "anciens_celebres": [
+  "nom",
+  "qualite"
+ ],
+ "immersion_v2.annees": [
+  "annee",
+  "precision",
+  "detail",
+  "total"
+ ],
+ "immersion_v2.langues": [
+  "titre",
+  "texte"
+ ],
+ "fondamental.contacts": [
+  "icone",
+  "role",
+  "nom",
+  "telephone",
+  "email"
+ ],
+ "fondamental.h_mat": [
+  "icone",
+  "heure",
+  "texte"
+ ],
+ "fondamental.h_prim": [
+  "icone",
+  "heure",
+  "texte"
+ ],
+ "fondamental.projets": [
+  "icone",
+  "titre",
+  "texte"
+ ],
+ "tronc_commun.groupes": [
+  "domaine",
+  "cours"
+ ],
+ "tronc_commun.groupes.cours": [
+  "cours",
+  "s1",
+  "s2",
+  "s3",
+  "remarque"
+ ]
+}

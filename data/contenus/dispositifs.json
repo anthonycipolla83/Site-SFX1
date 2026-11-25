@@ -1,0 +1,44 @@
+{
+ "dispositifs": [
+  {
+   "titre": "Co-enseignement",
+   "texte": "Premier degré : deux enseignants pour mieux différencier, soutenir et valoriser chaque élève.",
+   "icone": "👥"
+  },
+  {
+   "titre": "Accompagnement personnalisé",
+   "texte": "Suivi individuel, aide à la méthode de travail et à l’organisation.",
+   "icone": "🧭"
+  },
+  {
+   "titre": "École des devoirs",
+   "texte": "Encadrement structuré du travail scolaire dans un cadre rassurant.",
+   "icone": "📚"
+  },
+  {
+   "titre": "Tutorat entre élèves",
+   "texte": "Aide assurée par des élèves plus âgés, favorisant entraide et solidarité.",
+   "icone": "🤝"
+  },
+  {
+   "titre": "Coaching scolaire",
+   "texte": "Accompagnement par une coach scolaire : motivation, gestion du stress, confiance en soi.",
+   "icone": "💬"
+  },
+  {
+   "titre": "PIA",
+   "texte": "Adaptations et objectifs personnalisés pour répondre aux besoins spécifiques.",
+   "icone": "🎯"
+  },
+  {
+   "titre": "Éducateurs référents",
+   "texte": "Présence quotidienne, écoute, médiation et suivi éducatif.",
+   "icone": "🛡️"
+  },
+  {
+   "titre": "Centre PMS",
+   "texte": "Soutien psychologique, social et aide à l’orientation.",
+   "icone": "🌱"
+  }
+ ]
+}

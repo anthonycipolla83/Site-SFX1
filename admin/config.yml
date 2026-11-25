@@ -1,0 +1,360 @@
+# Espace d'administration SFX1 (Sveltia CMS, compatible Decap CMS)
+# Chaque modification enregistrée met à jour le dépôt ; le site est reconstruit automatiquement.
+backend:
+  name: github
+  repo: anthonycipolla83/Site-SFX1   # dépôt GitHub du site
+  branch: main
+  # Option Netlify : remplacer par  name: git-gateway  (connexion par email via Netlify)
+
+locale: fr
+site_url: https://www.sfx1.org
+display_url: https://www.sfx1.org
+logo_url: /img/logo-sfxun.jpg
+media_folder: img/uploads
+public_folder: /img/uploads
+
+collections:
+  - name: contenus
+    label: "Contenus du site"
+    editor: {preview: false}
+    files:
+      - name: actualites
+        label: "Actualités"
+        file: data/contenus/actualites.json
+        fields:
+          - name: actualites
+            label: "Actualités (la première de la liste est la plus récente)"
+            widget: list
+            summary: "{{fields.date}} — {{fields.titre}}"
+            fields:
+              - {name: titre, label: Titre, widget: string}
+              - {name: date, label: "Date (JJ/MM/AAAA)", widget: string}
+              - {name: tag, label: Catégorie, widget: string, hint: "Ex. Culture, Sciences, Immersion, Sport…"}
+              - {name: resume, label: Résumé, widget: text}
+              - {name: image, label: Photo, widget: image, required: false, hint: "Déposez une photo (JPEG ou PNG, idéalement 1600 px de large). Vérifiez les autorisations de droit à l’image pour les élèves."}
+              - {name: url, label: "Lien (publication Facebook, article…)", widget: string, required: false}
+
+      - name: portes_ouvertes
+        label: "Portes ouvertes"
+        file: data/contenus/portes_ouvertes.json
+        fields:
+          - name: portes_ouvertes
+            label: "Portes ouvertes"
+            widget: object
+            fields:
+              - {name: date_txt, label: "Date affichée", widget: string, hint: "Ex. Samedi 30 janvier 2027"}
+              - {name: date_iso, label: "Date et heure du compte à rebours", widget: string, hint: "Format 2027-01-30T09:00:00+01:00"}
+              - {name: creneaux, label: "Créneaux", widget: list, field: {name: creneau, label: Créneau, widget: string}}
+              - {name: affichage_debut, label: "Afficher l’onglet à partir du", widget: string, hint: "AAAA-MM-JJ"}
+              - {name: affichage_fin, label: "Masquer l’onglet après le", widget: string, hint: "AAAA-MM-JJ"}
+              - {name: reservation_ouverte, label: "Réservation ouverte (active le bouton « Je réserve mon créneau de visite »)", widget: boolean, required: false}
+              - {name: inscription_url, label: "Lien de réservation des créneaux", widget: string, required: false, hint: "Adresse de l’application de réservation. Laisser vide tant qu’elle n’est pas prête."}
+              - {name: inscription_note, label: "Remarque", widget: text, required: false}
+
+      - name: documents
+        label: "Documents (PDF)"
+        file: data/contenus/documents.json
+        fields:
+          - name: documents
+            label: "Documents"
+            widget: list
+            summary: "{{fields.g}} — {{fields.n}}"
+            fields:
+              - {name: n, label: "Nom du document", widget: string}
+              - {name: desc, label: "Précision", widget: string, required: false}
+              - {name: g, label: Rubrique, widget: select, options: ["Institutionnels", "Règlements", "Grilles · tronc commun", "Grilles · 2e degré", "Grilles · 3e degré", "Portes ouvertes"]}
+              - {name: fichier, label: "Fichier PDF (déposer la nouvelle version ici)", widget: file, required: false, media_folder: /documents/uploads, public_folder: /documents/uploads, hint: "Le fichier déposé remplace le lien ci-dessous. Il s’ouvre directement dans le navigateur."}
+              - {name: u, label: "Ou lien externe", widget: string, required: false}
+              - {name: type, label: "Type", widget: select, default: pdf, options: [{label: "PDF", value: pdf}, {label: "PDF en ligne (autre site)", value: pdf-ext}, {label: "Dossier Google Drive", value: drive}, {label: "Image", value: img}]}
+
+      - name: videos
+        label: "Vidéos"
+        file: data/contenus/videos.json
+        fields:
+          - name: videos
+            label: "Vidéos"
+            widget: list
+            summary: "{{fields.titre}}"
+            fields:
+              - {name: titre, label: Titre, widget: string}
+              - {name: resume, label: Description, widget: text}
+              - {name: fichier, label: "Fichier vidéo MP4 (hébergé sur le site)", widget: file, required: false, media_folder: /videos, public_folder: /videos, hint: "MP4, idéalement moins de 50 Mo (1080p, 2-3 minutes)."}
+              - {name: provider, label: "Ou plateforme", widget: select, required: false, options: [{label: YouTube, value: youtube}, {label: "Google Drive", value: drive}]}
+              - {name: id, label: "Identifiant YouTube ou Google Drive", widget: string, required: false}
+              - {name: image, label: "Image d’aperçu", widget: image, required: false}
+              - {name: vedette, label: "Mettre en avant", widget: boolean, required: false}
+              - {name: pages, label: "Afficher sur les pages", widget: select, multiple: true, options: [{label: Accueil, value: index}, {label: "Le Collège", value: college}, {label: Secondaire, value: secondaire}, {label: Immersion, value: immersion}, {label: "Vidéos (chaîne)", value: videos}, {label: "Vidéos récentes", value: videos-recentes}]}
+              - {name: a_valider, label: "Marquer « à valider »", widget: boolean, required: false}
+
+      - name: presse
+        label: "Dans les médias"
+        file: data/contenus/presse.json
+        fields:
+          - name: presse
+            label: "Articles et reportages"
+            widget: list
+            summary: "{{fields.date}} — {{fields.source}}"
+            fields:
+              - {name: titre, label: Titre, widget: string}
+              - {name: source, label: Média, widget: string}
+              - {name: date, label: "Date (JJ/MM/AAAA)", widget: string}
+              - {name: tag, label: Thème, widget: string, required: false}
+              - {name: resume, label: Résumé, widget: text}
+              - {name: url, label: Lien, widget: string}
+              - {name: video, label: "Reportage vidéo", widget: boolean, required: false}
+
+      - name: agenda
+        label: "Agenda"
+        file: data/contenus/agenda.json
+        fields:
+          - name: agenda
+            label: "Événements"
+            widget: list
+            summary: "{{fields.date}} — {{fields.titre}}"
+            fields:
+              - {name: titre, label: Titre, widget: string}
+              - {name: date, label: Date, widget: string}
+              - {name: public, label: Public, widget: string, required: false}
+              - {name: resume, label: Description, widget: text, required: false}
+
+      - name: pourquoi
+        label: "Accueil · Pourquoi choisir SFX1 ?"
+        file: data/contenus/pourquoi.json
+        fields:
+          - name: pourquoi
+            label: "Arguments"
+            widget: list
+            summary: "{{fields.titre}}"
+            fields:
+              - {name: icone, label: "Icône (émoji)", widget: string}
+              - {name: titre, label: Titre, widget: string}
+              - {name: texte, label: Texte, widget: text}
+
+      - name: idees_recues
+        label: "Accueil · Idées reçues"
+        file: data/contenus/idees_recues.json
+        fields:
+          - name: idees_recues
+            label: "Idées reçues"
+            widget: list
+            summary: "{{fields.q}}"
+            fields:
+              - {name: ico, label: "Icône (émoji)", widget: string}
+              - {name: q, label: "Idée reçue", widget: string}
+              - {name: r, label: Réponse, widget: text}
+
+      - name: tronc_commun
+        label: "Grille du tronc commun"
+        file: data/contenus/tronc_commun.json
+        fields:
+          - name: tronc_commun
+            label: "Tronc commun"
+            widget: object
+            fields:
+              - {name: colonnes, label: "Colonnes", widget: list, field: {name: c, label: Année, widget: string}}
+              - {name: sous_titres, label: "Sous-titres des colonnes", widget: list, field: {name: s, label: "Sous-titre", widget: string}}
+              - name: groupes
+                label: "Domaines et cours"
+                widget: list
+                summary: "{{fields.domaine}}"
+                fields:
+                  - {name: domaine, label: Domaine, widget: string}
+                  - name: cours
+                    label: Cours
+                    widget: list
+                    summary: "{{fields.cours}} : {{fields.s1}} / {{fields.s2}} / {{fields.s3}}"
+                    fields:
+                      - {name: cours, label: Cours, widget: string}
+                      - {name: s1, label: S1, widget: string}
+                      - {name: s2, label: S2, widget: string}
+                      - {name: s3, label: S3, widget: string}
+                      - {name: remarque, label: "Remarque (non affichée)", widget: string, required: false}
+              - {name: total, label: "Ligne Total", widget: list, field: {name: t, label: Valeur, widget: string}}
+              - name: immersion
+                label: "Cours en immersion (surlignés en jaune)"
+                widget: list
+                summary: "{{fields.cours}}"
+                fields:
+                  - {name: cours, label: "Nom exact du cours", widget: string}
+                  - {name: annees, label: Années, widget: select, multiple: true, options: [S1, S2, S3]}
+              - {name: options, label: "Options actuelles", widget: list, field: {name: o, label: Option, widget: string}}
+              - {name: activites, label: "Activités", widget: list, field: {name: a, label: Activité, widget: string}}
+              - {name: apres, label: "Texte « Après le tronc commun »", widget: text}
+              - {name: note, label: "Note", widget: string, required: false}
+              - {name: _source, label: "Source", widget: string, required: false}
+
+      - name: immersion_v2
+        label: "Immersion en néerlandais"
+        file: data/contenus/immersion_v2.json
+        fields:
+          - name: immersion_v2
+            label: "Immersion"
+            widget: object
+            fields:
+              - {name: intro, label: Introduction, widget: text}
+              - name: annees
+                label: "Heures par année"
+                widget: list
+                summary: "{{fields.annee}} — {{fields.total}}"
+                fields:
+                  - {name: annee, label: Année, widget: string}
+                  - {name: precision, label: "Précision (ex. dès 2027-2028)", widget: string, required: false}
+                  - {name: detail, label: "Détail des cours", widget: string}
+                  - {name: total, label: Total, widget: string}
+              - {name: note_heures, label: "Note sur les heures", widget: text, required: false}
+              - {name: evaluation, label: Évaluation, widget: text}
+              - {name: atouts, label: Atouts, widget: list, field: {name: a, label: Atout, widget: string}}
+              - {name: atouts_fb, label: "Atouts (réseaux sociaux)", widget: list, field: {name: a, label: Atout, widget: string}}
+              - {name: activites, label: Activités, widget: list, field: {name: a, label: Activité, widget: text}}
+              - name: langues
+                label: "Les langues à SFX1"
+                widget: list
+                fields:
+                  - {name: titre, label: Titre, widget: string}
+                  - {name: texte, label: Texte, widget: text}
+
+      - name: fondamental
+        label: "École fondamentale"
+        file: data/contenus/fondamental.json
+        fields:
+          - name: fondamental
+            label: "École fondamentale"
+            widget: object
+            fields:
+              - name: contacts
+                label: Contacts
+                widget: list
+                summary: "{{fields.role}} — {{fields.nom}}"
+                fields:
+                  - {name: icone, label: "Icône (émoji)", widget: string}
+                  - {name: role, label: Fonction, widget: string}
+                  - {name: nom, label: Nom, widget: string}
+                  - {name: telephone, label: Téléphone, widget: string}
+                  - {name: email, label: Email, widget: string, required: false}
+              - name: h_mat
+                label: "Journée en maternelle"
+                widget: list
+                summary: "{{fields.heure}} {{fields.texte}}"
+                fields: &horaire
+                  - {name: icone, label: "Icône (émoji)", widget: string}
+                  - {name: heure, label: Heure, widget: string, required: false}
+                  - {name: texte, label: Moment, widget: string}
+              - name: h_prim
+                label: "Journée en primaire"
+                widget: list
+                summary: "{{fields.heure}} {{fields.texte}}"
+                fields: *horaire
+              - name: projets
+                label: Projets
+                widget: list
+                summary: "{{fields.titre}}"
+                fields:
+                  - {name: icone, label: "Icône (émoji)", widget: string}
+                  - {name: titre, label: Titre, widget: string}
+                  - {name: texte, label: Texte, widget: text}
+              - {name: _source, label: Source, widget: string, required: false}
+
+      - name: equipe
+        label: "Équipe de direction"
+        file: data/contenus/equipe.json
+        fields:
+          - name: equipe
+            label: Équipe
+            widget: list
+            summary: "{{fields.role}} — {{fields.nom}}"
+            fields:
+              - {name: role, label: Fonction, widget: string}
+              - {name: nom, label: Nom, widget: string}
+              - {name: telephone, label: "Ligne directe", widget: string, required: false}
+
+      - name: dispositifs
+        label: "Dispositifs d’accompagnement"
+        file: data/contenus/dispositifs.json
+        fields:
+          - name: dispositifs
+            label: Dispositifs
+            widget: list
+            summary: "{{fields.titre}}"
+            fields:
+              - {name: icone, label: "Icône (émoji)", widget: string}
+              - {name: titre, label: Titre, widget: string}
+              - {name: texte, label: Texte, widget: text}
+
+      - name: histoire_courte
+        label: "Histoire · repères (page Le Collège)"
+        file: data/contenus/histoire_courte.json
+        fields:
+          - name: histoire_courte
+            label: Repères
+            widget: list
+            summary: "{{fields.annee}} — {{fields.texte}}"
+            fields:
+              - {name: annee, label: Année, widget: string}
+              - {name: texte, label: Texte, widget: string}
+
+      - name: moments
+        label: "Histoire · moments clés"
+        file: data/contenus/moments.json
+        fields:
+          - name: moments
+            label: "Moments clés"
+            widget: list
+            summary: "{{fields.y}} — {{fields.t}}"
+            fields:
+              - {name: y, label: Année, widget: string}
+              - {name: t, label: Titre, widget: string}
+              - {name: r, label: Texte, widget: text}
+              - {name: img, label: Photo, widget: image}
+              - {name: cap, label: Légende, widget: string}
+
+      - name: anciens_celebres
+        label: "Histoire · anciens élèves"
+        file: data/contenus/anciens_celebres.json
+        fields:
+          - name: anciens_celebres
+            label: "Anciens élèves"
+            widget: list
+            summary: "{{fields.nom}}"
+            fields:
+              - {name: nom, label: Nom, widget: string}
+              - {name: qualite, label: Qualité, widget: string}
+
+      - name: agenda_app
+        label: "Agenda (application de l’école)"
+        file: data/contenus/agenda_app.json
+        fields:
+          - name: agenda_app
+            label: Agenda
+            widget: object
+            fields:
+              - {name: url, label: "Adresse de l’agenda en ligne", widget: string, required: false, hint: "Laisser vide tant que l’agenda n’est pas prêt."}
+              - {name: integration, label: "Afficher l’agenda directement dans la page", widget: boolean, required: false, hint: "Sinon, seul un bouton « Ouvrir l’agenda » est affiché."}
+              - {name: texte, label: "Texte d’introduction", widget: text}
+
+      - name: instagram
+        label: "Réseaux sociaux · Instagram"
+        file: data/contenus/instagram.json
+        fields:
+          - {name: instagram, label: "Adresse de la page Instagram", widget: string, required: false, hint: "Ex. https://www.instagram.com/… — laisser vide pour masquer."}
+
+      - name: options_site
+        label: "Options du site"
+        file: data/contenus/options_site.json
+        fields:
+          - name: options_site
+            label: Options
+            widget: object
+            fields:
+              - {name: afficher_videos, label: "Afficher les vidéos (accueil, pages et menu)", widget: boolean, required: false}
+
+      - name: formulaire
+        label: "Formulaire de contact"
+        file: data/contenus/formulaire.json
+        fields:
+          - name: formulaire
+            label: Formulaire
+            widget: object
+            fields:
+              - {name: destinataire, label: "Adresse qui reçoit les messages", widget: string}
+              - {name: sujets, label: "Sujets proposés", widget: list, field: {name: s, label: Sujet, widget: string}}
+              - {name: mode, label: "Hébergement", widget: select, options: [{label: Netlify, value: netlify}, {label: OVH, value: ovh}]}

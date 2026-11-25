@@ -1,0 +1,67 @@
+{
+ "periodes": [
+  {
+   "t": "L’arrivée des jésuites",
+   "p": "1845-1855",
+   "img": "histoire-place-verte-1830",
+   "cap": "La place Verte vers 1830",
+   "r": "Dans une ville industrielle en plein essor, les jésuites s’installent à Verviers malgré une vive opposition. Le père Bellefroid, premier jésuite de la ville, s’épuise au service des fidèles et meurt en 1847. En 1855, l’évêque de Liège obtient enfin la création d’un collège : immeubles et terrain sont achetés, entre le centre-ville et la ligne de chemin de fer."
+  },
+  {
+   "t": "Naissance du Collège",
+   "p": "1855-1881",
+   "img": "histoire-maquette-college",
+   "cap": "La maquette du Collège au XIXe siècle",
+   "r": "La première rentrée a lieu le 30 octobre 1855. Les premiers bâtiments de classes s’élèvent dès 1857-1858, une nouvelle aile suit en 1861, et la création d’une rhétorique fait du Collège un établissement complet. Les effectifs grimpent : 231 élèves en 1860-1861, près de 400 en 1879. La maison des pères et l’église du Sacré-Cœur complètent l’ensemble."
+  },
+  {
+   "t": "Des hommes au caractère bien trempé",
+   "p": "1882-1912",
+   "img": "histoire-eglise-sacre-coeur",
+   "cap": "L’église du Sacré-Cœur : l’intérieur",
+   "r": "La rue de Rome prend son visage définitif. Le Collège rayonne sur la ville : Cercle littéraire, Société verviétoise d’archéologie et d’histoire, lancement du « Courrier du Soir », œuvres sociales. En 1911, les rhétoriciens partent pour la première fois en retraite, une tradition durable."
+  },
+  {
+   "t": "Dans la tourmente",
+   "p": "1914-1918",
+   "img": "",
+   "cap": "",
+   "r": "Sous l’occupation, le Collège poursuit sa mission et crée l’« Assistance discrète » pour aider les familles éprouvées. Plusieurs pères sont arrêtés pour leur engagement patriotique. Une plaque rappelle le souvenir des anciens élèves morts pendant la guerre."
+  },
+  {
+   "t": "Collège et modernité",
+   "p": "1918-1938",
+   "img": "histoire-croquet-1895",
+   "cap": "Le jeu de croquet dans la cour vers 1895",
+   "r": "La population scolaire double entre 1920 et 1936. Malgré l’incendie de 1925, la vie du Collège foisonne : conférences, cercles, et même « Radio-Verviers », animée par le père Verreux. Le porche et la cour sont rénovés dans les années trente."
+  },
+  {
+   "t": "Des hommes d’action",
+   "p": "1938-1945",
+   "img": "",
+   "cap": "",
+   "r": "Pendant la Seconde Guerre mondiale, sous le rectorat du père Georges Laurent, le Collège vit bombardements, réquisitions et otages. Des pères et des anciens s’engagent dans la résistance, comme le père René Lange. Les cours reprennent en janvier 1945."
+  },
+  {
+   "t": "L’heure du changement",
+   "p": "1945-1980",
+   "img": "histoire-cour-annees-60",
+   "cap": "La cour de récréation dans les années 60",
+   "r": "Nouvelles classes pour l’école primaire (1951), centre d’éducation cinématographique, nouvelle salle (1956), salle de gymnastique (1968), section scientifique (1969), chorale SFX… En 1977, un complexe scolaire moderne remplace le bâtiment d’origine."
+  },
+  {
+   "t": "Un Collège pour demain",
+   "p": "1980-2005",
+   "img": "histoire-batiments-1977",
+   "cap": "Les nouveaux bâtiments de 1977",
+   "r": "En 1978, les jésuites confient la direction aux laïcs : Jean-Marie Delobel devient le premier directeur laïc d’un collège jésuite en Belgique. La mixité arrive en 1980, le Gospel naît, l’école fondamentale s’installe dans un nouveau bâtiment (1988), l’informatique et Internet entrent au Collège, un hall de sport ouvre en 2002 et l’école maternelle en 2004."
+  },
+  {
+   "t": "Aujourd’hui",
+   "p": "2005 →",
+   "img": "cour-automne",
+   "cap": "La cour aujourd’hui",
+   "r": "Après ses 150 ans, le Collège poursuit son chemin : immersion en néerlandais, accompagnement personnalisé, projet numérique, puis 170 ans fêtés en 2025 avec une capsule temporelle. En 2026, la 1re année devient la S1 du tronc commun."
+  }
+ ]
+}

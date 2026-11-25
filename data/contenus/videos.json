@@ -1,0 +1,152 @@
+{
+ "videos": [
+  {
+   "id": "xX012lfmXlk",
+   "titre": "Développer le maximum des possibilités de chacun",
+   "resume": "« Mener chacun à sa propre excellence » : le projet pédagogique du Collège présenté en vidéo.",
+   "image": "classe-autonomie",
+   "vedette": true,
+   "provider": "youtube",
+   "pages": [
+    "index",
+    "college",
+    "videos"
+   ]
+  },
+  {
+   "id": "CRfuW6Iyc5A",
+   "provider": "youtube",
+   "titre": "L'immersion en néerlandais",
+   "resume": "Découvrir le parcours d'immersion du Collège : apprendre certaines matières en néerlandais, dès la 1re secondaire.",
+   "image": "immersion-mobiliteit",
+   "pages": [
+    "index",
+    "immersion",
+    "videos"
+   ],
+   "theme": "Immersion"
+  },
+  {
+   "id": "RzEdH7txbiA",
+   "provider": "youtube",
+   "titre": "Un accompagnement personnalisé",
+   "resume": "Comment le Collège accompagne chaque élève dans ses apprentissages et l'aide à progresser à son rythme.",
+   "image": "classe-travail",
+   "pages": [
+    "secondaire",
+    "videos"
+   ],
+   "theme": "Pédagogie"
+  },
+  {
+   "id": "tow8qHomtWM",
+   "titre": "Visite du Collège",
+   "resume": "Découvrez les bâtiments et quelques lieux marquants de notre établissement.",
+   "image": "cour-batiments",
+   "provider": "youtube",
+   "pages": [
+    "index",
+    "videos"
+   ]
+  },
+  {
+   "id": "goIVP71yTwE",
+   "titre": "Vidéo de présentation du Collège",
+   "resume": "Deuxième vidéo intégrée sur la page d'accueil du Google Sites précédent.",
+   "image": "jardin-statue",
+   "provider": "youtube",
+   "pages": [
+    "videos"
+   ]
+  },
+  {
+   "id": "1omNP7mgjRzBirdDlI7scIHwwsvoep6bk",
+   "provider": "drive",
+   "titre": "Vidéo récente n° 1 — titre à préciser",
+   "resume": "Vidéo transmise par le Collège. Le titre, la description et l'emplacement restent à préciser. Le fichier doit être partagé « Tous les utilisateurs disposant du lien » pour être lu sur le site public.",
+   "image": "rencontre",
+   "pages": [
+    "videos-recentes"
+   ],
+   "a_valider": true,
+   "recente": true
+  },
+  {
+   "id": "1oIt_gsZR4wzvVW5ILuhUROX_8vW2ODPv",
+   "provider": "drive",
+   "titre": "Vidéo récente n° 2 — titre à préciser",
+   "resume": "Vidéo transmise par le Collège. Le titre, la description et l'emplacement restent à préciser. Le fichier doit être partagé « Tous les utilisateurs disposant du lien » pour être lu sur le site public.",
+   "image": "labo-sciences",
+   "pages": [
+    "videos-recentes"
+   ],
+   "a_valider": true
+  },
+  {
+   "id": "1b8_ViLO1gxcBkjNv_YE8PnD9wnXIBez8",
+   "provider": "drive",
+   "titre": "Vidéo récente n° 3 — titre à préciser",
+   "resume": "Vidéo transmise par le Collège. Le titre, la description et l'emplacement restent à préciser. Le fichier doit être partagé « Tous les utilisateurs disposant du lien » pour être lu sur le site public.",
+   "image": "jardin-statue",
+   "pages": [
+    "videos-recentes"
+   ],
+   "a_valider": true
+  },
+  {
+   "id": "17hMmWYpSsTJXJdgBNZzmSpuSq7RAE8-m",
+   "provider": "drive",
+   "titre": "Vidéo récente n° 4 — titre à préciser",
+   "resume": "Vidéo transmise par le Collège. Le titre, la description et l'emplacement restent à préciser. Le fichier doit être partagé « Tous les utilisateurs disposant du lien » pour être lu sur le site public.",
+   "image": "celebration-chorale",
+   "pages": [
+    "videos-recentes"
+   ],
+   "a_valider": true
+  },
+  {
+   "id": "1mJvt9JaXdCzO4IVV9TJhiLaQARqD9_qC",
+   "provider": "drive",
+   "titre": "Vidéo récente n° 5 — titre à préciser",
+   "resume": "Vidéo transmise par le Collège. Le titre, la description et l'emplacement restent à préciser. Le fichier doit être partagé « Tous les utilisateurs disposant du lien » pour être lu sur le site public.",
+   "image": "spectacle",
+   "pages": [
+    "videos-recentes"
+   ],
+   "a_valider": true
+  },
+  {
+   "id": "17dIxoD1vmX0IIX9BNOvYSckA8HU3a-Tx",
+   "provider": "drive",
+   "titre": "Vidéo récente n° 6 — titre à préciser",
+   "resume": "Vidéo transmise par le Collège. Le titre, la description et l'emplacement restent à préciser. Le fichier doit être partagé « Tous les utilisateurs disposant du lien » pour être lu sur le site public.",
+   "image": "chorale-eleves",
+   "pages": [
+    "videos-recentes"
+   ],
+   "a_valider": true
+  },
+  {
+   "id": "1Ntk116uqzw7xV8Jn_yWvqoJqj-CrFtzU",
+   "provider": "drive",
+   "titre": "Vidéo récente n° 7 — titre à préciser",
+   "resume": "Vidéo transmise par le Collège. Le titre, la description et l'emplacement restent à préciser. Le fichier doit être partagé « Tous les utilisateurs disposant du lien » pour être lu sur le site public.",
+   "image": "velo-cour",
+   "pages": [
+    "videos-recentes"
+   ],
+   "a_valider": true
+  },
+  {
+   "id": "1sHg-YDQg1pxmnd3n_ZHkL5DDdU2WHAWT",
+   "provider": "drive",
+   "titre": "Vidéo récente n° 8 — titre à préciser",
+   "resume": "Vidéo transmise par le Collège. Le titre, la description et l'emplacement restent à préciser. Le fichier doit être partagé « Tous les utilisateurs disposant du lien » pour être lu sur le site public.",
+   "image": "cour-automne",
+   "pages": [
+    "videos-recentes"
+   ],
+   "a_valider": true
+  }
+ ]
+}

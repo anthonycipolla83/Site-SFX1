@@ -1,0 +1,39 @@
+{
+ "moments": [
+  {
+   "y": "1855",
+   "t": "La naissance",
+   "r": "Les jésuites ouvrent le Collège le 30 octobre 1855. Les premiers bâtiments sortent de terre dès 1857.",
+   "img": "histoire-maquette-college",
+   "cap": "La maquette du Collège au XIXe siècle"
+  },
+  {
+   "y": "1895",
+   "t": "Un collège qui rayonne",
+   "r": "Église du Sacré-Cœur, cercles, presse, sciences : le Collège devient un acteur de la vie verviétoise.",
+   "img": "histoire-croquet-1895",
+   "cap": "Le jeu de croquet dans la cour vers 1895"
+  },
+  {
+   "y": "1960",
+   "t": "L’heure du changement",
+   "r": "Nouvelles classes, salle de gymnastique, section scientifique : le Collège s’agrandit et se modernise.",
+   "img": "histoire-cour-annees-60",
+   "cap": "La cour dans les années 60"
+  },
+  {
+   "y": "1977-1980",
+   "t": "Un collège pour demain",
+   "r": "Nouveaux bâtiments, premier directeur laïc d’un collège jésuite belge, puis arrivée des premières filles.",
+   "img": "histoire-batiments-1977",
+   "cap": "Les nouveaux bâtiments de 1977"
+  },
+  {
+   "y": "2025",
+   "t": "170 ans, et toujours en mouvement",
+   "r": "Immersion, accompagnement personnalisé, numérique, S1 du tronc commun : une école tournée vers l’avenir.",
+   "img": "cour-automne",
+   "cap": "La cour aujourd’hui"
+  }
+ ]
+}

@@ -1,0 +1,182 @@
+{
+ "cour-automne": {
+  "w": 1800,
+  "h": 1012,
+  "sizes": [
+   1600,
+   800
+  ]
+ },
+ "cour-batiments": {
+  "w": 1800,
+  "h": 1195,
+  "sizes": [
+   1600,
+   800
+  ]
+ },
+ "jardin-statue": {
+  "w": 1800,
+  "h": 1153,
+  "sizes": [
+   1600,
+   800
+  ]
+ },
+ "celebration-chorale": {
+  "w": 1800,
+  "h": 1195,
+  "sizes": [
+   1600,
+   800
+  ]
+ },
+ "chorale-eleves": {
+  "w": 1800,
+  "h": 740,
+  "sizes": [
+   1600,
+   800
+  ]
+ },
+ "velo-cour": {
+  "w": 1800,
+  "h": 1195,
+  "sizes": [
+   1600,
+   800
+  ]
+ },
+ "immersion-mobiliteit": {
+  "w": 937,
+  "h": 1250,
+  "sizes": [
+   937,
+   800
+  ]
+ },
+ "classe-autonomie": {
+  "w": 937,
+  "h": 1250,
+  "sizes": [
+   937,
+   800
+  ]
+ },
+ "immersion-binome": {
+  "w": 1667,
+  "h": 1250,
+  "sizes": [
+   1600,
+   800
+  ]
+ },
+ "classe-travail": {
+  "w": 1667,
+  "h": 1250,
+  "sizes": [
+   1600,
+   800
+  ]
+ },
+ "classe-nature": {
+  "w": 958,
+  "h": 818,
+  "sizes": [
+   958,
+   800
+  ]
+ },
+ "rencontre": {
+  "w": 958,
+  "h": 915,
+  "sizes": [
+   958,
+   800
+  ]
+ },
+ "spectacle": {
+  "w": 958,
+  "h": 915,
+  "sizes": [
+   958,
+   800
+  ]
+ },
+ "dessin-technique": {
+  "w": 435,
+  "h": 290,
+  "sizes": [
+   435
+  ]
+ },
+ "cours-mathematiques": {
+  "w": 516,
+  "h": 290,
+  "sizes": [
+   516
+  ]
+ },
+ "labo-sciences": {
+  "w": 435,
+  "h": 290,
+  "sizes": [
+   435
+  ]
+ },
+ "affiche-po-2027": {
+  "w": 960,
+  "h": 960,
+  "sizes": [
+   960,
+   640
+  ]
+ },
+ "histoire-place-verte-1830": {
+  "w": 1425,
+  "h": 458,
+  "sizes": [
+   1200,
+   800
+  ]
+ },
+ "histoire-maquette-college": {
+  "w": 1407,
+  "h": 1843,
+  "sizes": [
+   1200,
+   800
+  ]
+ },
+ "histoire-eglise-sacre-coeur": {
+  "w": 1398,
+  "h": 852,
+  "sizes": [
+   1200,
+   800
+  ]
+ },
+ "histoire-croquet-1895": {
+  "w": 679,
+  "h": 423,
+  "sizes": [
+   679
+  ]
+ },
+ "histoire-cour-annees-60": {
+  "w": 1407,
+  "h": 933,
+  "sizes": [
+   1200,
+   800
+  ]
+ },
+ "histoire-batiments-1977": {
+  "w": 1374,
+  "h": 931,
+  "sizes": [
+   1200,
+   800
+  ]
+ }
+}

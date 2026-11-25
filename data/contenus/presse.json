@@ -1,0 +1,62 @@
+{
+ "presse": [
+  {
+   "source": "RTL info",
+   "date": "10/01/2025",
+   "titre": "Le centre scolaire Saint-François-Xavier organise une rentrée différente",
+   "resume": "Reportage vidéo de RTL sur la semaine RCD (remédiation, consolidation, dépassement) organisée au Collège à la rentrée de janvier.",
+   "url": "https://www.rtl.be/page-videos/belgique/faits-divers/le-centre-scolaire-saint-francois-xavier-organise-une-rentree-differente/2025-01-10/video/735027",
+   "tag": "Semaine RCD",
+   "video": true
+  },
+  {
+   "source": "RTL info",
+   "date": "10/01/2025",
+   "titre": "Semaine de rentrée particulière au collège SFX1 de Verviers",
+   "resume": "L'article de RTL consacré à la semaine RCD : une rentrée de janvier organisée autrement pour les élèves.",
+   "url": "https://www.rtl.be/actu/regions/liege/semaine-de-rentree-particuliere-au-college-sfx1-de-verviers-les-eleves-nont-pas/2025-01-10/article/735006",
+   "tag": "Semaine RCD"
+  },
+  {
+   "source": "Vedia",
+   "date": "03/12/2025",
+   "titre": "Une capsule temporelle pour les 170 ans du collège SFX1",
+   "resume": "Pour les 170 ans du Collège, le jour de la Saint-François-Xavier : un quiz entre toutes les classes sur l'histoire de l'école, puis un temps de réflexion des élèves sur leur avenir.",
+   "url": "https://www.vedia.be/info/une-capsule-temporelle-pour-les-170-ans-du-college-sfx1/210239",
+   "tag": "Vie du Collège"
+  },
+  {
+   "source": "Vedia",
+   "date": "10/02/2025",
+   "titre": "SFX1 et SFX2 réunis pour une semaine jésuite",
+   "resume": "Les 2 500 élèves de SFX1 et SFX2 rassemblés au stade de Bielmont pour lancer une semaine de rencontres avec des jésuites venus de plusieurs pays.",
+   "url": "https://www.vedia.be/info/sfx1-et-sfx2-reunis-pour-une-semaine-jesuite/206186",
+   "tag": "Identité jésuite"
+  },
+  {
+   "source": "jesuites.com",
+   "date": "2025",
+   "titre": "2500 élèves rassemblés à Verviers pour une semaine jésuite",
+   "resume": "Retour sur la semaine jésuite : arts, sport et rencontres, avec les témoignages d'élèves et de professeurs, et une revue de presse.",
+   "url": "https://www.jesuites.com/2500-eleves-rassembles-a-verviers-pour-une-semaine-jesuite/",
+   "tag": "Identité jésuite"
+  },
+  {
+   "source": "L'Avenir",
+   "date": "23/05/2022",
+   "titre": "Le grand retour de la randonnée vélo de SFX1",
+   "resume": "Après deux ans d'interruption, 130 élèves de 3e secondaire repartent pour leur périple à vélo, accompagnés de professeurs et de parents.",
+   "url": "https://www.lavenir.net/regions/verviers/2022/05/23/verviers-le-grand-retour-de-la-randonnee-velo-de-sfx1-apres-deux-ans-dabsence-video-DKGGGCPYBJDMDE3ED47TCKX5PY/",
+   "tag": "Sport",
+   "payant": true
+  },
+  {
+   "source": "Vedia",
+   "date": "29/11/2019",
+   "titre": "Une Saint-Nicolas caritative à SFX 1 Verviers",
+   "resume": "Le spectacle de Saint-Nicolas des rhétos, entièrement monté par les élèves, avec une dimension solidaire.",
+   "url": "https://www.vedia.be/www/video/info/societe/une-saint-nicolas-caritative-a-sfx-1-verviers_100268_89.html",
+   "tag": "Culture"
+  }
+ ]
+}

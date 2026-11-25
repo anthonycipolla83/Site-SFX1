@@ -1,0 +1,5 @@
+# Espace d'administration : autorise l'interface Sveltia CMS (unpkg) et la connexion à GitHub
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data: https://unpkg.com; connect-src 'self' https://api.github.com https://github.com https://*.githubusercontent.com https://unpkg.com; frame-src 'self' blob:"
+  Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>

@@ -1,0 +1,76 @@
+SFX1 — VERSION DE TEST V5 (20/11/2026)
+=====================================
+
+CONTENU DE L'ARCHIVE
+- SFX1_V5_TEST/      le site prêt à tester et à publier (c'est ce dossier qu'on met en ligne)
+- SOURCES_V5/        les fichiers sources : générateur, contenus éditables, styles, scripts, médias
+- SFX1_V4_ORIGINAL/  la V4 complète, conservée telle quelle
+- NOUVEAUTES-V5.md   ce qui a changé par rapport à la V4
+
+TESTER EN LOCAL
+1. Décompressez toute l'archive.
+2. Ouvrez SFX1_V5_TEST/index.html (double-clic, dans Chrome, Edge ou Firefox).
+3. Toutes les pages, images, polices et les 6 PDF sont inclus localement.
+4. Une connexion Internet est nécessaire uniquement pour : les vidéos YouTube,
+   la carte OpenStreetMap, les documents officiels (coceje.be, Google Drive)
+   et les liens vers l'ancien Google Sites.
+
+À VÉRIFIER PENDANT LE TEST
+- Menu principal et sous-menus (survol ou clavier), menu mobile (bouton ☰, touche Échap).
+- Bandeau du haut : lien vers le site du fondamental ; onglet et page Portes ouvertes.
+- Accueil : diaporama (flèches, points, pause), onglets des degrés, vidéos au clic.
+- Grilles & options : onglets des 3 degrés (aussi aux flèches du clavier),
+  interrupteur « Cours en néerlandais », descriptions dépliables, PDF.
+- Documents : filtres + recherche.
+- Contact : carte chargée au clic, formulaire de démonstration.
+- Les étiquettes jaunes « À VALIDER » signalent tous les contenus provisoires.
+
+IMPORTANT AVANT PUBLICATION PUBLIQUE
+- Vérifier les autorisations de diffusion des photos d'élèves (mineurs).
+- Valider les grilles, descriptions, horaires et coordonnées avec les responsables.
+- Compléter les pages Mentions légales et Confidentialité.
+- Remplacer les formulaires de démonstration par une solution réelle et conforme au RGPD.
+- Retirer la protection anti-indexation (voir plus bas).
+- Le domaine GoDaddy et Google Workspace ne sont PAS modifiés par ce site.
+
+PUBLIER UN TEST SUR NETLIFY (sans toucher au domaine)
+1. Aller sur https://app.netlify.com/drop (compte Netlify gratuit).
+2. Glisser-déposer le dossier SFX1_V5_TEST.
+3. Netlify fournit une adresse du type https://nom-aleatoire.netlify.app.
+4. Le fichier netlify.toml ajoute les en-têtes de sécurité et bloque l'indexation
+   par Google (X-Robots-Tag noindex) : le test reste discret.
+5. Facultatif : protéger le test par mot de passe (option payante de Netlify)
+   tant que les autorisations photos ne sont pas confirmées.
+
+PUBLIER PLUS TARD CHEZ OVHcloud (hébergement web)
+1. Commander un hébergement web OVHcloud (sans transférer le domaine).
+2. Envoyer le CONTENU du dossier SFX1_V5_TEST dans le dossier « www »
+   par FTP (FileZilla) ou via le gestionnaire de fichiers OVH.
+   Le fichier .htaccess (caché) doit être envoyé aussi.
+3. Activer le certificat SSL gratuit dans l'espace client OVH,
+   puis décommenter le bloc « Forcer HTTPS » dans .htaccess.
+4. Connexion du domaine (étape finale, à planifier) : chez GoDaddy, modifier
+   UNIQUEMENT les enregistrements A / CNAME de « www » et de la racine
+   vers l'adresse fournie par OVH. NE JAMAIS toucher aux enregistrements MX,
+   TXT (SPF, DKIM, vérification Google) ni CNAME liés à Google Workspace :
+   ce sont eux qui font fonctionner Gmail, Drive et Classroom.
+   Recommandation : faire une capture de toute la zone DNS avant toute modification.
+
+MISE EN LIGNE DÉFINITIVE — À FAIRE
+- robots.txt : remplacer par la version commentée dans le fichier.
+- Pages HTML : la ligne <meta name="robots" content="noindex, nofollow"> est
+  générée par SOURCES_V5/build.py (fonction layout) ; la retirer puis régénérer.
+- netlify.toml / .htaccess : retirer la ligne X-Robots-Tag.
+- Retirer le bandeau « VERSION DE TEST » (build.py, fonction layout).
+
+PORTES OUVERTES ET SITE DU FONDAMENTAL (data/contenus.json)
+- portes_ouvertes.affichage_debut / affichage_fin : période pendant laquelle l'onglet,
+  le bandeau et le bloc d'accueil « Portes ouvertes » sont visibles (format AAAA-MM-JJ).
+- portes_ouvertes.inscription_url : lien du formulaire d'inscription aux visites (à compléter).
+- fondamental_url : adresse du site de l'école fondamentale.
+
+MODIFIER LES CONTENUS (avant la mise en place d'un outil d'administration)
+- Actualités, agenda, documents, vidéos : SOURCES_V5/data/contenus.json
+- Grilles horaires et options : SOURCES_V5/data/grilles.json
+- Puis régénérer le site :  python3 build.py  (dans SOURCES_V5, Python 3 + Pillow)
+Ces fichiers JSON sont prévus pour être gérés plus tard par un CMS (Decap ou Sveltia CMS).

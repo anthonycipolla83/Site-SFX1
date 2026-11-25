@@ -1,0 +1,141 @@
+{
+ "fondamental": {
+  "_source": "Ancien site Google Sites de l’école fondamentale (pages Accueil, Maternelle, Primaire), consulté le 24/11/2026.",
+  "contacts": [
+   {
+    "icone": "👩‍💼",
+    "role": "Direction",
+    "nom": "Mme Mossay",
+    "telephone": "087 39 39 30",
+    "email": "direction.fondamental@sfx1.org"
+   },
+   {
+    "icone": "📋",
+    "role": "Secrétariat",
+    "nom": "Mme Lemaire",
+    "telephone": "087 39 39 30",
+    "email": "secretariat.fondamental@sfx1.org"
+   },
+   {
+    "icone": "🧩",
+    "role": "Centre PMS",
+    "nom": "Présent le vendredi",
+    "telephone": "087 39 39 12",
+    "email": ""
+   },
+   {
+    "icone": "🏫",
+    "role": "Gestionnaire économe",
+    "nom": "M. Bernard Goedseels",
+    "telephone": "087 39 39 10",
+    "email": ""
+   }
+  ],
+  "h_mat": [
+   {
+    "icone": "🌅",
+    "heure": "8h15",
+    "texte": "Début de l’accueil"
+   },
+   {
+    "icone": "🎒",
+    "heure": "8h45",
+    "texte": "On commence la journée"
+   },
+   {
+    "icone": "🍎",
+    "heure": "",
+    "texte": "Collation en classe"
+   },
+   {
+    "icone": "🛝",
+    "heure": "",
+    "texte": "Récréation"
+   },
+   {
+    "icone": "🍽️",
+    "heure": "11h50",
+    "texte": "Fin de la matinée"
+   },
+   {
+    "icone": "🎨",
+    "heure": "13h00",
+    "texte": "Reprise"
+   },
+   {
+    "icone": "🔔",
+    "heure": "14h40",
+    "texte": "Fin des cours"
+   },
+   {
+    "icone": "👋",
+    "heure": "14h50",
+    "texte": "Départ des enfants"
+   }
+  ],
+  "h_prim": [
+   {
+    "icone": "🎒",
+    "heure": "8h15",
+    "texte": "Début des cours"
+   },
+   {
+    "icone": "🛝",
+    "heure": "9h55",
+    "texte": "Récréation"
+   },
+   {
+    "icone": "🍽️",
+    "heure": "11h50",
+    "texte": "Fin de la matinée"
+   },
+   {
+    "icone": "📚",
+    "heure": "13h00",
+    "texte": "Reprise"
+   },
+   {
+    "icone": "🔔",
+    "heure": "14h40",
+    "texte": "Fin des cours"
+   },
+   {
+    "icone": "👋",
+    "heure": "14h50",
+    "texte": "Départ des élèves"
+   }
+  ],
+  "projets": [
+   {
+    "icone": "🐘",
+    "titre": "L’éléphant des lois",
+    "texte": "Depuis 2017, un petit éléphant symbolise les lois de l’école : chacune de ses pattes représente un fondement du règlement. Les élèves participent et découvrent les valeurs démocratiques."
+   },
+   {
+    "icone": "🤝",
+    "titre": "Le conseil de citoyenneté",
+    "texte": "Il veille au respect des lois, organise l’accueil des nouveaux élèves et encourage les actions citoyennes. Des adultes de l’école y participent régulièrement."
+   },
+   {
+    "icone": "🐄",
+    "titre": "Classes à la ferme et classes vertes",
+    "texte": "Selon l’âge, sorties nature, classes à la ferme, classes vertes… pour apprendre aussi dehors !"
+   },
+   {
+    "icone": "🎭",
+    "titre": "Théâtre et spectacles",
+    "texte": "Les enfants assistent à des spectacles de théâtre, à l’école et à l’extérieur."
+   },
+   {
+    "icone": "🎄",
+    "titre": "Le spectacle de Noël",
+    "texte": "Une année sur deux, tous les élèves montent sur scène pour un grand spectacle de Noël."
+   },
+   {
+    "icone": "🌍",
+    "titre": "À la rencontre des cultures",
+    "texte": "Une fois par an, des activités multiculturelles pour découvrir d’autres façons de vivre."
+   }
+  ]
+ }
+}

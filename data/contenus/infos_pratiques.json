@@ -1,0 +1,35 @@
+{
+ "infos_pratiques": [
+  {
+   "titre": "Le numérique",
+   "points": [
+    "Apprentissage renforcé dès la S1 (2h)",
+    "Chromebook et casier sécurisé pour chaque élève dès la S1",
+    "Équipe numérique disponible sur place et en ligne pour les élèves et les parents",
+    "Deux plateformes complémentaires : Cabanga (évaluations, bulletin, journal de classe, réunions de parents, communication) et Google Education (Gmail et Classroom)"
+   ],
+   "icone": "💻"
+  },
+  {
+   "titre": "L’encadrement et la sécurité",
+   "points": [
+    "Un conseiller principal en éducation",
+    "Un éducateur référent par année",
+    "Études surveillées ou dirigées tous les jours : dès 8h00, sur le temps de midi (sauf le mercredi) et jusqu’à 17h15",
+    "Surveillance permanente de l’entrée de l’école",
+    "Message aux parents si l’enfant ne s’est pas présenté à l’école"
+   ],
+   "icone": "🛡️"
+  },
+  {
+   "titre": "Les temps de midi",
+   "points": [
+    "Possibilité de commander tous les matins soupe et/ou sandwich de qualité sur place",
+    "Interdiction pour les élèves de S1, S2 et S3 (1re, 2e et 3e années) de quitter l’école sur le temps de midi",
+    "Activités ludiques et/ou culturelles : tournoi de foot, midis « jeux de société », bibliothèque et présentations littéraires, échecs…",
+    "Activités extrascolaires (gospel, etc.)"
+   ],
+   "icone": "🍽️"
+  }
+ ]
+}

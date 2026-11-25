@@ -1,0 +1,126 @@
+{
+ "documents": [
+  {
+   "g": "Institutionnels",
+   "n": "Projet éducatif et pédagogique",
+   "type": "pdf-ext",
+   "u": "https://coceje.be/wp-content/uploads/2022/02/PE-et-PP-finalise-octobre-2021-1.pdf",
+   "icon": "etablissement",
+   "desc": "Texte fondateur"
+  },
+  {
+   "g": "Institutionnels",
+   "n": "Projet d'établissement",
+   "type": "drive",
+   "u": "https://drive.google.com/drive/folders/1EZAHf6GQymqjj-0J83kfAgC_eOBB0IHr",
+   "icon": "etablissement",
+   "desc": "Dossier de référence"
+  },
+  {
+   "g": "Institutionnels",
+   "n": "Projet éducatif et pédagogique en sketchnote",
+   "type": "pdf-ext",
+   "u": "https://coceje.be/wp-content/uploads/2022/02/PEP-i-complet-FINAL-version-Skechnote.pdf",
+   "icon": "sketchnote",
+   "desc": "Version illustrée"
+  },
+  {
+   "g": "Règlements",
+   "n": "Règlement d'ordre intérieur (ROI)",
+   "type": "drive",
+   "u": "https://drive.google.com/drive/folders/1mhPga5I13nXvLiHfqCLr1gZ5_1--UPe2",
+   "icon": "roi",
+   "desc": "Dossier officiel"
+  },
+  {
+   "g": "Règlements",
+   "n": "Règlement général des études (RGE)",
+   "type": "drive",
+   "u": "https://drive.google.com/drive/folders/1AG0KW9qymFlBfAgXLVhOIUy7jxAP6kuZ",
+   "icon": "rge",
+   "desc": "Dossier officiel"
+  },
+  {
+   "g": "Règlements",
+   "n": "Frais scolaires",
+   "type": "drive",
+   "u": "https://drive.google.com/drive/folders/1864nENVVHS20Utc42XEFIxJWurGQMvgu",
+   "icon": "frais",
+   "desc": "Dossier officiel"
+  },
+  {
+   "type": "pdf",
+   "u": "documents/TC-Grille-horaire-tronc-commun-SFX1.pdf",
+   "icon": "rge",
+   "g": "Grilles · tronc commun",
+   "n": "Grille horaire du tronc commun (S1, S2, S3)",
+   "desc": "S1 dès 2026-2027 · S2 dès 2027-2028 · S3 dès 2028-2029"
+  },
+  {
+   "g": "Grilles · tronc commun",
+   "n": "Grille de l’ancien 1er degré",
+   "type": "pdf",
+   "u": "documents/D1-Grille-horaire-SFX1.pdf",
+   "icon": "rge",
+   "desc": "Uniquement pour la 2e année en 2026-2027"
+  },
+  {
+   "g": "Grilles · tronc commun",
+   "n": "Activités de l’ancien 1er degré",
+   "type": "pdf",
+   "u": "documents/D1-Description-SFX1.pdf",
+   "icon": "rge",
+   "desc": "Uniquement pour la 2e année en 2026-2027"
+  },
+  {
+   "g": "Grilles · 2e degré",
+   "n": "Grille horaire du 2e degré",
+   "type": "pdf",
+   "u": "documents/D2-Grille-horaire-SFX1.pdf",
+   "icon": "rge",
+   "desc": "3e et 4e secondaire"
+  },
+  {
+   "g": "Grilles · 2e degré",
+   "n": "Description des options du 2e degré",
+   "type": "pdf",
+   "u": "documents/D2-Description-SFX1.pdf",
+   "icon": "rge",
+   "desc": "3e et 4e secondaire"
+  },
+  {
+   "g": "Grilles · 3e degré",
+   "n": "Grille horaire du 3e degré",
+   "type": "pdf",
+   "u": "documents/D3-Grille-horaire-SFX1.pdf",
+   "icon": "rge",
+   "desc": "5e et 6e secondaire"
+  },
+  {
+   "g": "Grilles · 3e degré",
+   "n": "Description des options du 3e degré",
+   "type": "pdf",
+   "u": "documents/D3-Description-SFX1.pdf",
+   "icon": "rge",
+   "desc": "5e et 6e secondaire"
+  },
+  {
+   "g": "Portes ouvertes",
+   "n": "Affiche des portes ouvertes 2027 (A4)",
+   "type": "pdf",
+   "u": "documents/portes-ouvertes/Affiche-Portes-ouvertes-2027-A4.pdf",
+   "icon": "etablissement",
+   "desc": "Samedi 30 janvier 2027 · à imprimer",
+   "timed": true
+  },
+  {
+   "g": "Portes ouvertes",
+   "n": "Visuel des portes ouvertes 2027 (réseaux sociaux)",
+   "type": "img",
+   "u": "documents/portes-ouvertes/Visuel-Portes-ouvertes-2027-reseaux-sociaux.jpg",
+   "icon": "etablissement",
+   "desc": "Format carré",
+   "timed": true
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "immersion_v2": {
+  "intro": "L’immersion linguistique en néerlandais repose sur la méthode EMILE (Enseignement d’une Matière par l’Intégration d’une Langue Étrangère). Les heures en immersion comprennent le cours de néerlandais lui-même et les cours de matières dispensés entièrement en néerlandais, selon l’année.",
+  "annees": [
+   {
+    "annee": "S1",
+    "precision": "2026-2027",
+    "detail": "4h de néerlandais + 4h de FHGES",
+    "total": "8h"
+   },
+   {
+    "annee": "S2",
+    "precision": "dès 2027-2028",
+    "detail": "3h de néerlandais + 4h de FHGES + 3h de sciences",
+    "total": "10h"
+   },
+   {
+    "annee": "3e",
+    "precision": "ancien système · maximum",
+    "detail": "4h de néerlandais + 4h de FHGES + 3h de sciences",
+    "total": "11h"
+   },
+   {
+    "annee": "S3",
+    "precision": "dès 2028-2029",
+    "detail": "3h de néerlandais + 4h de FHGES + 3h de sciences",
+    "total": "10h"
+   },
+   {
+    "annee": "4e",
+    "precision": "",
+    "detail": "4h de néerlandais + 2h d’histoire + 2h de géographie + 1h d’actualité (les sciences se donnent en français)",
+    "total": "9h"
+   },
+   {
+    "annee": "5e",
+    "precision": "",
+    "detail": "4h de néerlandais + 2h de formation géographique et sociale + 2h d’histoire",
+    "total": "8h"
+   },
+   {
+    "annee": "6e",
+    "precision": "",
+    "detail": "4h de néerlandais + 2h de formation géographique et sociale + 2h d’histoire",
+    "total": "8h"
+   }
+  ],
+  "evaluation": "En fin de troisième année, les compétences dans les cours donnés en immersion sont évaluées sur base des mêmes programmes et référentiels que les cours dispensés en français. Le travail collaboratif entre enseignants néerlandophones et francophones vise à préparer les élèves aux épreuves externes non certificatives, notamment par la maîtrise du vocabulaire disciplinaire.",
+  "atouts": [
+   "la concentration",
+   "l’organisation du travail",
+   "l’autonomie",
+   "la capacité à faire des liens entre les apprentissages",
+   "une maîtrise approfondie du néerlandais (compréhension, expression orale et écrite)"
+  ],
+  "activites": [
+   "Correspondances et échanges avec des écoles partenaires (Hasselt, Zutphen)",
+   "Séjours linguistiques : aller-retour en S1, séjour de plusieurs jours en S2 avec participation aux cours",
+   "Sorties culturelles : visites, spectacles musicaux ou théâtraux en néerlandais"
+  ],
+  "langues": [
+   {
+    "titre": "Langue moderne 1 dès la S1",
+    "texte": "Anglais, néerlandais ou néerlandais en immersion. La langue choisie s’inscrit dans la continuité de celle suivie dans l’enseignement fondamental ; un changement est envisageable selon le projet et la motivation de l’élève."
+   },
+   {
+    "titre": "Langue moderne 2 à partir de la 3e",
+    "texte": "Allemand, anglais ou néerlandais."
+   },
+   {
+    "titre": "Langue moderne 3 à partir de la 5e",
+    "texte": "Espagnol."
+   }
+  ],
+  "atouts_fb": [
+   "Préparer votre enfant à évoluer dans un monde multilingue",
+   "Obtention d’un certificat B2 reconnu, délivré par la KU Leuven",
+   "Un véritable atout pour le parcours scolaire et le futur CV"
+  ],
+  "note_heures": "Cours de néerlandais : 4 h en S1, 3 h en S2, 4 h en 3e (ancien système), 3 h en S3 à partir de 2028-2029, 4 h en 4e, 5e et 6e. Maximum : 11 h en 3e."
+ }
+}
