@@ -233,6 +233,23 @@
     document.body.appendChild(bar);
   }
 
+  /* Barre d'accès rapides (mobile) : se retire en descendant, revient en remontant,
+     et disparaît quand on remplit un formulaire ou qu'on arrive en bas de page. */
+  var mbar = $('.mbar');
+  if (mbar) {
+    var lastY = window.scrollY, typing = false;
+    var upd = function () {
+      var y = window.scrollY, nearEnd = (window.innerHeight + y) > (document.documentElement.scrollHeight - 160);
+      var hide = typing || nearEnd || (y > lastY && y > 120);
+      mbar.classList.toggle('is-off', hide);
+      document.body.classList.toggle('mbar-off', hide);
+      lastY = y;
+    };
+    window.addEventListener('scroll', upd, { passive: true });
+    document.addEventListener('focusin', function (e) { if (e.target.matches('input,textarea,select')) { typing = true; upd(); } });
+    document.addEventListener('focusout', function () { typing = false; setTimeout(upd, 50); });
+  }
+
   /* Lien d'évitement : place le focus sur le contenu */
   var skip = $('.skip-link'); skip && skip.addEventListener('click', function () { var m = $('#main'); m && setTimeout(function () { m.focus(); }, 0); });
 })();

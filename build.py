@@ -327,7 +327,7 @@ def layout(fname, title, desc, body, current=None):
 {body}
 </main>
 <button id="backTop" class="back-top" type="button" aria-label="Retour en haut">↑</button>
-<nav class="mbar" aria-label="Accès rapides">
+<nav class="mbar" aria-label="Accès rapides"{" hidden" if fname == "contact.html" else ""}>
 <a href="tel:+3287393939"><span aria-hidden="true">☎</span>Appeler</a>
 <a href="portes-ouvertes.html" class="mbar-po" {TIMED}><span aria-hidden="true">★</span>30 janvier</a>
 <a href="fondamental.html"><span aria-hidden="true">✳</span>Fondamental</a>

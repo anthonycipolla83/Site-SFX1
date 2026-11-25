@@ -629,3 +629,11 @@ tr.is-nl>:first-child:after{content:none}
 .portal-card{display:flex;align-items:center;gap:26px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;box-shadow:var(--shadow)}
 .portal-card>div{flex:1;min-width:260px}.portal-card h2{margin-bottom:8px}
 .portal-ico{width:72px;height:72px;border-radius:22px;background:var(--wine);display:grid;place-items:center;font-size:32px}
+/* Barre mobile : discrète */
+@media(max-width:760px){
+  .mbar{transition:transform .35s var(--spring),opacity .25s}
+  .mbar.is-off{transform:translateY(130%);opacity:0;pointer-events:none}
+  .mbar[hidden]{display:none!important}
+  body:has(.mbar[hidden]){padding-bottom:0}
+  body.mbar-off .back-top{bottom:20px}
+}

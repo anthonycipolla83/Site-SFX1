@@ -152,3 +152,4 @@ Toutes les rubriques et tous les contenus de la V4 sont conservés. Rien n'a ét
 - Nouvelles photos (séance photo 2023) : diaporama d’accueil (la photo de la cour est conservée en premier), galerie du Collège, cartes, parcours, pédagogie. Photo de l’entrée remise à l’endroit (elle était en miroir).
 - Bouton d’en-tête « Mon espace » : ouvre directement le Google Site réservé aux enseignants (sites.google.com/view/sfx1-verviers), connexion par compte @sfx1.org. Page « Espace numérique » : portail des enseignants + Classroom, Gmail, Drive. Adresse du portail modifiable via l’administration (Options du site).
 - Bouton « Portes ouvertes » retiré de l’en-tête (l’onglet reste dans le menu).
+- Barre d’accès rapides mobile : absente de la page Contact, se retire en descendant et en bas de page, revient en remontant, disparaît pendant la saisie d’un formulaire.
