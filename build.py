@@ -287,6 +287,12 @@ def nav_html(current):
 
 DEMO_NOTICE = '<div class="demo-notice" role="note">V5 · VERSION DE TEST · Formulaire actif une fois le site en ligne · Photos à autoriser avant publication publique · Les mentions <span class="tbv" style="font-size:9px">À valider</span> signalent les contenus provisoires <button type="button" data-dismiss aria-label="Masquer cet avertissement">×</button></div>'
 
+LD_JSON = json.dumps({"@context": "https://schema.org", "@type": "School", "name": "Collège Saint-François-Xavier I (SFX1)",
+    "alternateName": ["SFX1", "SFXun", "Collège SFX1 Verviers", "Centre Scolaire Saint-François-Xavier"],
+    "url": "https://sfx1.org/", "logo": "https://sfx1.org/img/logo-sfxun.jpg", "telephone": "+32 87 39 39 39", "email": "info@sfx1.org",
+    "address": {"@type": "PostalAddress", "streetAddress": "Rue de Rome 18", "postalCode": "4800", "addressLocality": "Verviers", "addressCountry": "BE"},
+    "sameAs": ["https://www.facebook.com/collegesfx1", "https://www.instagram.com/collegesfx1/"]}, ensure_ascii=False)
+
 def layout(fname, title, desc, body, current=None):
     current = current or fname
     canonical = SITE_URL + "/" + ("" if fname == "index.html" else fname)
@@ -311,6 +317,7 @@ def layout(fname, title, desc, body, current=None):
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/v5.css">
+{f'<script type="application/ld+json">{LD_JSON}</script>' if fname == "index.html" else ""}
 <script type="speculationrules">{{"prerender":[{{"where":{{"href_matches":"/*"}},"eagerness":"moderate"}}]}}</script>
 </head>
 <body>
@@ -400,7 +407,7 @@ def fond_banner(cls=""):
             f'<a class="btn fond-btn" href="fondamental.html">Découvrir l’école fondamentale <span aria-hidden="true">→</span></a></div></section>')
 
 # ------------------------------------------------------------------ pages
-@page("index.html", "SFXun — Centre Scolaire Saint-François-Xavier I, Verviers",
+@page("index.html", "Collège SFX1 Verviers — Centre Scolaire Saint-François-Xavier I (SFXun)",
       "Collège Saint-François-Xavier I à Verviers : enseignement secondaire et fondamental, immersion en néerlandais, options et vie scolaire.")
 def p_index():
     slides = [("cour-automne", "La cour, au cœur de la vie du Collège"), ("sfx-cercle", "Prendre le temps d’échanger"),
@@ -433,7 +440,7 @@ def p_index():
 {fond_banner()}
 {section("Nous rencontrer", f'<div class="banner"><div><h2>Et si la prochaine étape<br>commençait ici ?</h2><p>Visitez le Collège, rencontrez nos équipes, posez vos questions.</p></div><div class="buttons" style="margin:0"><a class="btn light" href="portes-ouvertes.html" {TIMED}>Portes ouvertes · 30 janvier <span aria-hidden="true">↗</span></a>{btn("Nous contacter", "contact.html", "ghost")}</div></div>')}'''
 
-@page("college.html", "Le Collège · SFXun Verviers", "Histoire, valeurs ignaciennes, les 4C, projet éducatif et cadre de vie du Collège Saint-François-Xavier I.")
+@page("college.html", "Le Collège · Collège SFX1 Verviers", "Histoire, valeurs ignaciennes, les 4C, projet éducatif et cadre de vie du Collège Saint-François-Xavier I.")
 def p_college():
     docs = [d for d in C["documents"] if d["g"] in ("Institutionnels", "Règlements") and d["type"] != "ancien"]
     gal = [("sfx-entree", "L’entrée du Collège, rue de Rome"), ("sfx-couloir", "Les couloirs des classes"), ("sfx-cercle", "Un espace pour échanger"), ("sfx-gym", "La salle de sport")]
@@ -449,7 +456,7 @@ def p_college():
         section("Notre équipe", f'<h2>Une école, ce sont d’abord des personnes.</h2><p class="lead">Élèves et parents, enseignants, titulaires, éducateurs de niveau, secrétaires de direction, économe, ouvriers et dames d’ouvrage font vivre le Collège au quotidien.</p><div class="team">{"".join(f'<div class="team-card scroll-reveal"><span>{esc(r)}</span><b>{esc(n)}</b>{f"<a class=team-tel href=tel:+32{tel.replace(chr(32), str())[1:]}>Ligne directe : {esc(tel)}</a>" if tel else ""}</div>' for r, n, tel in C["equipe"])}</div>') + \
         section("Textes de référence", f'<h2>Notre projet, en détail.</h2><p class="lead-sm">Les documents restent hébergés à leur emplacement d’origine. Les liens Google Drive ouvrent des <strong>dossiers</strong>.</p><div class="doc-grid">{"".join(doc_card(d, False) for d in docs)}</div>')
 
-@page("histoire.html", "Notre histoire · SFXun Verviers", "L’histoire du Collège Saint-François-Xavier I de Verviers en quelques moments clés, de 1855 à aujourd’hui.")
+@page("histoire.html", "Notre histoire · Collège SFX1 Verviers", "L’histoire du Collège Saint-François-Xavier I de Verviers en quelques moments clés, de 1855 à aujourd’hui.")
 def p_histoire():
     mom = "".join(f'<article class="mom scroll-reveal"><figure>{pic(m["img"], m["cap"], sizes="(max-width:800px) 85vw, 380px")}<figcaption>{esc(m["cap"])}</figcaption></figure><div><b class="mom-y">{esc(m["y"])}</b><h3>{esc(m["t"])}</h3><p>{esc(m["r"])}</p></div></article>' for m in C["moments"])
     anc = "".join(f'<span class="anc"><b>{esc(n)}</b>{esc(r)}</span>' for n, r in C["anciens_celebres"])
@@ -458,7 +465,7 @@ def p_histoire():
         section("Ils sont passés par SFX1", f'<h2>Des anciens qui ont marqué leur époque.</h2><div class="ancs">{anc}</div><p class="media-note">D’après le livre « Un Collège, une tradition jésuite. 1855-2005 », publié pour les 150 ans du Collège. Illustrations tirées du même ouvrage.</p>', "soft") + \
         section("Et demain ?", f'<div class="banner"><div><h2>La suite s’écrit avec vous.</h2><p>Venez découvrir le Collège d’aujourd’hui.</p></div><div class="buttons" style="margin:0"><a class="btn light" href="portes-ouvertes.html" {TIMED}>Portes ouvertes <span aria-hidden="true">↗</span></a>{btn("Le Collège aujourd’hui", "college.html", "ghost")}</div></div>')
 
-@page("secondaire.html", "Enseignement secondaire · SFXun Verviers", "Le secondaire au Collège SFX1 : trois degrés, options, langues et immersion en néerlandais.")
+@page("secondaire.html", "Enseignement secondaire · Collège SFX1 Verviers", "Le secondaire au Collège SFX1 : trois degrés, options, langues et immersion en néerlandais.")
 def p_secondaire():
     deg = "".join(f'<div class="degree scroll-reveal"><span>{"S1 et S2" if d["id"] == "d1" else d["annees"]}</span><h3>{d["nom"]}</h3><p>{d["intro"]}</p>{btn("Grilles et options", "grilles.html#" + ("tc" if d["id"] == "d1" else d["id"]), "outline")}</div>' for d in G["degres"])
     return page_hero("Nos enseignements", "Secondaire : six années pour explorer et se construire.", "Trois degrés, des langues, des options et une attention particulière au cheminement de chaque élève.", [("Secondaire", None)]) + \
@@ -497,7 +504,7 @@ def choice_blocks(d):
         out += f'<div class="choice-block"><h4>{esc(b["titre"])} <span class="badge">Total : {esc(b["total"])}{"h" if b["total"].isdigit() else ""}</span></h4>{lines}{notes}</div>'
     return out
 
-@page("grilles.html", "Grilles horaires et options · SFXun Verviers", "Grilles horaires interactives des trois degrés du secondaire, options, activités complémentaires et règles de choix.", "grilles.html")
+@page("grilles.html", "Grilles horaires et options · Collège SFX1 Verviers", "Grilles horaires interactives des trois degrés du secondaire, options, activités complémentaires et règles de choix.", "grilles.html")
 def p_grilles():
     T = C["tronc_commun"]
     tabs = ['<button type="button" role="tab" class="grid-tab" id="gt-tc" aria-controls="gp-tc" aria-selected="true" data-key="tc">Tronc commun<small>S1 · S2 · S3</small></button>']
@@ -529,7 +536,7 @@ def p_grilles():
     return page_hero("Secondaire · Grilles horaires", "Construire son parcours.", "La grille du tronc commun (S1, S2, S3) et les options des 2e et 3e degrés, consultables directement à l’écran. Les PDF restent téléchargeables.", [("Secondaire", "secondaire.html"), ("Grilles & options", None)]) + \
         section("Sélectionner une grille", f'<p class="notice" style="margin-bottom:24px">{tbv()} Depuis 2026-2027, la 1re année devient la <b>S1</b> (tronc commun) ; en 2027-2028, la 2e année deviendra la <b>S2</b>. Les grilles des 2e et 3e degrés sont retranscrites des PDF transmis par le Collège : leur validité pour l’année en cours reste à confirmer.</p><div class="grid-tabs" role="tablist" aria-label="Choisir un degré" data-hash="1">{"".join(tabs)}</div>{"".join(panels)}')
 
-@page("immersion.html", "Immersion en néerlandais · SFXun Verviers", "Le dispositif EMILE d’immersion en néerlandais au Collège SFX1 : organisation du parcours, cours concernés et intérêt pédagogique.")
+@page("immersion.html", "Immersion en néerlandais · Collège SFX1 Verviers", "Le dispositif EMILE d’immersion en néerlandais au Collège SFX1 : organisation du parcours, cours concernés et intérêt pédagogique.")
 def p_immersion():
     I = C["immersion_v2"]
     st = "".join(f'<div class="yr scroll-reveal"><span class="yr-n">{esc(a)}</span>{f"<small class=yr-s>{esc(sub)}</small>" if sub else ""}<p><span class="nl">NL</span>{esc(t)}</p><b class="yr-t">{esc(tot)}<small>en immersion</small></b></div>' for a, sub, t, tot in I["annees"])
@@ -607,7 +614,7 @@ def kid_contacts():
 def kid_bridge():
     return section("Et après la 6e ?", f'<div class="kd-bridge"><div><h2>Le Collège, juste à côté.</h2><p class="lead">Après la 6e primaire, la S1 du secondaire se vit sur le même site, avec des visages connus et un passage accompagné, y compris en immersion en néerlandais.</p></div><div class="buttons" style="margin:0">{btn("Le secondaire", "secondaire.html")}<a class="btn outline" href="portes-ouvertes.html" {TIMED}>Portes ouvertes du 30 janvier <span aria-hidden="true">↗</span></a></div></div>')
 
-@page("fondamental.html", "École fondamentale · SFXun Verviers", "L’école fondamentale du Collège SFX1 à Verviers : maternelle et primaire, une école verte au cœur de la ville. Projets, horaires et contacts.")
+@page("fondamental.html", "École fondamentale · Collège SFX1 Verviers", "L’école fondamentale du Collège SFX1 à Verviers : maternelle et primaire, une école verte au cœur de la ville. Projets, horaires et contacts.")
 def p_fondamental():
     return '<div class="kid">' + kid_hero("École fondamentale · maternelle &amp; primaire", "Ici, on grandit<br><span>en s’amusant !</span>", "Une école verte au cœur de Verviers, où chaque enfant apprend, découvre et prend confiance, de la maternelle à la 6e primaire.", [("Fondamental", None)], ["🌳 Une école verte", "🧭 Pédagogie ignatienne", "🏊 À deux pas du parc Fabiola"]) + \
         section("Bienvenue !", f'<div class="kd-split"><div class="kd-photo">{kid_illus("jardin", "Illustration : deux enfants jouent dans le jardin de l’école")}</div><div><h2>Une école où l’on ose <span class="kd-hl">se dépasser</span>.</h2><p class="lead">Liée à la Compagnie de Jésus, notre école vit la pédagogie ignatienne au quotidien.</p><p>Nous proposons un enseignement varié qui combine exigence, méthode et persévérance, et qui encourage chaque élève à donner le meilleur de lui-même, à son rythme, dans un cadre verdoyant et rassurant.</p></div></div>') + \
@@ -616,14 +623,14 @@ def p_fondamental():
         section("Infos pratiques", f'<h2>On vous répond.</h2>{kid_contacts()}<div class="kd-access scroll-reveal"><span class="kd-e" aria-hidden="true">📍</span><div><b>Rue de Rome 18, 4800 Verviers</b><p>On entre par la rue de Rome ou par le parc Fabiola, où se trouve la piscine communale.</p></div>{btn("Itinéraire", "https://www.google.com/maps/search/?api=1&amp;query=Rue+de+Rome+18+4800+Verviers", "outline", True)}</div>', "kd-soft", "infos-pratiques") + \
         kid_bridge() + '</div>'
 
-@page("maternelle.html", "École maternelle · SFXun Verviers", "L’école maternelle du Collège SFX1 à Verviers : jouer, découvrir, grandir. Horaires et informations pratiques.", "maternelle.html")
+@page("maternelle.html", "École maternelle · Collège SFX1 Verviers", "L’école maternelle du Collège SFX1 à Verviers : jouer, découvrir, grandir. Horaires et informations pratiques.", "maternelle.html")
 def p_maternelle():
     return '<div class="kid">' + kid_hero("École fondamentale · maternelle", "Mes premiers pas<br><span>à l’école !</span>", "Jouer, explorer, découvrir les autres et grandir en confiance, dans une école verte au cœur de Verviers.", [("Fondamental", "fondamental.html"), ("Maternelle", None)], ["🧸 Accueil dès 8h15", "🍎 Collation en classe", "🌳 Un cadre verdoyant"]) + \
         section("Une journée chez les petits", f'<h2>Ma journée, pas à pas.</h2>{kid_day(F["h_mat"])}<p class="media-note">{tbv()} Horaires repris de l’ancien site : à confirmer pour l’année en cours.</p>') + \
         section("Grandir ensemble", f'<div class="kd-split"><div><h2>Apprendre en <span class="kd-hl">jouant</span>.</h2><p class="lead">En maternelle, chaque enfant découvre le plaisir d’apprendre : on manipule, on chante, on crée, on s’exprime et on apprend à vivre avec les autres.</p><p>Les équipes accompagnent chacun à son rythme, avec bienveillance, pour préparer en douceur l’entrée en primaire.</p>{btn("Nous contacter", "fondamental.html#infos-pratiques", "outline")}</div><div class="kd-photo">{kid_illus("classe", "Illustration : deux enfants en classe devant le tableau")}</div></div>', "kd-soft") + \
         section("Et ensuite ?", f'<div class="kd-bridge"><div><h2>Cap sur la primaire !</h2><p class="lead">Projets citoyens, sorties, spectacles : découvrez la vie à l’école primaire.</p></div>{btn("L’école primaire", "primaire.html")}</div>') + '</div>'
 
-@page("primaire.html", "École primaire · SFXun Verviers", "L’école primaire du Collège SFX1 à Verviers : apprendre, agir et vivre ensemble. Projets, sorties, horaires.", "primaire.html")
+@page("primaire.html", "École primaire · Collège SFX1 Verviers", "L’école primaire du Collège SFX1 à Verviers : apprendre, agir et vivre ensemble. Projets, sorties, horaires.", "primaire.html")
 def p_primaire():
     return '<div class="kid">' + kid_hero("École fondamentale · primaire", "Apprendre, agir<br><span>et vivre ensemble !</span>", "Des apprentissages solides, des projets citoyens et plein de découvertes, de la 1re à la 6e primaire.", [("Fondamental", "fondamental.html"), ("Primaire", None)], ["🐘 L’éléphant des lois", "🐄 Classes vertes", "🎭 Théâtre"]) + \
         section("Une journée en primaire", f'<h2>Ma journée, pas à pas.</h2>{kid_day(F["h_prim"])}<p class="media-note">{tbv()} Horaires repris de l’ancien site : à confirmer pour l’année en cours.</p>') + \
@@ -631,7 +638,7 @@ def p_primaire():
         section("Dehors aussi", f'<div class="kd-split"><div class="kd-photo">{kid_illus("cour", "Illustration : des enfants jouent dans la cour de récréation")}</div><div><h2>On apprend <span class="kd-hl">partout</span>.</h2><p class="lead">Selon l’âge : classes à la ferme, sorties nature, classes vertes, spectacles de théâtre à l’école et à l’extérieur.</p><p>Une fois par an, les élèves partent à la rencontre d’autres cultures, et une année sur deux, toute l’école prépare le spectacle de Noël.</p></div></div>') + \
         kid_bridge() + '</div>'
 
-@page("portes-ouvertes.html", "Portes ouvertes 2027 · SFXun Verviers", "Portes ouvertes du Collège Saint-François-Xavier I : samedi 30 janvier 2027, quatre créneaux de visite (9h, 11h, 14h, 16h). Inscription obligatoire.")
+@page("portes-ouvertes.html", "Portes ouvertes 2027 · Collège SFX1 Verviers", "Portes ouvertes du Collège Saint-François-Xavier I : samedi 30 janvier 2027, quatre créneaux de visite (9h, 11h, 14h, 16h). Inscription obligatoire.")
 def p_po():
     reg = (btn("Je réserve mon créneau de visite", PO["inscription_url"], "", True) if (PO.get("inscription_url") and PO.get("reservation_ouverte"))
            else reserve_btn("") + f'<p class="notice" style="margin-top:14px"><b>Inscription obligatoire.</b> La réservation des créneaux en ligne ouvrira très bientôt sur cette page. En attendant, contactez-nous : <a href="mailto:info@sfx1.org?subject=Portes%20ouvertes%2030%20janvier%202027">info@sfx1.org</a> · <a href="tel:+3287393939">087 39 39 39</a>.</p>')
@@ -660,7 +667,7 @@ def p_actualites():
         section("Dans les médias", f'<h2>Ils parlent de nous.</h2><p class="lead">Reportages et articles consacrés au Collège. Les liens ouvrent le site du média.</p>{press_grid(C["presse"])}<div class="placeholder" style="margin-top:22px"><strong>Semaine RCD — reportage Vedia</strong> : emplacement réservé, lien à fournir.</div>', "soft", "medias") + \
         section("Les événements", f'<div class="banner"><div><h2>Ce qui arrive à SFX1.</h2><p>Un agenda scolaire sera alimenté par les personnes chargées de la communication.</p></div>{btn("Voir l’agenda", "agenda.html", "light")}</div>', "soft")
 
-@page("agenda.html", "Agenda · SFXun Verviers", "L’agenda du Collège SFX1 : réunions, congés, examens, activités et événements.", "agenda.html")
+@page("agenda.html", "Agenda · Collège SFX1 Verviers", "L’agenda du Collège SFX1 : réunions, congés, examens, activités et événements.", "agenda.html")
 def p_agenda():
     A = C["agenda_app"]
     if A.get("url"):
@@ -671,7 +678,7 @@ def p_agenda():
     return page_hero("Vie scolaire · Agenda", "Les prochains rendez-vous.", "Réunions de parents, congés, examens, activités : toutes les dates de l’année au même endroit.", [("Vie à SFX1", "actualites.html"), ("Agenda", None)]) + \
         section("Agenda", body)
 
-@page("videos.html", "Vidéos · SFXun Verviers", "Découvrir le Collège SFX1 à travers les vidéos de sa chaîne YouTube officielle.", "videos.html")
+@page("videos.html", "Vidéos · Collège SFX1 Verviers", "Découvrir le Collège SFX1 à travers les vidéos de sa chaîne YouTube officielle.", "videos.html")
 def p_videos():
     topics = "".join(f'<a href="{YT_CHANNEL}" target="_blank" rel="noopener noreferrer">{t} <span aria-hidden="true">↗</span></a>' for t in ["Le Collège au cœur de la ville"])
     return page_hero("Notre Collège · Vidéos", "SFX1 en images.", "Découvrir le Collège à travers les vidéos publiées sur sa chaîne YouTube officielle.", [("Vidéos", None)]) + \
@@ -679,28 +686,28 @@ def p_videos():
         section("Vidéos de la chaîne", f'<h2>Entrez dans la vie du Collège.</h2><p class="lead">Les vidéos de la chaîne officielle du Collège, dont les deux vidéos de l’ancien Google Sites. Le lecteur ne se charge qu’au clic.</p>{videos_grid("videos")}', "soft") + \
         section("Retrouvez les autres vidéos", f'<h2>Explorer la chaîne du Collège</h2><p class="lead">La chaîne officielle présente aussi les thèmes suivants. Les liens renvoient à la chaîne afin de retrouver les publications originales.</p><div class="video-topics">{topics}</div><div class="buttons">{btn("Ouvrir la chaîne YouTube officielle", YT_CHANNEL, "", True)}</div><p class="media-note">Chaîne : @collegesaint-francois-xavi4810</p>')
 
-@page("documents.html", "Documents · SFXun Verviers", "Bibliothèque documentaire du Collège SFX1 : grilles horaires, options, projet éducatif, ROI, RGE, frais scolaires, charte numérique.")
+@page("documents.html", "Documents · Collège SFX1 Verviers", "Bibliothèque documentaire du Collège SFX1 : grilles horaires, options, projet éducatif, ROI, RGE, frais scolaires, charte numérique.")
 def p_documents():
     cats = ["Tous", "Institutionnels", "Règlements", "Grilles · tronc commun", "Grilles · 2e degré", "Grilles · 3e degré", "Portes ouvertes"]
     chips = "".join(f'<button type="button" class="chip{" selected" if i == 0 else ""}" data-value="{c}" aria-pressed="{str(i == 0).lower()}"{(" " + TIMED) if c == "Portes ouvertes" else ""}>{c}</button>' for i, c in enumerate(cats))
     return page_hero("Ressources · Téléchargements", "Les documents utiles, au même endroit.", "Grilles, options, projets pédagogiques et règlements : une bibliothèque accessible aux familles.", [("Documents", None)]) + \
         section("Bibliothèque", f'<div class="doc-tools"><div class="toolbar" style="margin:0" role="group" aria-label="Filtrer par catégorie" data-filter-group="docsbox">{chips}</div><label class="doc-search"><span class="sr-only">Rechercher un document</span><input type="search" placeholder="Rechercher un document…" data-search="docsbox"></label></div><p id="docsbox-live" class="sr-only" aria-live="polite"></p><div class="doc-grid" id="docsbox">{"".join(doc_card(d) for d in C["documents"])}</div><div class="empty-state">Aucun document ne correspond à votre recherche.</div><p class="media-note">Légende : <span class="badge pdf">PDF</span> fichier à télécharger · <span class="badge drive">Dossier Google Drive</span> dossier contenant un ou plusieurs documents · <span class="badge ancien">Ancien site</span> lien provisoire. Les documents institutionnels restent hébergés à leur emplacement d’origine.</p>')
 
-@page("contact.html", "Contact & accès · SFXun Verviers", "Coordonnées, plan d’accès et formulaire de contact du Collège Saint-François-Xavier I, rue de Rome 18, 4800 Verviers.")
+@page("contact.html", "Contact & accès · Collège SFX1 Verviers", "Coordonnées, plan d’accès et formulaire de contact du Collège Saint-François-Xavier I, rue de Rome 18, 4800 Verviers.")
 def p_contact():
     osm = "https://www.openstreetmap.org/export/embed.html?bbox=5.8560%2C50.5850%2C5.8720%2C50.5930&amp;layer=mapnik"
     return page_hero("Contact & accès", "Rencontrons-nous.", "Une question sur le Collège, les enseignements, les inscriptions ou la vie scolaire ?", [("Contact", None)]) + \
         section("Nos coordonnées", f'<div class="two-col"><div><h2>Au cœur de Verviers.</h2><p class="lead"><strong>Centre Scolaire Saint-François-Xavier I</strong><br>Rue de Rome 18<br>4800 Verviers, Belgique</p><p><strong>Secondaire</strong><br><a href="tel:+3287393939">087 39 39 39</a><br><a href="mailto:info@sfx1.org">info@sfx1.org</a></p><p id="fondamental"><strong>Fondamental</strong><br><a href="tel:+3287393930">087 39 39 30</a><br><a href="mailto:direction.fondamental@sfx1.org">direction.fondamental@sfx1.org</a></p></div>{form_html("contact")}</div>') + \
         section("Plan d’accès", f'<div class="section-header"><div><h2>Venir au Collège.</h2><p class="lead">À proximité du centre-ville et de la gare de Verviers.</p></div>{btn("Itinéraire sur Google Maps", "https://www.google.com/maps/search/?api=1&query=Rue+de+Rome+18+4800+Verviers", "outline", True)}</div><div class="map-stage">{pic("cour-automne", "", sizes="100vw")}<div class="map-cta"><h3 style="color:#fff;margin:0">Afficher la carte interactive</h3><p>La carte OpenStreetMap n’est chargée qu’après votre clic. Une connexion Internet est nécessaire.</p><button type="button" class="btn light" data-map="{osm}">Afficher la carte <span aria-hidden="true">↗</span></button></div></div><p class="media-note">{tbv()} La carte montre le centre de Verviers ; un repère précis sur l’entrée du Collège sera ajouté après vérification des coordonnées. L’itinéraire Google Maps utilise l’adresse exacte.</p>', "soft")
 
-@page("espace.html", "Espace numérique · SFXun Verviers", "Portail des enseignants et outils numériques du Collège SFX1.")
+@page("espace.html", "Espace numérique · Collège SFX1 Verviers", "Portail des enseignants et outils numériques du Collège SFX1.")
 def p_espace():
     tools = "".join(f'<a class="link-card" href="{u}" target="_blank" rel="noopener noreferrer">{t} <span aria-hidden="true">↗</span></a>' for t, u in [("Google Classroom", "https://classroom.google.com"), ("Gmail", "https://mail.google.com"), ("Google Drive", "https://drive.google.com")])
     return page_hero("Espace numérique", "Les outils du Collège.", "Le portail des enseignants et les services numériques, accessibles avec un compte @sfx1.org.", [("Espace numérique", None)]) + \
         section("Portail des enseignants", f'<div class="portal-card"><span class="portal-ico" aria-hidden="true">🔐</span><div><h2>Portail des enseignants</h2><p class="lead">Ressources, documents internes et communications de l’établissement. L’accès est réservé aux enseignants : la connexion se fait automatiquement avec le compte Google @sfx1.org.</p></div><a class="btn" href="{PORTAIL}" target="_blank" rel="noopener noreferrer">Ouvrir le portail <span aria-hidden="true">↗</span></a></div>') + \
         section("Élèves et enseignants", f'<div class="split"><div><h2>Les services Google du Collège.</h2><p class="lead">Classroom, messagerie et Drive, avec le compte @sfx1.org remis par l’école.</p></div><div class="stack">{tools}</div></div>', "soft")
 
-@page("mentions-legales.html", "Mentions légales · SFXun Verviers", "Mentions légales du site du Collège Saint-François-Xavier I.")
+@page("mentions-legales.html", "Mentions légales · Collège SFX1 Verviers", "Mentions légales du site du Collège Saint-François-Xavier I.")
 def p_ml():
     return page_hero("Informations légales", "Mentions légales.", "Informations relatives à l’éditeur et à l’hébergement du site.", [("Mentions légales", None)]) + \
         section("Éditeur", f'''<div class="prose">
@@ -710,7 +717,7 @@ def p_ml():
 <h2>Propriété intellectuelle</h2><p>Le logo, les textes et les photographies sont la propriété du Collège ou utilisés avec autorisation. Toute reproduction nécessite un accord préalable.</p>
 <h2>Droit à l’image</h2><p>Les photographies d’élèves ne sont publiées qu’avec les autorisations requises. Pour toute demande de retrait : info@sfx1.org.</p></div>''')
 
-@page("confidentialite.html", "Confidentialité · SFXun Verviers", "Politique de confidentialité et de protection des données du site du Collège SFX1.")
+@page("confidentialite.html", "Confidentialité · Collège SFX1 Verviers", "Politique de confidentialité et de protection des données du site du Collège SFX1.")
 def p_conf():
     return page_hero("Protection des données", "Confidentialité.", "Comment ce site traite les données personnelles, conformément au RGPD.", [("Confidentialité", None)]) + \
         section("Vos données", f'''<div class="prose"><p>Responsable du traitement : Centre Scolaire Saint-François-Xavier ASBL, rue de Rome 18, 4800 Verviers — info@sfx1.org. {ext("Déclaration de confidentialité intégrale (PDF)", "https://drive.google.com/file/d/1jw-B91oml6LNjYW9U3DVEg97c--e7hAO/view?usp=sharing")}</p>
@@ -719,11 +726,11 @@ def p_conf():
 <h2>Formulaire de contact</h2><p>Les informations saisies (nom, adresse email, sujet, message) servent uniquement à répondre à votre demande. Elles sont transmises par email au secrétariat du Collège (info@sfx1.org) et ne sont ni revendues ni utilisées à d’autres fins. Base légale : votre consentement. Le formulaire est traité par notre hébergeur, Netlify ; les messages sont conservés le temps nécessaire au traitement de votre demande.</p>
 <h2>Vos droits</h2><p>Vous pouvez demander l’accès, la rectification ou l’effacement de vos données en écrivant à info@sfx1.org. Vous pouvez aussi introduire une plainte auprès de l’Autorité de protection des données (Belgique).</p></div>''')
 
-@page("merci.html", "Message envoyé · SFXun Verviers", "Votre message a bien été envoyé au Collège Saint-François-Xavier I.")
+@page("merci.html", "Message envoyé · Collège SFX1 Verviers", "Votre message a bien été envoyé au Collège Saint-François-Xavier I.")
 def p_merci():
     return f'<section class="section not-found"><div class="wrap"><h1 style="font-size:64px">Merci !</h1><h2>Votre message est bien parti.</h2><p class="lead" style="margin:0 auto 20px">Nous vous répondrons dans les meilleurs délais à l’adresse indiquée.</p><div class="buttons" style="justify-content:center">{btn("Retour à l’accueil", "index.html")}{btn("Portes ouvertes", "portes-ouvertes.html", "outline")}</div></div></section>'
 
-@page("404.html", "Page introuvable · SFXun Verviers", "Cette page n’existe pas ou a été déplacée.")
+@page("404.html", "Page introuvable · Collège SFX1 Verviers", "Cette page n’existe pas ou a été déplacée.")
 def p_404():
     return f'<section class="section not-found"><div class="wrap"><h1>404</h1><h2>Cette page s’est égarée.</h2><p class="lead" style="margin:0 auto 20px">Elle n’existe pas ou a été déplacée.</p><div class="buttons" style="justify-content:center">{btn("Retour à l’accueil", "index.html")}{btn("Plan des documents", "documents.html", "outline")}</div></div></section>'
 
