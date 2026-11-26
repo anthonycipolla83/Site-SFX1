@@ -159,7 +159,7 @@ def pedagogie_html():
 
 def salle_band():
     S = C.get("salle", {})
-    if not S.get("url"): return ""
+    if not S.get("nom"): return ""
     if S.get("logo", "").lower().endswith(".svg"):
         logo = f'<img src="{esc(S["logo"].lstrip("/"))}" alt="{esc(S["nom"])}" width="276" height="80">'
     elif S.get("logo"):
@@ -168,8 +168,8 @@ def salle_band():
     else:
         logo = '<span class="sl-mono">' + "".join(w[0] for w in S["nom"].split() if w[0].isupper())[:3] + '</span>'
     return (f'<section class="section sl-section" data-edit="salle"><div class="wrap"><div class="sl-band scroll-reveal"><div class="sl-logo{" sl-logo-svg" if S.get("logo", "").lower().endswith(".svg") else ""}">{logo}</div>'
-            f'<div class="sl-txt"><p class="sl-kick">Notre salle de spectacle</p><h2>{esc(S["accroche"])}</h2><p>{esc(S["texte"])}</p></div>'
-            f'<a class="btn sl-btn" href="{esc(S["url"])}" target="_blank" rel="noopener noreferrer">{esc(S["bouton"])} <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet)</span></a><span class="sl-spot" aria-hidden="true"></span></div></div></section>')
+            f'<div class="sl-txt"><p class="sl-kick">Notre salle de spectacle</p><h2>{esc(S["accroche"])}</h2><p>{esc(S["texte"])}</p></div>' +
+            (f'<a class="btn sl-btn" href="{esc(S["url"])}" target="_blank" rel="noopener noreferrer">{esc(S["bouton"])} <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet)</span></a>' if S.get("url") else '<span class="btn sl-btn sl-soon" aria-disabled="true">Programmation bientôt en ligne</span>') + '<span class="sl-spot" aria-hidden="true"></span></div></div></section>')
 
 def partners_html(style="A"):
     P = C.get("partenaires", [])

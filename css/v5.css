@@ -652,3 +652,4 @@ tr.is-nl>:first-child:after{content:none}
 .sl-logo-svg{width:auto;height:auto;background:none;padding:0;border-radius:0}
 .sl-logo-svg img{width:240px;max-width:60vw;height:auto;display:block}
 @media(max-width:600px){.sl-logo-svg img{width:200px}}
+.sl-soon{opacity:.85;cursor:default}
