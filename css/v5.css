@@ -653,3 +653,12 @@ tr.is-nl>:first-child:after{content:none}
 .sl-logo-svg img{width:240px;max-width:60vw;height:auto;display:block}
 @media(max-width:600px){.sl-logo-svg img{width:200px}}
 .sl-soon{opacity:.85;cursor:default}
+/* Bouton Salle du Centre dans l'en-tête */
+.salle-head{display:inline-flex;align-items:center;height:44px;padding:0 14px;border:1px solid var(--line);border-radius:40px;background:#fff;margin-right:8px;transition:transform .3s var(--spring),box-shadow .3s}
+.salle-head:hover,.salle-head:focus-visible{transform:translateY(-2px);box-shadow:0 8px 18px #0001}
+.salle-head img{height:30px;width:auto;display:block}
+@media(max-width:1100px){.salle-head{display:none}}
+@media(max-width:1440px){.salle-head{padding:0 10px;margin-right:6px}.salle-head img{height:24px}.topbar .nav{gap:0}}
+.topbar .salle-head img{width:104px!important;height:auto!important;max-width:none!important}
+@media(max-width:1440px){.topbar .salle-head img{width:92px!important}}
+@media(max-width:1300px){.topbar .salle-head img{width:76px!important}.topbar .salle-head{padding:0 8px;margin-right:4px}}

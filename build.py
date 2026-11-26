@@ -157,6 +157,14 @@ def pedagogie_html():
             f'{btn("Nos dispositifs d’accompagnement", "secondaire.html", "outline")}</div></div>'
             f'<p class="media-note">{esc(P["source"])}</p>')
 
+def salle_head():
+    S = C.get("salle", {})
+    if not S.get("nom"): return ""
+    href = S.get("url") or "index.html#salle-du-centre"
+    ext_attr = ' target="_blank" rel="noopener noreferrer"' if S.get("url") else ""
+    return (f'<a class="salle-head" href="{esc(href)}"{ext_attr} title="{esc(S["nom"])} : notre salle de spectacle">'
+            f'<img src="img/salle/sdc-logo.svg" alt="{esc(S["nom"])}" width="110" height="32"></a>')
+
 def salle_band():
     S = C.get("salle", {})
     if not S.get("nom"): return ""
@@ -167,7 +175,7 @@ def salle_band():
         logo = f'<img src="img/{k}-{sorted(IMG[k]["sizes"])[0]}.jpg" alt="Logo {esc(S["nom"])}" loading="lazy">'
     else:
         logo = '<span class="sl-mono">' + "".join(w[0] for w in S["nom"].split() if w[0].isupper())[:3] + '</span>'
-    return (f'<section class="section sl-section" data-edit="salle"><div class="wrap"><div class="sl-band scroll-reveal"><div class="sl-logo{" sl-logo-svg" if S.get("logo", "").lower().endswith(".svg") else ""}">{logo}</div>'
+    return (f'<section class="section sl-section" id="salle-du-centre" data-edit="salle"><div class="wrap"><div class="sl-band scroll-reveal"><div class="sl-logo{" sl-logo-svg" if S.get("logo", "").lower().endswith(".svg") else ""}">{logo}</div>'
             f'<div class="sl-txt"><p class="sl-kick">Notre salle de spectacle</p><h2>{esc(S["accroche"])}</h2><p>{esc(S["texte"])}</p></div>' +
             (f'<a class="btn sl-btn" href="{esc(S["url"])}" target="_blank" rel="noopener noreferrer">{esc(S["bouton"])} <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet)</span></a>' if S.get("url") else '<span class="btn sl-btn sl-soon" aria-disabled="true">Programmation bientôt en ligne</span>') + '<span class="sl-spot" aria-hidden="true"></span></div></div></section>')
 
@@ -341,7 +349,7 @@ def layout(fname, title, desc, body, current=None):
 <header class="topbar">
 <a href="index.html" class="brand" aria-label="SFXun — retour à l’accueil"><img src="img/logo-sfxun.jpg" alt="Logo SFXun – Centre Scolaire Saint-François-Xavier" width="729" height="374"></a>
 <nav class="nav" id="mainnav" aria-label="Navigation principale">{nav_html(current)}</nav>
-<a class="portal" href="{PORTAIL}" target="_blank" rel="noopener noreferrer" title="Portail réservé aux enseignants (compte @sfx1.org)">Mon espace <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet, accès réservé aux enseignants)</span></a>
+{salle_head()}<a class="portal" href="{PORTAIL}" target="_blank" rel="noopener noreferrer" title="Portail réservé aux enseignants (compte @sfx1.org)">Mon espace <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet, accès réservé aux enseignants)</span></a>
 <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainnav" aria-label="Ouvrir le menu">☰</button>
 </header>
 <main id="main" tabindex="-1">
@@ -445,13 +453,13 @@ def p_index():
 <div class="hero-slide-tools" role="group" aria-label="Diaporama de photographies"><button type="button" class="slider-arrow" data-slide-prev aria-label="Photo précédente">←</button><div class="slide-dots">{dots}</div><button type="button" class="slider-arrow" data-slide-next aria-label="Photo suivante">→</button><button type="button" class="slider-pause" data-slide-pause aria-label="Mettre le diaporama en pause">Ⅱ</button></div></div>
 </div><div class="hero-progress" aria-hidden="true"></div></section>
 <div class="wrap" id="decouvrir"><div class="quick-nav">{quick}</div></div>
+{salle_band()}
 {po_banner()}
 {section("Pourquoi choisir SFX1 ?", f'<div class="section-header"><div><h2>Bien plus qu’une école.<br><span class="gradient-text">Six bonnes raisons de nous rejoindre.</span></h2></div>{btn("Notre Collège", "college.html", "outline")}</div><div class="why">{"".join(f'<div class="why-card scroll-reveal"><span class="why-ico" aria-hidden="true">{i}</span><h3>{esc(t)}</h3><p>{esc(x)}</p></div>' for i, t, x in C["pourquoi"])}</div><div class="keyfigs"><div class="keyfig scroll-reveal"><b data-count="170">170</b><span>ans d’histoire au cœur de Verviers</span></div><div class="keyfig scroll-reveal"><b data-count="8">8</b><span>dispositifs d’accompagnement</span></div><div class="keyfig scroll-reveal"><b data-count="11" data-suffix="h">11h</b><span>jusqu’à 11 h de cours en immersion par semaine</span></div><div class="keyfig scroll-reveal"><b>B2</b><span>certificat KU Leuven en immersion</span></div></div>')}
 {section("Idées reçues", myths(), "soft")}
 {section("Choisir son parcours", f'<div class="journey-head"><h2>De la S1 à la rhéto,<br><span class="gradient-text">chaque étape ouvre des perspectives.</span></h2></div>' + journey())}
 {section("En vidéo", f'<div class="section-header"><div><h2>SFX1 en images.</h2></div>{btn("Toutes les vidéos", "videos.html", "outline")}</div><div class="video-grid">{video_tile(C["videos"][0])}</div>', "soft") if SHOW_VID else ""}
 {section("Actualités", f'<div class="section-header"><div><h2>Une école qui bouge.</h2><p class="lead">Les derniers moments forts, publiés sur notre page Facebook.</p></div>{btn("Toutes les actualités", "actualites.html", "outline")}</div><div class="cards">{news}</div>')}
-{salle_band()}
 {fond_banner()}
 {section("Nous rencontrer", f'<div class="banner"><div><h2>Et si la prochaine étape<br>commençait ici ?</h2><p>Visitez le Collège, rencontrez nos équipes, posez vos questions.</p></div><div class="buttons" style="margin:0"><a class="btn light" href="portes-ouvertes.html" {TIMED}>Portes ouvertes · 30 janvier <span aria-hidden="true">↗</span></a>{btn("Nous contacter", "contact.html", "ghost")}</div></div>')}'''
 
