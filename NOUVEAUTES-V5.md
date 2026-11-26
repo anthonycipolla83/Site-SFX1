@@ -155,3 +155,4 @@ Toutes les rubriques et tous les contenus de la V4 sont conservés. Rien n'a ét
 - Barre d’accès rapides mobile : absente de la page Contact, se retire en descendant et en bas de page, revient en remontant, disparaît pendant la saisie d’un formulaire.
 - Adresse officielle du site : https://sfx1.org (www.sfx1.org redirige). Balises canoniques, sitemap et robots.txt mis à jour.
 - Référencement : titres « Collège SFX1 Verviers », données structurées « School » (nom, adresse, téléphone, Facebook, Instagram) pour Google.
+- Salle du Centre : bandeau « scène » sur l’accueil (logo, accroche, bouton « Explorer la salle ») + lien dans le menu Vie à SFX1. S’affiche dès que l’adresse de la page est saisie (administration → Salle du Centre).

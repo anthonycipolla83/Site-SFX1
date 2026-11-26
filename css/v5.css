@@ -637,3 +637,18 @@ tr.is-nl>:first-child:after{content:none}
   body:has(.mbar[hidden]){padding-bottom:0}
   body.mbar-off .back-top{bottom:20px}
 }
+/* Salle du Centre */
+.sl-section{padding-top:30px;padding-bottom:30px}
+.sl-band{position:relative;overflow:hidden;display:flex;align-items:center;gap:28px;flex-wrap:wrap;background:radial-gradient(circle at 85% 20%,#4a1f2e,#120a0e 60%);color:#fff;border-radius:30px;padding:34px 38px}
+.sl-spot{position:absolute;right:-80px;top:-120px;width:340px;height:340px;background:radial-gradient(circle,#ffd27a55,transparent 65%);pointer-events:none;animation:slSpot 6s ease-in-out infinite alternate}
+@keyframes slSpot{to{transform:translate(-60px,40px)}}
+.sl-logo{width:110px;height:110px;border-radius:24px;background:#fff;display:grid;place-items:center;flex:none;overflow:hidden;padding:10px}
+.sl-logo img{max-width:100%;max-height:100%;object-fit:contain}
+.sl-mono{font-family:"Inter Display",sans-serif;font-weight:800;font-size:30px;color:#2a1a21}
+.sl-txt{flex:1;min-width:240px}.sl-txt h2{color:#fff;font-size:clamp(22px,2.4vw,32px);margin:4px 0 8px}.sl-txt p{margin:0;color:#e9d6dc}
+.sl-kick{color:#ffcf7a!important;text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800}
+.sl-btn{background:#ffcf7a!important;color:#2a1a21!important;position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){.sl-spot{animation:none}}
+.sl-logo-svg{width:auto;height:auto;background:none;padding:0;border-radius:0}
+.sl-logo-svg img{width:240px;max-width:60vw;height:auto;display:block}
+@media(max-width:600px){.sl-logo-svg img{width:200px}}

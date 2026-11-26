@@ -372,6 +372,21 @@ collections:
               - {name: theme_annee, label: "Thème de l’année (mot clé mis en avant)", widget: string, required: false, hint: "Recopier exactement un des six thèmes, ex. Discernement"}
               - {name: source, label: Source, widget: string}
 
+      - name: salle
+        label: "Salle du Centre (bandeau d’accueil)"
+        file: data/contenus/salle.json
+        fields:
+          - name: salle
+            label: "Salle de spectacle"
+            widget: object
+            fields:
+              - {name: nom, label: Nom, widget: string}
+              - {name: url, label: "Adresse de la page de la salle", widget: string, required: false, hint: "Laisser vide pour masquer le bandeau."}
+              - {name: logo, label: Logo, widget: image, required: false}
+              - {name: accroche, label: Titre, widget: string}
+              - {name: texte, label: Texte, widget: string}
+              - {name: bouton, label: "Texte du bouton", widget: string}
+
       - name: partenaires
         label: "Partenaires (bas de page)"
         file: data/contenus/partenaires.json

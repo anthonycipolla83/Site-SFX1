@@ -157,6 +157,20 @@ def pedagogie_html():
             f'{btn("Nos dispositifs d’accompagnement", "secondaire.html", "outline")}</div></div>'
             f'<p class="media-note">{esc(P["source"])}</p>')
 
+def salle_band():
+    S = C.get("salle", {})
+    if not S.get("url"): return ""
+    if S.get("logo", "").lower().endswith(".svg"):
+        logo = f'<img src="{esc(S["logo"].lstrip("/"))}" alt="{esc(S["nom"])}" width="276" height="80">'
+    elif S.get("logo"):
+        k = S["logo"]; k = upload_variants(k) if k not in IMG else k
+        logo = f'<img src="img/{k}-{sorted(IMG[k]["sizes"])[0]}.jpg" alt="Logo {esc(S["nom"])}" loading="lazy">'
+    else:
+        logo = '<span class="sl-mono">' + "".join(w[0] for w in S["nom"].split() if w[0].isupper())[:3] + '</span>'
+    return (f'<section class="section sl-section" data-edit="salle"><div class="wrap"><div class="sl-band scroll-reveal"><div class="sl-logo{" sl-logo-svg" if S.get("logo", "").lower().endswith(".svg") else ""}">{logo}</div>'
+            f'<div class="sl-txt"><p class="sl-kick">Notre salle de spectacle</p><h2>{esc(S["accroche"])}</h2><p>{esc(S["texte"])}</p></div>'
+            f'<a class="btn sl-btn" href="{esc(S["url"])}" target="_blank" rel="noopener noreferrer">{esc(S["bouton"])} <span aria-hidden="true">↗</span><span class="sr-only"> (nouvel onglet)</span></a><span class="sl-spot" aria-hidden="true"></span></div></div></section>')
+
 def partners_html(style="A"):
     P = C.get("partenaires", [])
     def mark(p):
@@ -257,7 +271,7 @@ NAV = [
     ("Fondamental", "fondamental.html", [("Présentation", "fondamental.html", "L’école fondamentale"), ("Maternelle", "maternelle.html", "Les premières découvertes"), ("Primaire", "primaire.html", "Apprendre et vivre ensemble")]),
     ("Immersion NL", "immersion.html", None),
     ("Portes ouvertes", "portes-ouvertes.html", "TIMED"),
-    ("Vie à SFX1", "actualites.html", [("Actualités", "actualites.html", "Projets et activités"), ("Agenda", "agenda.html", "Les prochains rendez-vous")] + ([("Vidéos", "videos.html", "Nos vidéos")] if SHOW_VID else [])),
+    ("Vie à SFX1", "actualites.html", [("Actualités", "actualites.html", "Projets et activités"), ("Agenda", "agenda.html", "Les prochains rendez-vous")] + ([("Vidéos", "videos.html", "Nos vidéos")] if SHOW_VID else []) + ([(C["salle"]["nom"] + " ↗", C["salle"]["url"], "Notre salle de spectacle")] if C.get("salle", {}).get("url") else [])),
     ("Documents", "documents.html", None),
     ("Contact", "contact.html", None),
 ]
@@ -437,6 +451,7 @@ def p_index():
 {section("Choisir son parcours", f'<div class="journey-head"><h2>De la S1 à la rhéto,<br><span class="gradient-text">chaque étape ouvre des perspectives.</span></h2></div>' + journey())}
 {section("En vidéo", f'<div class="section-header"><div><h2>SFX1 en images.</h2></div>{btn("Toutes les vidéos", "videos.html", "outline")}</div><div class="video-grid">{video_tile(C["videos"][0])}</div>', "soft") if SHOW_VID else ""}
 {section("Actualités", f'<div class="section-header"><div><h2>Une école qui bouge.</h2><p class="lead">Les derniers moments forts, publiés sur notre page Facebook.</p></div>{btn("Toutes les actualités", "actualites.html", "outline")}</div><div class="cards">{news}</div>')}
+{salle_band()}
 {fond_banner()}
 {section("Nous rencontrer", f'<div class="banner"><div><h2>Et si la prochaine étape<br>commençait ici ?</h2><p>Visitez le Collège, rencontrez nos équipes, posez vos questions.</p></div><div class="buttons" style="margin:0"><a class="btn light" href="portes-ouvertes.html" {TIMED}>Portes ouvertes · 30 janvier <span aria-hidden="true">↗</span></a>{btn("Nous contacter", "contact.html", "ghost")}</div></div>')}'''
 
