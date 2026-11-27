@@ -34,12 +34,12 @@
   "h_mat": [
    {
     "icone": "🌅",
-    "heure": "8h15",
-    "texte": "Début de l’accueil"
+    "heure": "7h30",
+    "texte": "Ouverture de la garderie (gratuite)"
    },
    {
     "icone": "🎒",
-    "heure": "8h45",
+    "heure": "8h15",
     "texte": "On commence la journée"
    },
    {
@@ -60,7 +60,7 @@
    {
     "icone": "🎨",
     "heure": "13h00",
-    "texte": "Reprise"
+    "texte": "Reprise des activités ou sieste"
    },
    {
     "icone": "🔔",
@@ -71,12 +71,22 @@
     "icone": "👋",
     "heure": "14h50",
     "texte": "Départ des enfants"
+   },
+   {
+    "icone": "🏠",
+    "heure": "15h30",
+    "texte": "Fin de la garderie"
    }
   ],
   "h_prim": [
    {
+    "icone": "🌅",
+    "heure": "7h30",
+    "texte": "Ouverture de la garderie (gratuite)"
+   },
+   {
     "icone": "🎒",
-    "heure": "8h15",
+    "heure": "8h30",
     "texte": "Début des cours"
    },
    {
@@ -92,7 +102,7 @@
    {
     "icone": "📚",
     "heure": "13h00",
-    "texte": "Reprise"
+    "texte": "Reprise des cours"
    },
    {
     "icone": "🔔",
@@ -103,23 +113,18 @@
     "icone": "👋",
     "heure": "14h50",
     "texte": "Départ des élèves"
+   },
+   {
+    "icone": "🏠",
+    "heure": "15h30",
+    "texte": "Fin de la garderie"
    }
   ],
   "projets": [
    {
     "icone": "🐘",
-    "titre": "L’éléphant des lois",
-    "texte": "Depuis 2017, un petit éléphant symbolise les lois de l’école : chacune de ses pattes représente un fondement du règlement. Les élèves participent et découvrent les valeurs démocratiques."
-   },
-   {
-    "icone": "🤝",
-    "titre": "Le conseil de citoyenneté",
-    "texte": "Il veille au respect des lois, organise l’accueil des nouveaux élèves et encourage les actions citoyennes. Des adultes de l’école y participent régulièrement."
-   },
-   {
-    "icone": "🐄",
-    "titre": "Classes à la ferme et classes vertes",
-    "texte": "Selon l’âge, sorties nature, classes à la ferme, classes vertes… pour apprendre aussi dehors !"
+    "titre": "Les lois d’Elmer",
+    "texte": "Depuis 2017, Elmer, un petit éléphant, symbolise les lois de l’école : chacune de ses pattes représente un fondement du règlement. Les élèves participent et découvrent les valeurs démocratiques."
    },
    {
     "icone": "🎭",
@@ -130,11 +135,6 @@
     "icone": "🎄",
     "titre": "Le spectacle de Noël",
     "texte": "Une année sur deux, tous les élèves montent sur scène pour un grand spectacle de Noël."
-   },
-   {
-    "icone": "🌍",
-    "titre": "À la rencontre des cultures",
-    "texte": "Une fois par an, des activités multiculturelles pour découvrir d’autres façons de vivre."
    }
   ]
  }
